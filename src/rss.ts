@@ -1,4 +1,5 @@
 import { XMLParser } from "fast-xml-parser";
+import { daysSinceUtc } from "./streak.js";
 import type { Incident } from "./types.js";
 
 export const STATUS_RSS_URL = "https://status.claude.com/history.rss";
@@ -47,6 +48,12 @@ export function parseIncidents(xml: string): Incident[] {
 
   incidents.sort((a, b) => b.pubDate.getTime() - a.pubDate.getTime());
   return incidents;
+}
+
+export function selectConcurrent(incidents: Incident[]): Incident[] {
+  const latest = incidents[0];
+  if (!latest) return [];
+  return incidents.filter((i) => daysSinceUtc(i.pubDate, latest.pubDate) === 0);
 }
 
 function textOf(value: unknown): string | null {

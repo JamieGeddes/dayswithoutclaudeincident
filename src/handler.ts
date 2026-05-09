@@ -1,5 +1,5 @@
 import type { ScheduledHandler } from "aws-lambda";
-import { fetchIncidents, STATUS_RSS_URL } from "./rss.js";
+import { fetchIncidents, selectConcurrent, STATUS_RSS_URL } from "./rss.js";
 import { renderHtml } from "./render.js";
 import { loadState, putHtml, saveState } from "./state.js";
 import { updateState } from "./streak.js";
@@ -11,20 +11,27 @@ export const handler: ScheduledHandler = async () => {
   const rssUrl = process.env.RSS_URL ?? STATUS_RSS_URL;
 
   const incidents = await fetchIncidents(rssUrl);
-  const latest = incidents[0];
-  if (!latest) {
+  const concurrent = selectConcurrent(incidents);
+  if (concurrent.length === 0) {
     console.warn("RSS feed returned no incidents; skipping site update.");
     return;
   }
 
   const prev = await loadState(bucket, stateKey);
   const now = new Date();
-  const { daysSince, longestStreakDays, newState } = updateState(prev, latest, now);
-  const html = renderHtml({ daysSince, longestStreakDays, lastIncident: latest, generatedAt: now });
+  const { daysSince, longestStreakDays, newState } = updateState(prev, concurrent, now);
+  const html = renderHtml({ daysSince, longestStreakDays, latestIncidents: concurrent, generatedAt: now });
 
   await Promise.all([saveState(bucket, stateKey, newState), putHtml(bucket, indexKey, html)]);
 
-  console.log(JSON.stringify({ daysSince, longestStreakDays, lastIncidentPubDate: latest.pubDate.toISOString() }));
+  console.log(
+    JSON.stringify({
+      daysSince,
+      longestStreakDays,
+      concurrentCount: concurrent.length,
+      latestIncidentPubDate: concurrent[0]!.pubDate.toISOString(),
+    }),
+  );
 };
 
 function requireEnv(name: string): string {

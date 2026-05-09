@@ -1,5 +1,5 @@
 import { GetObjectCommand, NoSuchKey, PutObjectCommand, S3Client } from "@aws-sdk/client-s3";
-import type { State } from "./types.js";
+import type { State, StoredIncident } from "./types.js";
 
 const s3 = new S3Client({});
 
@@ -8,7 +8,7 @@ export async function loadState(bucket: string, key: string): Promise<State | nu
     const res = await s3.send(new GetObjectCommand({ Bucket: bucket, Key: key }));
     const body = await res.Body?.transformToString();
     if (!body) return null;
-    return JSON.parse(body) as State;
+    return migrate(JSON.parse(body));
   } catch (err) {
     if (err instanceof NoSuchKey) return null;
     if (isNotFoundError(err)) return null;
@@ -36,6 +36,37 @@ export async function putHtml(bucket: string, key: string, html: string): Promis
       ContentType: "text/html; charset=utf-8",
       CacheControl: "public, max-age=300",
     }),
+  );
+}
+
+export function migrate(raw: unknown): State | null {
+  if (!isRecord(raw)) return null;
+  const longestStreakDays = typeof raw.longestStreakDays === "number" ? raw.longestStreakDays : 0;
+  const lastUpdatedAt = typeof raw.lastUpdatedAt === "string" ? raw.lastUpdatedAt : new Date(0).toISOString();
+
+  if (Array.isArray(raw.latestIncidents)) {
+    const latestIncidents = raw.latestIncidents.filter(isStoredIncident);
+    if (latestIncidents.length === 0) return null;
+    return { latestIncidents, longestStreakDays, lastUpdatedAt };
+  }
+
+  if (isStoredIncident(raw.lastIncident)) {
+    return { latestIncidents: [raw.lastIncident], longestStreakDays, lastUpdatedAt };
+  }
+
+  return null;
+}
+
+function isRecord(v: unknown): v is Record<string, unknown> {
+  return typeof v === "object" && v !== null && !Array.isArray(v);
+}
+
+function isStoredIncident(v: unknown): v is StoredIncident {
+  return (
+    isRecord(v) &&
+    typeof v.pubDate === "string" &&
+    typeof v.title === "string" &&
+    typeof v.link === "string"
   );
 }
 

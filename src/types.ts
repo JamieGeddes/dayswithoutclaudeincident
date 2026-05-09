@@ -4,12 +4,14 @@ export interface Incident {
   pubDate: Date;
 }
 
+export interface StoredIncident {
+  pubDate: string;
+  title: string;
+  link: string;
+}
+
 export interface State {
-  lastIncident: {
-    pubDate: string;
-    title: string;
-    link: string;
-  };
+  latestIncidents: StoredIncident[];
   longestStreakDays: number;
   lastUpdatedAt: string;
 }

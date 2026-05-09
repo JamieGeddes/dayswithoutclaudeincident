@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
-import { parseIncidents } from "../src/rss.js";
+import { parseIncidents, selectConcurrent } from "../src/rss.js";
+import type { Incident } from "../src/types.js";
 
 const FIXTURE = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0">
@@ -57,5 +58,51 @@ describe("parseIncidents", () => {
       <item><title>bad</title><link>https://y</link></item>
     </channel></rss>`;
     expect(parseIncidents(broken)).toHaveLength(1);
+  });
+});
+
+const inc = (iso: string, suffix: string): Incident => ({
+  title: `Incident ${suffix}`,
+  link: `https://status.claude.com/incidents/${suffix}`,
+  pubDate: new Date(iso),
+});
+
+describe("selectConcurrent", () => {
+  it("returns [] for an empty list", () => {
+    expect(selectConcurrent([])).toEqual([]);
+  });
+
+  it("returns all incidents that share the most-recent UTC date", () => {
+    const incidents = [
+      inc("2026-05-08T18:00:00Z", "a"),
+      inc("2026-05-08T12:00:00Z", "b"),
+      inc("2026-05-08T03:30:00Z", "c"),
+      inc("2026-05-04T14:00:00Z", "older"),
+    ];
+    const result = selectConcurrent(incidents);
+    expect(result.map((i) => i.link)).toEqual([
+      "https://status.claude.com/incidents/a",
+      "https://status.claude.com/incidents/b",
+      "https://status.claude.com/incidents/c",
+    ]);
+  });
+
+  it("returns just the latest when no others share its UTC date", () => {
+    const incidents = [
+      inc("2026-05-08T01:00:00Z", "latest"),
+      inc("2026-05-07T23:00:00Z", "yesterday"),
+    ];
+    expect(selectConcurrent(incidents)).toHaveLength(1);
+    expect(selectConcurrent(incidents)[0]!.link).toBe("https://status.claude.com/incidents/latest");
+  });
+
+  it("respects the UTC midnight boundary", () => {
+    const incidents = [
+      inc("2026-05-08T00:01:00Z", "after-midnight"),
+      inc("2026-05-07T23:59:00Z", "before-midnight"),
+    ];
+    const result = selectConcurrent(incidents);
+    expect(result).toHaveLength(1);
+    expect(result[0]!.link).toBe("https://status.claude.com/incidents/after-midnight");
   });
 });

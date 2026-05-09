@@ -1,4 +1,4 @@
-import type { Incident, State } from "./types.js";
+import type { Incident, State, StoredIncident } from "./types.js";
 
 const MS_PER_DAY = 86_400_000;
 
@@ -14,14 +14,17 @@ export interface UpdateResult {
   newState: State;
 }
 
-export function updateState(prev: State | null, latest: Incident, now: Date): UpdateResult {
+export function updateState(prev: State | null, concurrent: Incident[], now: Date): UpdateResult {
+  const latest = concurrent[0];
+  if (!latest) throw new Error("updateState requires at least one incident");
+
   const daysSince = daysSinceUtc(latest.pubDate, now);
 
   let longestStreakDays: number;
   if (prev === null) {
     longestStreakDays = daysSince;
   } else {
-    const prevPubDate = new Date(prev.lastIncident.pubDate);
+    const prevPubDate = new Date(prev.latestIncidents[0]?.pubDate ?? 0);
     const isNewIncident = latest.pubDate.getTime() > prevPubDate.getTime();
     if (isNewIncident) {
       const endedStreak = daysSinceUtc(prevPubDate, latest.pubDate);
@@ -32,14 +35,18 @@ export function updateState(prev: State | null, latest: Incident, now: Date): Up
   }
 
   const newState: State = {
-    lastIncident: {
-      pubDate: latest.pubDate.toISOString(),
-      title: latest.title,
-      link: latest.link,
-    },
+    latestIncidents: concurrent.map(toStored),
     longestStreakDays,
     lastUpdatedAt: now.toISOString(),
   };
 
   return { daysSince, longestStreakDays, newState };
+}
+
+function toStored(incident: Incident): StoredIncident {
+  return {
+    pubDate: incident.pubDate.toISOString(),
+    title: incident.title,
+    link: incident.link,
+  };
 }

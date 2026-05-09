@@ -13,7 +13,7 @@ describe("renderHtml", () => {
     const html = renderHtml({
       daysSince: 3,
       longestStreakDays: 14,
-      lastIncident,
+      latestIncidents: [lastIncident],
       generatedAt: new Date("2026-05-06T20:07:00Z"),
     });
     expect(html).toContain('class="card">3</div>');
@@ -25,19 +25,19 @@ describe("renderHtml", () => {
     const html = renderHtml({
       daysSince: 1,
       longestStreakDays: 1,
-      lastIncident,
+      latestIncidents: [lastIncident],
       generatedAt: new Date("2026-05-06T20:07:00Z"),
     });
     expect(html).toContain('class="card">1</div>');
     expect(html).toContain("Day without a Claude incident");
-    expect(html).toContain("1 day"); // singular for longest streak too
+    expect(html).toContain("1 day");
   });
 
   it("renders one flip-card per digit for multi-digit counts", () => {
     const html = renderHtml({
       daysSince: 421,
       longestStreakDays: 14,
-      lastIncident,
+      latestIncidents: [lastIncident],
       generatedAt: new Date("2026-05-08T12:00:00Z"),
     });
     const cards = html.match(/<div class="card">/g) ?? [];
@@ -49,11 +49,13 @@ describe("renderHtml", () => {
     const html = renderHtml({
       daysSince: 0,
       longestStreakDays: 0,
-      lastIncident: {
-        title: "<script>alert(1)</script>",
-        link: "https://x?a=1&b=2",
-        pubDate: new Date("2026-05-06T00:00:00Z"),
-      },
+      latestIncidents: [
+        {
+          title: "<script>alert(1)</script>",
+          link: "https://x?a=1&b=2",
+          pubDate: new Date("2026-05-06T00:00:00Z"),
+        },
+      ],
       generatedAt: new Date("2026-05-06T00:00:00Z"),
     });
     expect(html).not.toContain("<script>alert(1)</script>");
@@ -65,18 +67,62 @@ describe("renderHtml", () => {
     const html = renderHtml({
       daysSince: 7,
       longestStreakDays: 7,
-      lastIncident,
+      latestIncidents: [lastIncident],
       generatedAt: new Date("2026-05-11T12:00:00Z"),
     });
     expect(html.toLowerCase()).toContain("not affiliated with anthropic");
     expect(html).toContain(`href="${lastIncident.link}"`);
   });
 
+  it("uses singular label and a one-item list for a single incident", () => {
+    const html = renderHtml({
+      daysSince: 0,
+      longestStreakDays: 9,
+      latestIncidents: [lastIncident],
+      generatedAt: new Date("2026-05-04T15:00:00Z"),
+    });
+    expect(html).toContain("<dt>Last incident</dt>");
+    expect(html).not.toContain("<dt>Last incidents</dt>");
+    const items = html.match(/<li>/g) ?? [];
+    expect(items.length).toBe(1);
+  });
+
+  it("pluralises label and renders one <li> per concurrent incident", () => {
+    const html = renderHtml({
+      daysSince: 0,
+      longestStreakDays: 9,
+      latestIncidents: [
+        {
+          title: "Elevated errors on Claude Opus",
+          link: "https://status.claude.com/incidents/aaa",
+          pubDate: new Date("2026-05-08T18:00:00Z"),
+        },
+        {
+          title: "Console latency",
+          link: "https://status.claude.com/incidents/bbb",
+          pubDate: new Date("2026-05-08T12:00:00Z"),
+        },
+        {
+          title: "API 5xx spike",
+          link: "https://status.claude.com/incidents/ccc",
+          pubDate: new Date("2026-05-08T03:30:00Z"),
+        },
+      ],
+      generatedAt: new Date("2026-05-08T19:00:00Z"),
+    });
+    expect(html).toContain("<dt>Last incidents</dt>");
+    const items = html.match(/<li>/g) ?? [];
+    expect(items.length).toBe(3);
+    expect(html).toContain('href="https://status.claude.com/incidents/aaa"');
+    expect(html).toContain('href="https://status.claude.com/incidents/bbb"');
+    expect(html).toContain('href="https://status.claude.com/incidents/ccc"');
+  });
+
   it("minifies the output: no whitespace between tags and no CSS comments", () => {
     const html = renderHtml({
       daysSince: 3,
       longestStreakDays: 14,
-      lastIncident,
+      latestIncidents: [lastIncident],
       generatedAt: new Date("2026-05-06T20:07:00Z"),
     });
     expect(html).not.toMatch(/>\s+</);
@@ -87,7 +133,7 @@ describe("renderHtml", () => {
     const html = renderHtml({
       daysSince: 3,
       longestStreakDays: 14,
-      lastIncident,
+      latestIncidents: [lastIncident],
       generatedAt: new Date("2026-05-06T20:07:00Z"),
     });
     expect(html).toMatchSnapshot();

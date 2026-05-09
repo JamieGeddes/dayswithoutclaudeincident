@@ -3,16 +3,21 @@ import type { Incident } from "./types.js";
 export interface RenderArgs {
   daysSince: number;
   longestStreakDays: number;
-  lastIncident: Incident;
+  latestIncidents: Incident[];
   generatedAt: Date;
 }
 
-export function renderHtml({ daysSince, longestStreakDays, lastIncident, generatedAt }: RenderArgs): string {
+export function renderHtml({ daysSince, longestStreakDays, latestIncidents, generatedAt }: RenderArgs): string {
+  if (latestIncidents.length === 0) throw new Error("renderHtml requires at least one incident");
   const dayWord = daysSince === 1 ? "Day" : "Days";
   const longestWord = longestStreakDays === 1 ? "day" : "days";
-  const incidentTitle = escapeHtml(lastIncident.title);
-  const incidentLink = escapeHtml(lastIncident.link);
-  const incidentDate = formatUtcDate(lastIncident.pubDate);
+  const incidentLabel = latestIncidents.length === 1 ? "Last incident" : "Last incidents";
+  const incidentItems = latestIncidents
+    .map(
+      (i) =>
+        `<li><a href="${escapeHtml(i.link)}" rel="noopener noreferrer">${escapeHtml(i.title)}</a> &middot; ${formatUtcDate(i.pubDate)}</li>`,
+    )
+    .join("");
   const generated = formatUtcDateTime(generatedAt);
   const cards = String(daysSince)
     .split("")
@@ -139,6 +144,7 @@ export function renderHtml({ daysSince, longestStreakDays, lastIncident, generat
   }
   .meta dd { margin: 0; }
   .meta a { color: var(--frame); text-underline-offset: 3px; }
+  .incident-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.25rem; }
   .footer {
     text-align: center;
     margin-top: 1.2rem;
@@ -162,7 +168,7 @@ export function renderHtml({ daysSince, longestStreakDays, lastIncident, generat
       <div class="meta">
         <dl>
           <dt>Longest streak</dt><dd>${longestStreakDays} ${longestWord}</dd>
-          <dt>Last incident</dt><dd><a href="${incidentLink}" rel="noopener noreferrer">${incidentTitle}</a> &middot; ${incidentDate}</dd>
+          <dt>${incidentLabel}</dt><dd><ul class="incident-list">${incidentItems}</ul></dd>
         </dl>
         <div class="footer">Generated ${generated} &middot; Not affiliated with Anthropic &middot; <a href="https://status.claude.com/history.rss">status.claude.com</a></div>
       </div>

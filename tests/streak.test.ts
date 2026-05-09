@@ -38,49 +38,87 @@ describe("updateState", () => {
   it("first run: longestStreakDays seeds from current daysSince", () => {
     const latest = incident("2026-05-01T12:00:00Z", "a");
     const now = new Date("2026-05-06T12:00:00Z");
-    const r = updateState(null, latest, now);
+    const r = updateState(null, [latest], now);
     expect(r.daysSince).toBe(5);
     expect(r.longestStreakDays).toBe(5);
-    expect(r.newState.lastIncident.link).toBe(latest.link);
-    expect(r.newState.lastIncident.pubDate).toBe("2026-05-01T12:00:00.000Z");
+    expect(r.newState.latestIncidents).toHaveLength(1);
+    expect(r.newState.latestIncidents[0]!.link).toBe(latest.link);
+    expect(r.newState.latestIncidents[0]!.pubDate).toBe("2026-05-01T12:00:00.000Z");
   });
 
   it("same incident as last run: longest grows monotonically with current streak", () => {
     const prev: State = {
-      lastIncident: { pubDate: "2026-05-01T12:00:00.000Z", title: "x", link: "https://x" },
+      latestIncidents: [{ pubDate: "2026-05-01T12:00:00.000Z", title: "x", link: "https://x" }],
       longestStreakDays: 3,
       lastUpdatedAt: "2026-05-04T00:00:00.000Z",
     };
     const latest = incident("2026-05-01T12:00:00Z", "a");
     const now = new Date("2026-05-08T12:00:00Z");
-    const r = updateState(prev, latest, now);
+    const r = updateState(prev, [latest], now);
     expect(r.daysSince).toBe(7);
     expect(r.longestStreakDays).toBe(7);
   });
 
   it("same incident: longest does not regress when current streak is shorter", () => {
     const prev: State = {
-      lastIncident: { pubDate: "2026-05-01T12:00:00.000Z", title: "x", link: "https://x" },
+      latestIncidents: [{ pubDate: "2026-05-01T12:00:00.000Z", title: "x", link: "https://x" }],
       longestStreakDays: 42,
       lastUpdatedAt: "2026-05-04T00:00:00.000Z",
     };
     const latest = incident("2026-05-01T12:00:00Z", "a");
     const now = new Date("2026-05-08T12:00:00Z");
-    const r = updateState(prev, latest, now);
+    const r = updateState(prev, [latest], now);
     expect(r.daysSince).toBe(7);
     expect(r.longestStreakDays).toBe(42);
   });
 
   it("new incident: longest is max(prev, ended streak, current daysSince)", () => {
     const prev: State = {
-      lastIncident: { pubDate: "2026-04-01T00:00:00.000Z", title: "old", link: "https://old" },
+      latestIncidents: [{ pubDate: "2026-04-01T00:00:00.000Z", title: "old", link: "https://old" }],
       longestStreakDays: 10,
       lastUpdatedAt: "2026-04-29T00:00:00.000Z",
     };
     const latest = incident("2026-05-01T00:00:00Z", "new");
     const now = new Date("2026-05-04T00:00:00Z");
-    const r = updateState(prev, latest, now);
+    const r = updateState(prev, [latest], now);
     expect(r.daysSince).toBe(3);
     expect(r.longestStreakDays).toBe(30);
+  });
+
+  it("stores all concurrent incidents in newState.latestIncidents preserving order", () => {
+    const concurrent = [
+      incident("2026-05-08T18:00:00Z", "a"),
+      incident("2026-05-08T12:00:00Z", "b"),
+      incident("2026-05-08T03:30:00Z", "c"),
+    ];
+    const now = new Date("2026-05-08T19:00:00Z");
+    const r = updateState(null, concurrent, now);
+    expect(r.daysSince).toBe(0);
+    expect(r.newState.latestIncidents.map((i) => i.link)).toEqual([
+      "https://status.claude.com/incidents/a",
+      "https://status.claude.com/incidents/b",
+      "https://status.claude.com/incidents/c",
+    ]);
+  });
+
+  it("a new same-day incident alongside a previously-stored one keeps longestStreakDays unchanged", () => {
+    const prev: State = {
+      latestIncidents: [{ pubDate: "2026-05-08T03:30:00.000Z", title: "first", link: "https://x" }],
+      longestStreakDays: 12,
+      lastUpdatedAt: "2026-05-08T04:00:00.000Z",
+    };
+    const concurrent = [
+      incident("2026-05-08T18:00:00Z", "newer"),
+      incident("2026-05-08T03:30:00Z", "first"),
+    ];
+    const now = new Date("2026-05-08T19:00:00Z");
+    const r = updateState(prev, concurrent, now);
+    expect(r.daysSince).toBe(0);
+    expect(r.longestStreakDays).toBe(12);
+    expect(r.newState.latestIncidents).toHaveLength(2);
+  });
+
+  it("throws when called with no incidents", () => {
+    expect(() => updateState(null, [], new Date())).toThrow();
   });
 });
