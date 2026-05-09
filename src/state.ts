@@ -1,42 +1,26 @@
-import { GetObjectCommand, NoSuchKey, PutObjectCommand, S3Client } from "@aws-sdk/client-s3";
 import type { State, StoredIncident } from "./types.js";
 
-const s3 = new S3Client({});
-
-export async function loadState(bucket: string, key: string): Promise<State | null> {
-  try {
-    const res = await s3.send(new GetObjectCommand({ Bucket: bucket, Key: key }));
-    const body = await res.Body?.transformToString();
-    if (!body) return null;
-    return migrate(JSON.parse(body));
-  } catch (err) {
-    if (err instanceof NoSuchKey) return null;
-    if (isNotFoundError(err)) return null;
-    throw err;
-  }
+export async function loadState(bucket: R2Bucket, key: string): Promise<State | null> {
+  const obj = await bucket.get(key);
+  if (!obj) return null;
+  const body = await obj.text();
+  if (!body) return null;
+  return migrate(JSON.parse(body));
 }
 
-export async function saveState(bucket: string, key: string, state: State): Promise<void> {
-  await s3.send(
-    new PutObjectCommand({
-      Bucket: bucket,
-      Key: key,
-      Body: JSON.stringify(state, null, 2),
-      ContentType: "application/json",
-    }),
-  );
+export async function saveState(bucket: R2Bucket, key: string, state: State): Promise<void> {
+  await bucket.put(key, JSON.stringify(state, null, 2), {
+    httpMetadata: { contentType: "application/json" },
+  });
 }
 
-export async function putHtml(bucket: string, key: string, html: string): Promise<void> {
-  await s3.send(
-    new PutObjectCommand({
-      Bucket: bucket,
-      Key: key,
-      Body: html,
-      ContentType: "text/html; charset=utf-8",
-      CacheControl: "public, max-age=300",
-    }),
-  );
+export async function putHtml(bucket: R2Bucket, key: string, html: string): Promise<void> {
+  await bucket.put(key, html, {
+    httpMetadata: {
+      contentType: "text/html; charset=utf-8",
+      cacheControl: "public, max-age=300",
+    },
+  });
 }
 
 export function migrate(raw: unknown): State | null {
@@ -68,10 +52,4 @@ function isStoredIncident(v: unknown): v is StoredIncident {
     typeof v.title === "string" &&
     typeof v.link === "string"
   );
-}
-
-function isNotFoundError(err: unknown): boolean {
-  if (typeof err !== "object" || err === null) return false;
-  const e = err as { name?: string; $metadata?: { httpStatusCode?: number } };
-  return e.name === "NoSuchKey" || e.$metadata?.httpStatusCode === 404;
 }

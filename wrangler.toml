@@ -1,0 +1,15 @@
+name = "dwci-generator"
+main = "src/worker.ts"
+compatibility_date = "2026-05-08"
+
+[triggers]
+crons = ["0 * * * *"]
+
+[[r2_buckets]]
+binding = "SITE_BUCKET"
+bucket_name = "dwci-site"
+
+[vars]
+RSS_URL = "https://status.claude.com/history.rss"
+STATE_KEY = "state/state.json"
+INDEX_KEY = "index.html"
