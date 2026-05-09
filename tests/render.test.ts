@@ -74,20 +74,20 @@ describe("renderHtml", () => {
     expect(html).toContain(`href="${lastIncident.link}"`);
   });
 
-  it("uses singular label and a one-item list for a single incident", () => {
+  it("uses singular label with shared date and a one-item list for a single incident", () => {
     const html = renderHtml({
       daysSince: 0,
       longestStreakDays: 9,
       latestIncidents: [lastIncident],
       generatedAt: new Date("2026-05-04T15:00:00Z"),
     });
-    expect(html).toContain("<dt>Last incident</dt>");
-    expect(html).not.toContain("<dt>Last incidents</dt>");
+    expect(html).toContain("<dt>Last incident (2026-05-04)</dt>");
+    expect(html).not.toContain("Last incidents");
     const items = html.match(/<li>/g) ?? [];
     expect(items.length).toBe(1);
   });
 
-  it("pluralises label and renders one <li> per concurrent incident", () => {
+  it("pluralises label, shows the shared date once, and renders one <li> per concurrent incident", () => {
     const html = renderHtml({
       daysSince: 0,
       longestStreakDays: 9,
@@ -110,9 +110,10 @@ describe("renderHtml", () => {
       ],
       generatedAt: new Date("2026-05-08T19:00:00Z"),
     });
-    expect(html).toContain("<dt>Last incidents</dt>");
+    expect(html).toContain("<dt>Last incidents (2026-05-08)</dt>");
     const items = html.match(/<li>/g) ?? [];
     expect(items.length).toBe(3);
+    expect(html).not.toMatch(/<li>[^<]*2026-05-08/);
     expect(html).toContain('href="https://status.claude.com/incidents/aaa"');
     expect(html).toContain('href="https://status.claude.com/incidents/bbb"');
     expect(html).toContain('href="https://status.claude.com/incidents/ccc"');

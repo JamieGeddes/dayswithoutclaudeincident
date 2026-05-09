@@ -11,11 +11,12 @@ export function renderHtml({ daysSince, longestStreakDays, latestIncidents, gene
   if (latestIncidents.length === 0) throw new Error("renderHtml requires at least one incident");
   const dayWord = daysSince === 1 ? "Day" : "Days";
   const longestWord = longestStreakDays === 1 ? "day" : "days";
-  const incidentLabel = latestIncidents.length === 1 ? "Last incident" : "Last incidents";
+  const incidentNoun = latestIncidents.length === 1 ? "Last incident" : "Last incidents";
+  const incidentLabel = `${incidentNoun} (${formatUtcDate(latestIncidents[0]!.pubDate)})`;
   const incidentItems = latestIncidents
     .map(
       (i) =>
-        `<li><a href="${escapeHtml(i.link)}" rel="noopener noreferrer">${escapeHtml(i.title)}</a> &middot; ${formatUtcDate(i.pubDate)}</li>`,
+        `<li><a href="${escapeHtml(i.link)}" rel="noopener noreferrer">${escapeHtml(i.title)}</a></li>`,
     )
     .join("");
   const generated = formatUtcDateTime(generatedAt);
