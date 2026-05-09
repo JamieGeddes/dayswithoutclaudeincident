@@ -13,5 +13,7 @@ export interface StoredIncident {
 export interface State {
   latestIncidents: StoredIncident[];
   longestStreakDays: number;
+  longestStreakStart: string;
+  longestStreakEnd: string;
   lastUpdatedAt: string;
 }

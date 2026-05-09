@@ -1,13 +1,23 @@
+import { formatUtcDate } from "./streak.js";
 import type { Incident } from "./types.js";
 
 export interface RenderArgs {
   daysSince: number;
   longestStreakDays: number;
+  longestStreakStart: string;
+  longestStreakEnd: string;
   latestIncidents: Incident[];
   generatedAt: Date;
 }
 
-export function renderHtml({ daysSince, longestStreakDays, latestIncidents, generatedAt }: RenderArgs): string {
+export function renderHtml({
+  daysSince,
+  longestStreakDays,
+  longestStreakStart,
+  longestStreakEnd,
+  latestIncidents,
+  generatedAt,
+}: RenderArgs): string {
   if (latestIncidents.length === 0) throw new Error("renderHtml requires at least one incident");
   const dayWord = daysSince === 1 ? "Day" : "Days";
   const longestWord = longestStreakDays === 1 ? "day" : "days";
@@ -168,7 +178,7 @@ export function renderHtml({ daysSince, longestStreakDays, latestIncidents, gene
       <h1 class="caption">${dayWord} without a Claude incident</h1>
       <div class="meta">
         <dl>
-          <dt>Longest streak</dt><dd>${longestStreakDays} ${longestWord}</dd>
+          <dt>Longest streak</dt><dd><strong>${longestStreakDays} ${longestWord}</strong> (${escapeHtml(longestStreakStart)} to ${escapeHtml(longestStreakEnd)})</dd>
           <dt>${incidentLabel}</dt><dd><ul class="incident-list">${incidentItems}</ul></dd>
         </dl>
         <div class="footer">Generated ${generated} &middot; Not affiliated with Anthropic &middot; <a href="https://status.claude.com/history.rss">status.claude.com</a></div>
@@ -207,14 +217,7 @@ function escapeHtml(s: string): string {
     .replace(/'/g, "&#39;");
 }
 
-function pad(n: number): string {
-  return n.toString().padStart(2, "0");
-}
-
-function formatUtcDate(d: Date): string {
-  return `${d.getUTCFullYear()}-${pad(d.getUTCMonth() + 1)}-${pad(d.getUTCDate())}`;
-}
-
 function formatUtcDateTime(d: Date): string {
+  const pad = (n: number) => n.toString().padStart(2, "0");
   return `${formatUtcDate(d)} ${pad(d.getUTCHours())}:${pad(d.getUTCMinutes())} UTC`;
 }

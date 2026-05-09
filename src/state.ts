@@ -1,3 +1,4 @@
+import { formatUtcDate } from "./streak.js";
 import type { State, StoredIncident } from "./types.js";
 
 export async function loadState(bucket: R2Bucket, key: string): Promise<State | null> {
@@ -28,17 +29,18 @@ export function migrate(raw: unknown): State | null {
   const longestStreakDays = typeof raw.longestStreakDays === "number" ? raw.longestStreakDays : 0;
   const lastUpdatedAt = typeof raw.lastUpdatedAt === "string" ? raw.lastUpdatedAt : new Date(0).toISOString();
 
-  if (Array.isArray(raw.latestIncidents)) {
-    const latestIncidents = raw.latestIncidents.filter(isStoredIncident);
-    if (latestIncidents.length === 0) return null;
-    return { latestIncidents, longestStreakDays, lastUpdatedAt };
-  }
+  const latestIncidents = Array.isArray(raw.latestIncidents)
+    ? raw.latestIncidents.filter(isStoredIncident)
+    : isStoredIncident(raw.lastIncident)
+      ? [raw.lastIncident]
+      : [];
+  if (latestIncidents.length === 0) return null;
 
-  if (isStoredIncident(raw.lastIncident)) {
-    return { latestIncidents: [raw.lastIncident], longestStreakDays, lastUpdatedAt };
-  }
+  const placeholder = formatUtcDate(new Date(latestIncidents[0]!.pubDate));
+  const longestStreakStart = typeof raw.longestStreakStart === "string" ? raw.longestStreakStart : placeholder;
+  const longestStreakEnd = typeof raw.longestStreakEnd === "string" ? raw.longestStreakEnd : placeholder;
 
-  return null;
+  return { latestIncidents, longestStreakDays, longestStreakStart, longestStreakEnd, lastUpdatedAt };
 }
 
 function isRecord(v: unknown): v is Record<string, unknown> {

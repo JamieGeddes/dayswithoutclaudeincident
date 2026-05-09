@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { renderHtml } from "../src/render.js";
+import { renderHtml, type RenderArgs } from "../src/render.js";
 import type { Incident } from "../src/types.js";
 
 const lastIncident: Incident = {
@@ -8,38 +8,32 @@ const lastIncident: Incident = {
   pubDate: new Date("2026-05-04T14:33:46Z"),
 };
 
+const baseArgs: RenderArgs = {
+  daysSince: 3,
+  longestStreakDays: 14,
+  longestStreakStart: "2026-04-01",
+  longestStreakEnd: "2026-04-15",
+  latestIncidents: [lastIncident],
+  generatedAt: new Date("2026-05-06T20:07:00Z"),
+};
+
 describe("renderHtml", () => {
   it("uses 'Days' (plural) for counts other than 1 and renders the integer in flip-cards", () => {
-    const html = renderHtml({
-      daysSince: 3,
-      longestStreakDays: 14,
-      latestIncidents: [lastIncident],
-      generatedAt: new Date("2026-05-06T20:07:00Z"),
-    });
+    const html = renderHtml(baseArgs);
     expect(html).toContain('class="card">3</div>');
     expect(html).toContain("Days without a Claude incident");
     expect(html).not.toContain("Day without");
   });
 
   it("uses 'Day' (singular) when daysSince is 1", () => {
-    const html = renderHtml({
-      daysSince: 1,
-      longestStreakDays: 1,
-      latestIncidents: [lastIncident],
-      generatedAt: new Date("2026-05-06T20:07:00Z"),
-    });
+    const html = renderHtml({ ...baseArgs, daysSince: 1, longestStreakDays: 1 });
     expect(html).toContain('class="card">1</div>');
     expect(html).toContain("Day without a Claude incident");
-    expect(html).toContain("1 day");
+    expect(html).toContain("<strong>1 day</strong>");
   });
 
   it("renders one flip-card per digit for multi-digit counts", () => {
-    const html = renderHtml({
-      daysSince: 421,
-      longestStreakDays: 14,
-      latestIncidents: [lastIncident],
-      generatedAt: new Date("2026-05-08T12:00:00Z"),
-    });
+    const html = renderHtml({ ...baseArgs, daysSince: 421 });
     const cards = html.match(/<div class="card">/g) ?? [];
     expect(cards.length).toBe(3);
     expect(html).toContain('class="card">4</div><div class="card">2</div><div class="card">1</div>');
@@ -47,6 +41,7 @@ describe("renderHtml", () => {
 
   it("escapes HTML in the incident title and link", () => {
     const html = renderHtml({
+      ...baseArgs,
       daysSince: 0,
       longestStreakDays: 0,
       latestIncidents: [
@@ -56,7 +51,6 @@ describe("renderHtml", () => {
           pubDate: new Date("2026-05-06T00:00:00Z"),
         },
       ],
-      generatedAt: new Date("2026-05-06T00:00:00Z"),
     });
     expect(html).not.toContain("<script>alert(1)</script>");
     expect(html).toContain("&lt;script&gt;alert(1)&lt;/script&gt;");
@@ -64,21 +58,20 @@ describe("renderHtml", () => {
   });
 
   it("includes the disclaimer and a link to the incident", () => {
-    const html = renderHtml({
-      daysSince: 7,
-      longestStreakDays: 7,
-      latestIncidents: [lastIncident],
-      generatedAt: new Date("2026-05-11T12:00:00Z"),
-    });
+    const html = renderHtml({ ...baseArgs, daysSince: 7, longestStreakDays: 7 });
     expect(html.toLowerCase()).toContain("not affiliated with anthropic");
     expect(html).toContain(`href="${lastIncident.link}"`);
   });
 
+  it("bolds the days count and shows the streak date range in brackets", () => {
+    const html = renderHtml(baseArgs);
+    expect(html).toContain("<strong>14 days</strong> (2026-04-01 to 2026-04-15)");
+  });
+
   it("uses singular label with shared date and a one-item list for a single incident", () => {
     const html = renderHtml({
+      ...baseArgs,
       daysSince: 0,
-      longestStreakDays: 9,
-      latestIncidents: [lastIncident],
       generatedAt: new Date("2026-05-04T15:00:00Z"),
     });
     expect(html).toContain("<dt>Last incident (2026-05-04)</dt>");
@@ -89,8 +82,11 @@ describe("renderHtml", () => {
 
   it("pluralises label, shows the shared date once, and renders one <li> per concurrent incident", () => {
     const html = renderHtml({
+      ...baseArgs,
       daysSince: 0,
       longestStreakDays: 9,
+      longestStreakStart: "2026-04-01",
+      longestStreakEnd: "2026-04-10",
       latestIncidents: [
         {
           title: "Elevated errors on Claude Opus",
@@ -120,23 +116,13 @@ describe("renderHtml", () => {
   });
 
   it("minifies the output: no whitespace between tags and no CSS comments", () => {
-    const html = renderHtml({
-      daysSince: 3,
-      longestStreakDays: 14,
-      latestIncidents: [lastIncident],
-      generatedAt: new Date("2026-05-06T20:07:00Z"),
-    });
+    const html = renderHtml(baseArgs);
     expect(html).not.toMatch(/>\s+</);
     expect(html).not.toContain("/*");
   });
 
   it("renders a stable snapshot for fixed input", () => {
-    const html = renderHtml({
-      daysSince: 3,
-      longestStreakDays: 14,
-      latestIncidents: [lastIncident],
-      generatedAt: new Date("2026-05-06T20:07:00Z"),
-    });
+    const html = renderHtml(baseArgs);
     expect(html).toMatchSnapshot();
   });
 });

@@ -23,8 +23,19 @@ export default {
 
     const prev = await loadState(env.SITE_BUCKET, env.STATE_KEY);
     const now = new Date();
-    const { daysSince, longestStreakDays, newState } = updateState(prev, concurrent, now);
-    const html = renderHtml({ daysSince, longestStreakDays, latestIncidents: concurrent, generatedAt: now });
+    const { daysSince, longestStreakDays, longestStreakStart, longestStreakEnd, newState } = updateState(
+      prev,
+      concurrent,
+      now,
+    );
+    const html = renderHtml({
+      daysSince,
+      longestStreakDays,
+      longestStreakStart,
+      longestStreakEnd,
+      latestIncidents: concurrent,
+      generatedAt: now,
+    });
 
     await Promise.all([
       saveState(env.SITE_BUCKET, env.STATE_KEY, newState),

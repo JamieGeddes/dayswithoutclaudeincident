@@ -8,10 +8,23 @@ export function daysSinceUtc(from: Date, now: Date = new Date()): number {
   return Math.max(0, Math.floor((nowDay - fromDay) / MS_PER_DAY));
 }
 
+export function formatUtcDate(d: Date): string {
+  const pad = (n: number) => n.toString().padStart(2, "0");
+  return `${d.getUTCFullYear()}-${pad(d.getUTCMonth() + 1)}-${pad(d.getUTCDate())}`;
+}
+
 export interface UpdateResult {
   daysSince: number;
   longestStreakDays: number;
+  longestStreakStart: string;
+  longestStreakEnd: string;
   newState: State;
+}
+
+interface StreakWindow {
+  days: number;
+  start: string;
+  end: string;
 }
 
 export function updateState(prev: State | null, concurrent: Incident[], now: Date): UpdateResult {
@@ -19,28 +32,51 @@ export function updateState(prev: State | null, concurrent: Incident[], now: Dat
   if (!latest) throw new Error("updateState requires at least one incident");
 
   const daysSince = daysSinceUtc(latest.pubDate, now);
+  const latestIso = formatUtcDate(latest.pubDate);
+  const todayIso = formatUtcDate(now);
+  const ongoing: StreakWindow = { days: daysSince, start: latestIso, end: todayIso };
 
-  let longestStreakDays: number;
+  let longest: StreakWindow;
   if (prev === null) {
-    longestStreakDays = daysSince;
+    longest = ongoing;
   } else {
     const prevPubDate = new Date(prev.latestIncidents[0]?.pubDate ?? 0);
-    const isNewIncident = latest.pubDate.getTime() > prevPubDate.getTime();
-    if (isNewIncident) {
-      const endedStreak = daysSinceUtc(prevPubDate, latest.pubDate);
-      longestStreakDays = Math.max(prev.longestStreakDays, endedStreak, daysSince);
+    const prevWindow: StreakWindow = {
+      days: prev.longestStreakDays,
+      start: prev.longestStreakStart,
+      end: prev.longestStreakEnd,
+    };
+    if (latest.pubDate.getTime() > prevPubDate.getTime()) {
+      const ended: StreakWindow = {
+        days: daysSinceUtc(prevPubDate, latest.pubDate),
+        start: formatUtcDate(prevPubDate),
+        end: latestIso,
+      };
+      longest = pickLongest([prevWindow, ended, ongoing]);
     } else {
-      longestStreakDays = Math.max(prev.longestStreakDays, daysSince);
+      longest = pickLongest([prevWindow, ongoing]);
     }
   }
 
   const newState: State = {
     latestIncidents: concurrent.map(toStored),
-    longestStreakDays,
+    longestStreakDays: longest.days,
+    longestStreakStart: longest.start,
+    longestStreakEnd: longest.end,
     lastUpdatedAt: now.toISOString(),
   };
 
-  return { daysSince, longestStreakDays, newState };
+  return {
+    daysSince,
+    longestStreakDays: longest.days,
+    longestStreakStart: longest.start,
+    longestStreakEnd: longest.end,
+    newState,
+  };
+}
+
+function pickLongest(windows: StreakWindow[]): StreakWindow {
+  return windows.reduce((a, b) => (b.days > a.days ? b : a));
 }
 
 function toStored(incident: Incident): StoredIncident {
