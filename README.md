@@ -2,13 +2,13 @@
 
 A simple static webpage that displays information about Anthropic Claude status.
 
-## Deployment
+## Architecture
 
-A static S3 hosted website. Content is generated on a regular basis by an EventBridge scheduled AWS Lambda function that scrapes the Claude status RSS feed at https://status.claude.com/history.rss and identifies when the last incident occurred (along with basic summary information of the incident). Store basic summary information in S3 to track how long the streak without an incident is.
+A static site generated and served from Cloudflare. A Cloudflare Worker (`src/worker.ts`) runs on an hourly cron trigger, fetches the Claude status RSS feed at https://status.claude.com/history.rss, and identifies when the last incident occurred (along with basic summary information). Streak state is persisted in an R2 bucket so the longest-streak figure survives across runs.
 
-The Lambda function generates the static HTML page showing:
+On each run the Worker renders a static HTML page and writes it (and the updated state JSON) back to the same R2 bucket, which serves the public site. The page shows:
 - the headline figure of how many days since the last recorded incident
-- the longest streak (days without an incident)
+- the longest streak (days without an incident), including its date range
 
 ## Disclaimer
 
