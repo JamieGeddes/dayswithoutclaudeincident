@@ -8,14 +8,18 @@ export interface RenderArgs {
 }
 
 export function renderHtml({ daysSince, longestStreakDays, lastIncident, generatedAt }: RenderArgs): string {
-  const dayWord = daysSince === 1 ? "DAY" : "DAYS";
+  const dayWord = daysSince === 1 ? "Day" : "Days";
   const longestWord = longestStreakDays === 1 ? "day" : "days";
   const incidentTitle = escapeHtml(lastIncident.title);
   const incidentLink = escapeHtml(lastIncident.link);
   const incidentDate = formatUtcDate(lastIncident.pubDate);
   const generated = formatUtcDateTime(generatedAt);
+  const cards = String(daysSince)
+    .split("")
+    .map((d) => `<div class="card">${d}</div>`)
+    .join("");
 
-  return `<!doctype html>
+  const html = `<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -25,115 +29,166 @@ export function renderHtml({ daysSince, longestStreakDays, lastIncident, generat
 <meta name="description" content="An unofficial 'days without an incident' counter for the Anthropic Claude status page.">
 <style>
   :root {
-    --yellow: #FFC400;
-    --black: #0A0A0A;
-    --stripe: repeating-linear-gradient(135deg, #0A0A0A 0 28px, #FFC400 28px 56px);
+    --plaque: #FFC400;
+    --frame: #0A0A0A;
+    --card: #141312;
+    --digit: #f4ecd0;
   }
   * { box-sizing: border-box; }
   html, body { margin: 0; padding: 0; }
   body {
-    background: var(--yellow);
-    color: var(--black);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     min-height: 100vh;
+    background: radial-gradient(ellipse at 50% 30%, #3a322a 0%, #14110d 100%);
     display: flex;
-    flex-direction: column;
-    -webkit-font-smoothing: antialiased;
-  }
-  .stripe { height: 28px; background: var(--stripe); }
-  main {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 4vh 5vw;
-    gap: 2.5rem;
-    text-align: center;
+    padding: 5vh 4vw;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: var(--frame);
+    -webkit-font-smoothing: antialiased;
   }
-  .banner {
-    font-weight: 900;
-    letter-spacing: 0.08em;
-    font-size: clamp(1.4rem, 3.2vw, 2.4rem);
-    text-transform: uppercase;
-    line-height: 1;
+  .plaque {
+    position: relative;
+    width: min(560px, 100%);
+    background: var(--plaque);
+    border: 0.7rem solid var(--frame);
+    border-radius: 0.4rem;
+    box-shadow: 0 1.6rem 2.5rem rgba(0,0,0,0.65), inset 0 0 0 0.18rem #c79900;
+  }
+  .screw {
+    position: absolute;
+    width: 0.95rem;
+    height: 0.95rem;
+    border-radius: 50%;
+    background: radial-gradient(circle at 32% 30%, #6a5e52 0%, #19140e 70%);
+    box-shadow: inset 0 -1px 1px rgba(0,0,0,0.7);
+  }
+  .screw.tl { top: -1.55rem; left: -1.55rem; }
+  .screw.tr { top: -1.55rem; right: -1.55rem; }
+  .screw.bl { bottom: -1.55rem; left: -1.55rem; }
+  .screw.br { bottom: -1.55rem; right: -1.55rem; }
+  .title-bar {
+    background: var(--frame);
+    color: var(--plaque);
+    text-align: center;
+    padding: 0.9rem 1rem;
+    font-weight: 800;
+    letter-spacing: 0.01em;
+    font-size: clamp(0.95rem, 2.6vw, 1.15rem);
+    border-bottom: 0.18rem solid #5e4800;
+  }
+  .body { padding: 1.6rem 1.6rem 1.4rem; }
+  .cards {
+    display: flex;
+    justify-content: center;
+    gap: 0.7rem;
+    margin: 0.4rem 0 1.4rem;
   }
   .card {
-    background: var(--yellow);
-    border: 0.6rem solid var(--black);
-    border-radius: 0.5rem;
-    padding: clamp(1.5rem, 4vw, 3rem) clamp(2rem, 6vw, 5rem);
-    box-shadow: 0.6rem 0.6rem 0 0 var(--black);
-    min-width: min(80vw, 28rem);
-  }
-  .number {
+    position: relative;
+    background: var(--card);
+    color: var(--digit);
     font-weight: 900;
-    font-size: clamp(7rem, 22vw, 16rem);
-    line-height: 0.9;
-    letter-spacing: -0.04em;
     font-variant-numeric: tabular-nums;
-    margin: 0;
+    font-size: clamp(5rem, 20vw, 9rem);
+    line-height: 1;
+    width: clamp(4.5rem, 16vw, 7rem);
+    height: clamp(6.5rem, 22vw, 10rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.45rem;
+    box-shadow: 0 0.45rem 0 0 #000, inset 0 0.1rem 0 rgba(255,255,255,0.05);
+  }
+  .card::after {
+    content: "";
+    position: absolute;
+    left: 0.3rem;
+    right: 0.3rem;
+    top: 50%;
+    height: 2px;
+    background: #000;
+    box-shadow: 0 1px 0 rgba(255,255,255,0.04);
+    transform: translateY(-1px);
   }
   .caption {
-    font-weight: 900;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    font-size: clamp(1.4rem, 3.6vw, 2.6rem);
-    line-height: 1.1;
-    max-width: 24ch;
-    margin: 0 auto;
+    margin: 0 0 1.2rem;
+    text-align: center;
+    font-weight: 800;
+    letter-spacing: -0.005em;
+    font-size: clamp(1.2rem, 3.2vw, 1.6rem);
+    line-height: 1.2;
   }
   .meta {
+    border-top: 0.2rem solid var(--frame);
+    padding-top: 1rem;
+    font-size: clamp(0.85rem, 1.8vw, 0.95rem);
+    line-height: 1.5;
+  }
+  .meta dl {
     display: grid;
-    gap: 0.6rem;
-    font-size: clamp(0.95rem, 1.6vw, 1.1rem);
-    line-height: 1.45;
-    border-top: 3px solid var(--black);
-    padding-top: 1.5rem;
-    width: min(40rem, 90vw);
+    grid-template-columns: max-content 1fr;
+    gap: 0.3rem 0.9rem;
+    margin: 0;
   }
-  .meta dl { display: grid; grid-template-columns: max-content 1fr; gap: 0.25rem 1rem; margin: 0; text-align: left; }
-  .meta dt { font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.85em; }
-  .meta dd { margin: 0; }
-  .meta a { color: var(--black); text-underline-offset: 3px; }
-  footer {
-    text-align: center;
-    padding: 1.5rem 1rem 2rem;
+  .meta dt {
     font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    font-size: 0.85rem;
+    font-size: 0.95em;
+    align-self: center;
+    color: #2a2520;
   }
-  footer .small { display: block; font-weight: 500; letter-spacing: 0.04em; opacity: 0.75; margin-top: 0.4rem; text-transform: none; }
-  @media (prefers-reduced-motion: no-preference) {
-    .card { transition: transform 200ms ease; }
-    .card:hover { transform: translate(-0.15rem, -0.15rem); }
+  .meta dd { margin: 0; }
+  .meta a { color: var(--frame); text-underline-offset: 3px; }
+  .footer {
+    text-align: center;
+    margin-top: 1.2rem;
+    font-size: 0.78rem;
+    font-weight: 500;
+    opacity: 0.72;
   }
+  .footer a { color: var(--frame); }
 </style>
 </head>
 <body>
-  <div class="stripe" aria-hidden="true"></div>
-  <main>
-    <p class="banner">This facility has gone</p>
-    <div class="card">
-      <p class="number">${daysSince}</p>
+  <div class="plaque">
+    <span class="screw tl" aria-hidden="true"></span>
+    <span class="screw tr" aria-hidden="true"></span>
+    <span class="screw bl" aria-hidden="true"></span>
+    <span class="screw br" aria-hidden="true"></span>
+    <div class="title-bar">Days Since Last Claude Incident</div>
+    <div class="body">
+      <div class="cards" aria-label="${daysSince} ${dayWord.toLowerCase()}">${cards}</div>
+      <h1 class="caption">${dayWord} without a Claude incident</h1>
+      <div class="meta">
+        <dl>
+          <dt>Longest streak</dt><dd>${longestStreakDays} ${longestWord}</dd>
+          <dt>Last incident</dt><dd><a href="${incidentLink}" rel="noopener noreferrer">${incidentTitle}</a> &middot; ${incidentDate}</dd>
+        </dl>
+        <div class="footer">Generated ${generated} &middot; Not affiliated with Anthropic &middot; <a href="https://status.claude.com/history.rss">status.claude.com</a></div>
+      </div>
     </div>
-    <h1 class="caption">${dayWord} without a Claude incident</h1>
-    <section class="meta" aria-label="Details">
-      <dl>
-        <dt>Longest streak</dt><dd>${longestStreakDays} ${longestWord}</dd>
-        <dt>Last incident</dt><dd><a href="${incidentLink}" rel="noopener noreferrer">${incidentTitle}</a> &middot; ${incidentDate}</dd>
-      </dl>
-    </section>
-  </main>
-  <footer>
-    Not affiliated with Anthropic
-    <span class="small">Generated ${generated} from <a href="https://status.claude.com/history.rss">status.claude.com</a></span>
-  </footer>
-  <div class="stripe" aria-hidden="true"></div>
+  </div>
 </body>
 </html>
 `;
+
+  return minifyHtml(html);
+}
+
+function minifyHtml(html: string): string {
+  return html
+    .replace(/<style>([\s\S]*?)<\/style>/g, (_, css) => `<style>${minifyCss(css)}</style>`)
+    .replace(/>\s+</g, "><")
+    .trim();
+}
+
+function minifyCss(css: string): string {
+  return css
+    .replace(/\/\*[\s\S]*?\*\//g, "")
+    .replace(/\s+/g, " ")
+    .replace(/\s*([{};:,])\s*/g, "$1")
+    .replace(/;}/g, "}")
+    .trim();
 }
 
 function escapeHtml(s: string): string {
