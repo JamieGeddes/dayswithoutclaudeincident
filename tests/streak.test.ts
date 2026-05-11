@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
-import { daysSinceUtc, formatUtcDate, updateState } from "../src/streak.js";
-import type { Incident, State } from "../src/types.js";
+import { computeView, daysSinceUtc, formatUtcDate, updateState } from "../src/streak.js";
+import type { Incident, SiteState } from "../src/types.js";
 
 describe("daysSinceUtc", () => {
   it("returns 0 for the same UTC calendar day even across hours", () => {
@@ -42,110 +42,139 @@ const incident = (iso: string, suffix = ""): Incident => ({
 });
 
 describe("updateState", () => {
-  it("first run: ongoing streak is the longest, dates run from latest incident to today", () => {
+  it("first run: stores the latest incident and leaves historicalLongestStreak null", () => {
     const latest = incident("2026-05-01T12:00:00Z", "a");
     const now = new Date("2026-05-06T12:00:00Z");
-    const r = updateState(null, [latest], now);
-    expect(r.daysSince).toBe(5);
-    expect(r.longestStreakDays).toBe(5);
-    expect(r.longestStreakStart).toBe("2026-05-01");
-    expect(r.longestStreakEnd).toBe("2026-05-06");
-    expect(r.newState.latestIncidents).toHaveLength(1);
-    expect(r.newState.latestIncidents[0]!.link).toBe(latest.link);
-    expect(r.newState.latestIncidents[0]!.pubDate).toBe("2026-05-01T12:00:00.000Z");
-    expect(r.newState.longestStreakStart).toBe("2026-05-01");
-    expect(r.newState.longestStreakEnd).toBe("2026-05-06");
+    const s = updateState(null, [latest], now);
+    expect(s.lastIncident.pubDate).toBe("2026-05-01T12:00:00.000Z");
+    expect(s.lastIncident.concurrent).toHaveLength(1);
+    expect(s.lastIncident.concurrent[0]!.link).toBe(latest.link);
+    expect(s.historicalLongestStreak).toBeNull();
+    expect(s.lastUpdatedAt).toBe(now.toISOString());
   });
 
-  it("same incident as last run: longest grows monotonically and end advances to today", () => {
-    const prev: State = {
-      latestIncidents: [{ pubDate: "2026-05-01T12:00:00.000Z", title: "x", link: "https://x" }],
-      longestStreakDays: 3,
-      longestStreakStart: "2026-05-01",
-      longestStreakEnd: "2026-05-04",
+  it("same incident as last run: historical record is unchanged", () => {
+    const prev: SiteState = {
+      lastIncident: {
+        pubDate: "2026-05-01T12:00:00.000Z",
+        concurrent: [{ pubDate: "2026-05-01T12:00:00.000Z", title: "x", link: "https://x" }],
+      },
+      historicalLongestStreak: { days: 42, startDate: "2024-01-01", endDate: "2024-02-12" },
       lastUpdatedAt: "2026-05-04T00:00:00.000Z",
     };
     const latest = incident("2026-05-01T12:00:00Z", "a");
     const now = new Date("2026-05-08T12:00:00Z");
-    const r = updateState(prev, [latest], now);
-    expect(r.daysSince).toBe(7);
-    expect(r.longestStreakDays).toBe(7);
-    expect(r.longestStreakStart).toBe("2026-05-01");
-    expect(r.longestStreakEnd).toBe("2026-05-08");
+    const s = updateState(prev, [latest], now);
+    expect(s.historicalLongestStreak).toEqual(prev.historicalLongestStreak);
+    expect(s.lastIncident.pubDate).toBe("2026-05-01T12:00:00.000Z");
   });
 
-  it("same incident: longest does not regress and keeps prior recorded dates", () => {
-    const prev: State = {
-      latestIncidents: [{ pubDate: "2026-05-01T12:00:00.000Z", title: "x", link: "https://x" }],
-      longestStreakDays: 42,
-      longestStreakStart: "2024-01-01",
-      longestStreakEnd: "2024-02-12",
-      lastUpdatedAt: "2026-05-04T00:00:00.000Z",
-    };
-    const latest = incident("2026-05-01T12:00:00Z", "a");
-    const now = new Date("2026-05-08T12:00:00Z");
-    const r = updateState(prev, [latest], now);
-    expect(r.daysSince).toBe(7);
-    expect(r.longestStreakDays).toBe(42);
-    expect(r.longestStreakStart).toBe("2024-01-01");
-    expect(r.longestStreakEnd).toBe("2024-02-12");
-  });
-
-  it("new incident: ended streak wins; dates bookend prev and new incidents", () => {
-    const prev: State = {
-      latestIncidents: [{ pubDate: "2026-04-01T00:00:00.000Z", title: "old", link: "https://old" }],
-      longestStreakDays: 10,
-      longestStreakStart: "2026-03-15",
-      longestStreakEnd: "2026-03-25",
+  it("new incident: records the ended streak if it beats the historical max", () => {
+    const prev: SiteState = {
+      lastIncident: {
+        pubDate: "2026-04-01T00:00:00.000Z",
+        concurrent: [{ pubDate: "2026-04-01T00:00:00.000Z", title: "old", link: "https://old" }],
+      },
+      historicalLongestStreak: { days: 10, startDate: "2026-03-15", endDate: "2026-03-25" },
       lastUpdatedAt: "2026-04-29T00:00:00.000Z",
     };
     const latest = incident("2026-05-01T00:00:00Z", "new");
     const now = new Date("2026-05-04T00:00:00Z");
-    const r = updateState(prev, [latest], now);
-    expect(r.daysSince).toBe(3);
-    expect(r.longestStreakDays).toBe(30);
-    expect(r.longestStreakStart).toBe("2026-04-01");
-    expect(r.longestStreakEnd).toBe("2026-05-01");
+    const s = updateState(prev, [latest], now);
+    expect(s.historicalLongestStreak).toEqual({
+      days: 30,
+      startDate: "2026-04-01",
+      endDate: "2026-05-01",
+    });
+    expect(s.lastIncident.pubDate).toBe("2026-05-01T00:00:00.000Z");
   });
 
-  it("stores all concurrent incidents in newState.latestIncidents preserving order", () => {
+  it("new incident: keeps the prior historical record if the ended streak is shorter", () => {
+    const prev: SiteState = {
+      lastIncident: {
+        pubDate: "2026-04-29T00:00:00.000Z",
+        concurrent: [{ pubDate: "2026-04-29T00:00:00.000Z", title: "old", link: "https://old" }],
+      },
+      historicalLongestStreak: { days: 42, startDate: "2024-01-01", endDate: "2024-02-12" },
+      lastUpdatedAt: "2026-04-30T00:00:00.000Z",
+    };
+    const latest = incident("2026-05-01T00:00:00Z", "new");
+    const now = new Date("2026-05-04T00:00:00Z");
+    const s = updateState(prev, [latest], now);
+    expect(s.historicalLongestStreak).toEqual(prev.historicalLongestStreak);
+  });
+
+  it("stores all concurrent incidents preserving order", () => {
     const concurrent = [
       incident("2026-05-08T18:00:00Z", "a"),
       incident("2026-05-08T12:00:00Z", "b"),
       incident("2026-05-08T03:30:00Z", "c"),
     ];
     const now = new Date("2026-05-08T19:00:00Z");
-    const r = updateState(null, concurrent, now);
-    expect(r.daysSince).toBe(0);
-    expect(r.newState.latestIncidents.map((i) => i.link)).toEqual([
+    const s = updateState(null, concurrent, now);
+    expect(s.lastIncident.pubDate).toBe("2026-05-08T18:00:00.000Z");
+    expect(s.lastIncident.concurrent.map((i) => i.link)).toEqual([
       "https://status.claude.com/incidents/a",
       "https://status.claude.com/incidents/b",
       "https://status.claude.com/incidents/c",
     ]);
   });
 
-  it("a new same-day incident alongside a previously-stored one keeps longestStreakDays and dates unchanged", () => {
-    const prev: State = {
-      latestIncidents: [{ pubDate: "2026-05-08T03:30:00.000Z", title: "first", link: "https://x" }],
-      longestStreakDays: 12,
-      longestStreakStart: "2026-04-01",
-      longestStreakEnd: "2026-04-13",
-      lastUpdatedAt: "2026-05-08T04:00:00.000Z",
-    };
-    const concurrent = [
-      incident("2026-05-08T18:00:00Z", "newer"),
-      incident("2026-05-08T03:30:00Z", "first"),
-    ];
-    const now = new Date("2026-05-08T19:00:00Z");
-    const r = updateState(prev, concurrent, now);
-    expect(r.daysSince).toBe(0);
-    expect(r.longestStreakDays).toBe(12);
-    expect(r.longestStreakStart).toBe("2026-04-01");
-    expect(r.longestStreakEnd).toBe("2026-04-13");
-    expect(r.newState.latestIncidents).toHaveLength(2);
-  });
-
   it("throws when called with no incidents", () => {
     expect(() => updateState(null, [], new Date())).toThrow();
+  });
+});
+
+describe("computeView", () => {
+  const baseState: SiteState = {
+    lastIncident: {
+      pubDate: "2026-05-01T12:00:00.000Z",
+      concurrent: [{ pubDate: "2026-05-01T12:00:00.000Z", title: "x", link: "https://x" }],
+    },
+    historicalLongestStreak: null,
+    lastUpdatedAt: "2026-05-01T12:00:00.000Z",
+  };
+
+  it("derives daysSince from lastIncident.pubDate vs now", () => {
+    const view = computeView(baseState, new Date("2026-05-08T03:00:00Z"));
+    expect(view.daysSince).toBe(7);
+  });
+
+  it("shows the active streak as longest when no historical record exists", () => {
+    const view = computeView(baseState, new Date("2026-05-08T03:00:00Z"));
+    expect(view.longestStreak).toEqual({ days: 7, startDate: "2026-05-01", endDate: "2026-05-08" });
+  });
+
+  it("shows the historical record when it beats the active streak", () => {
+    const state: SiteState = {
+      ...baseState,
+      historicalLongestStreak: { days: 42, startDate: "2024-01-01", endDate: "2024-02-12" },
+    };
+    const view = computeView(state, new Date("2026-05-08T03:00:00Z"));
+    expect(view.daysSince).toBe(7);
+    expect(view.longestStreak.days).toBe(42);
+    expect(view.longestStreak.startDate).toBe("2024-01-01");
+    expect(view.longestStreak.endDate).toBe("2024-02-12");
+  });
+
+  it("shows the active streak when it overtakes the historical record", () => {
+    const state: SiteState = {
+      ...baseState,
+      historicalLongestStreak: { days: 5, startDate: "2025-01-01", endDate: "2025-01-06" },
+    };
+    const view = computeView(state, new Date("2026-05-08T03:00:00Z"));
+    expect(view.daysSince).toBe(7);
+    expect(view.longestStreak.days).toBe(7);
+    expect(view.longestStreak.startDate).toBe("2026-05-01");
+    expect(view.longestStreak.endDate).toBe("2026-05-08");
+  });
+
+  it("prefers the historical record on a tie", () => {
+    const state: SiteState = {
+      ...baseState,
+      historicalLongestStreak: { days: 7, startDate: "2025-01-01", endDate: "2025-01-08" },
+    };
+    const view = computeView(state, new Date("2026-05-08T03:00:00Z"));
+    expect(view.longestStreak.startDate).toBe("2025-01-01");
   });
 });

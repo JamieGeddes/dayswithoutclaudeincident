@@ -1,4 +1,4 @@
-import type { Incident, State, StoredIncident } from "./types.js";
+import type { Incident, SiteState, StoredIncident, StreakRecord } from "./types.js";
 
 const MS_PER_DAY = 86_400_000;
 
@@ -13,70 +13,55 @@ export function formatUtcDate(d: Date): string {
   return `${d.getUTCFullYear()}-${pad(d.getUTCMonth() + 1)}-${pad(d.getUTCDate())}`;
 }
 
-export interface UpdateResult {
-  daysSince: number;
-  longestStreakDays: number;
-  longestStreakStart: string;
-  longestStreakEnd: string;
-  newState: State;
-}
-
-interface StreakWindow {
-  days: number;
-  start: string;
-  end: string;
-}
-
-export function updateState(prev: State | null, concurrent: Incident[], now: Date): UpdateResult {
+export function updateState(prev: SiteState | null, concurrent: Incident[], now: Date): SiteState {
   const latest = concurrent[0];
   if (!latest) throw new Error("updateState requires at least one incident");
 
-  const daysSince = daysSinceUtc(latest.pubDate, now);
-  const latestIso = formatUtcDate(latest.pubDate);
-  const todayIso = formatUtcDate(now);
-  const ongoing: StreakWindow = { days: daysSince, start: latestIso, end: todayIso };
+  const newLastIncident = {
+    pubDate: latest.pubDate.toISOString(),
+    concurrent: concurrent.map(toStored),
+  };
 
-  let longest: StreakWindow;
-  if (prev === null) {
-    longest = ongoing;
-  } else {
-    const prevPubDate = new Date(prev.latestIncidents[0]?.pubDate ?? 0);
-    const prevWindow: StreakWindow = {
-      days: prev.longestStreakDays,
-      start: prev.longestStreakStart,
-      end: prev.longestStreakEnd,
-    };
+  let historicalLongestStreak: StreakRecord | null = prev?.historicalLongestStreak ?? null;
+
+  if (prev) {
+    const prevPubDate = new Date(prev.lastIncident.pubDate);
     if (latest.pubDate.getTime() > prevPubDate.getTime()) {
-      const ended: StreakWindow = {
+      const ended: StreakRecord = {
         days: daysSinceUtc(prevPubDate, latest.pubDate),
-        start: formatUtcDate(prevPubDate),
-        end: latestIso,
+        startDate: formatUtcDate(prevPubDate),
+        endDate: formatUtcDate(latest.pubDate),
       };
-      longest = pickLongest([prevWindow, ended, ongoing]);
-    } else {
-      longest = pickLongest([prevWindow, ongoing]);
+      if (historicalLongestStreak === null || ended.days > historicalLongestStreak.days) {
+        historicalLongestStreak = ended;
+      }
     }
   }
 
-  const newState: State = {
-    latestIncidents: concurrent.map(toStored),
-    longestStreakDays: longest.days,
-    longestStreakStart: longest.start,
-    longestStreakEnd: longest.end,
-    lastUpdatedAt: now.toISOString(),
-  };
-
   return {
-    daysSince,
-    longestStreakDays: longest.days,
-    longestStreakStart: longest.start,
-    longestStreakEnd: longest.end,
-    newState,
+    lastIncident: newLastIncident,
+    historicalLongestStreak,
+    lastUpdatedAt: now.toISOString(),
   };
 }
 
-function pickLongest(windows: StreakWindow[]): StreakWindow {
-  return windows.reduce((a, b) => (b.days > a.days ? b : a));
+export interface ViewModel {
+  daysSince: number;
+  longestStreak: StreakRecord;
+}
+
+export function computeView(state: SiteState, now: Date): ViewModel {
+  const lastPubDate = new Date(state.lastIncident.pubDate);
+  const daysSince = daysSinceUtc(lastPubDate, now);
+  const activeStreak: StreakRecord = {
+    days: daysSince,
+    startDate: formatUtcDate(lastPubDate),
+    endDate: formatUtcDate(now),
+  };
+  const historical = state.historicalLongestStreak;
+  const longestStreak =
+    historical && historical.days >= activeStreak.days ? historical : activeStreak;
+  return { daysSince, longestStreak };
 }
 
 function toStored(incident: Incident): StoredIncident {

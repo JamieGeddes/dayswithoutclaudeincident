@@ -10,10 +10,17 @@ export interface StoredIncident {
   link: string;
 }
 
-export interface State {
-  latestIncidents: StoredIncident[];
-  longestStreakDays: number;
-  longestStreakStart: string;
-  longestStreakEnd: string;
+export interface StreakRecord {
+  days: number;
+  startDate: string;
+  endDate: string;
+}
+
+export interface SiteState {
+  lastIncident: {
+    pubDate: string;
+    concurrent: StoredIncident[];
+  };
+  historicalLongestStreak: StreakRecord | null;
   lastUpdatedAt: string;
 }
