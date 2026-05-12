@@ -1,0 +1,4367 @@
+{
+  "args": {
+    "pages": 6,
+    "dryRun": false,
+    "asof": "2026-05-12"
+  },
+  "counts": {
+    "rawTotal": 543,
+    "uniqueByCode": 543,
+    "realOutages": 482
+  },
+  "range": {
+    "earliest": "2024-12-03",
+    "latest": "2026-05-09"
+  },
+  "computedStreak": {
+    "days": 14,
+    "startDate": "2025-12-23",
+    "endDate": "2026-01-06"
+  },
+  "existingStreak": null,
+  "mergedStreak": {
+    "days": 14,
+    "startDate": "2025-12-23",
+    "endDate": "2026-01-06"
+  },
+  "incidents": [
+    {
+      "code": "vyh6hw9q7glg",
+      "name": "Claude.ai and Console experiencing increased latency and intermittent unavailability",
+      "impact": "minor",
+      "pubDate": "2024-12-03",
+      "month": "December 2024",
+      "page": 6,
+      "link": "https://status.claude.com/incidents/vyh6hw9q7glg"
+    },
+    {
+      "code": "s9yk4l23th4d",
+      "name": "Elevated error rates and latency on requests to the Anthropic API",
+      "impact": "major",
+      "pubDate": "2024-12-12",
+      "month": "December 2024",
+      "page": 6,
+      "link": "https://status.claude.com/incidents/s9yk4l23th4d"
+    },
+    {
+      "code": "vz3gjb2k455l",
+      "name": "Claude 3 Opus experience degraded",
+      "impact": "minor",
+      "pubDate": "2024-12-14",
+      "month": "December 2024",
+      "page": 6,
+      "link": "https://status.claude.com/incidents/vz3gjb2k455l"
+    },
+    {
+      "code": "441srscwpqfm",
+      "name": "Elevated errors for requests to Claude 3.5 Sonnet",
+      "impact": "minor",
+      "pubDate": "2024-12-14",
+      "month": "December 2024",
+      "page": 6,
+      "link": "https://status.claude.com/incidents/441srscwpqfm"
+    },
+    {
+      "code": "16z0qdmy3qv2",
+      "name": "[Scheduled] Scheduled maintenance for Claude.ai and Anthropic Console",
+      "impact": "maintenance",
+      "pubDate": "2024-12-15",
+      "month": "December 2024",
+      "page": 6,
+      "link": "https://status.claude.com/incidents/16z0qdmy3qv2"
+    },
+    {
+      "code": "4tmfb76h9mpz",
+      "name": "Elevated errors for requests to Claude 3.0 Opus and Claude 3.5 Sonnet",
+      "impact": "major",
+      "pubDate": "2024-12-20",
+      "month": "December 2024",
+      "page": 6,
+      "link": "https://status.claude.com/incidents/4tmfb76h9mpz"
+    },
+    {
+      "code": "gskh67r0t1d0",
+      "name": "Elevated error rate on Claude 3 Opus",
+      "impact": "major",
+      "pubDate": "2024-12-30",
+      "month": "December 2024",
+      "page": 6,
+      "link": "https://status.claude.com/incidents/gskh67r0t1d0"
+    },
+    {
+      "code": "ggbfnd4p0xdg",
+      "name": "Elevated error rate on Claude 3 Opus",
+      "impact": "major",
+      "pubDate": "2025-01-01",
+      "month": "January 2025",
+      "page": 6,
+      "link": "https://status.claude.com/incidents/ggbfnd4p0xdg"
+    },
+    {
+      "code": "g65k3tpgpy25",
+      "name": "Elevated errors for requests to Claude 3.5 Sonnet",
+      "impact": "major",
+      "pubDate": "2025-01-04",
+      "month": "January 2025",
+      "page": 6,
+      "link": "https://status.claude.com/incidents/g65k3tpgpy25"
+    },
+    {
+      "code": "l1sqnkrln45l",
+      "name": "Elevated errors for requests to Claude 3.5 Sonnet",
+      "impact": "major",
+      "pubDate": "2025-01-04",
+      "month": "January 2025",
+      "page": 6,
+      "link": "https://status.claude.com/incidents/l1sqnkrln45l"
+    },
+    {
+      "code": "4ms2y7qmf4yn",
+      "name": "Elevated errors for requests to Claude 3.5 Sonnet",
+      "impact": "major",
+      "pubDate": "2025-01-04",
+      "month": "January 2025",
+      "page": 6,
+      "link": "https://status.claude.com/incidents/4ms2y7qmf4yn"
+    },
+    {
+      "code": "fwj5yn2lmbrc",
+      "name": "Elevated errors on the API",
+      "impact": "major",
+      "pubDate": "2025-01-09",
+      "month": "January 2025",
+      "page": 6,
+      "link": "https://status.claude.com/incidents/fwj5yn2lmbrc"
+    },
+    {
+      "code": "lhr41x13htg5",
+      "name": "Issues reaching Claude.ai",
+      "impact": "critical",
+      "pubDate": "2025-01-10",
+      "month": "January 2025",
+      "page": 6,
+      "link": "https://status.claude.com/incidents/lhr41x13htg5"
+    },
+    {
+      "code": "c0qf6mc10gxl",
+      "name": "Elevated errors for requests to Claude 3.5 Sonnet",
+      "impact": "major",
+      "pubDate": "2025-01-14",
+      "month": "January 2025",
+      "page": 6,
+      "link": "https://status.claude.com/incidents/c0qf6mc10gxl"
+    },
+    {
+      "code": "l0mrg9fmgb0t",
+      "name": "Elevated error rate on Claude 3 Opus",
+      "impact": "major",
+      "pubDate": "2025-01-26",
+      "month": "January 2025",
+      "page": 6,
+      "link": "https://status.claude.com/incidents/l0mrg9fmgb0t"
+    },
+    {
+      "code": "3170lkhmkxr4",
+      "name": "Elevated errors on Claude 3 Haiku",
+      "impact": "major",
+      "pubDate": "2025-01-29",
+      "month": "January 2025",
+      "page": 6,
+      "link": "https://status.claude.com/incidents/3170lkhmkxr4"
+    },
+    {
+      "code": "pfgpvxynhgzk",
+      "name": "Errors when logging into Claude.ai and Console.anthropic.com",
+      "impact": "major",
+      "pubDate": "2025-01-30",
+      "month": "January 2025",
+      "page": 6,
+      "link": "https://status.claude.com/incidents/pfgpvxynhgzk"
+    },
+    {
+      "code": "sjr504wj83v4",
+      "name": "Elevated errors for requests to Claude 3.5 Sonnet",
+      "impact": "major",
+      "pubDate": "2025-01-31",
+      "month": "January 2025",
+      "page": 6,
+      "link": "https://status.claude.com/incidents/sjr504wj83v4"
+    },
+    {
+      "code": "wz8k6v47yx6h",
+      "name": "Elevated Error Rates on Claude.ai",
+      "impact": "major",
+      "pubDate": "2025-02-04",
+      "month": "February 2025",
+      "page": 6,
+      "link": "https://status.claude.com/incidents/wz8k6v47yx6h"
+    },
+    {
+      "code": "cjszzv2qhzc3",
+      "name": "Elevated errors for requests to Claude 3 Opus and Claude 3.5 Sonnet",
+      "impact": "major",
+      "pubDate": "2025-02-06",
+      "month": "February 2025",
+      "page": 6,
+      "link": "https://status.claude.com/incidents/cjszzv2qhzc3"
+    },
+    {
+      "code": "n4vh4f52jj3q",
+      "name": "Elevated error rates on Claude 3 Sonnet",
+      "impact": "major",
+      "pubDate": "2025-02-12",
+      "month": "February 2025",
+      "page": 6,
+      "link": "https://status.claude.com/incidents/n4vh4f52jj3q"
+    },
+    {
+      "code": "5v43ysbz3wqv",
+      "name": "Elevated latency on the Anthropic API",
+      "impact": "minor",
+      "pubDate": "2025-02-19",
+      "month": "February 2025",
+      "page": 6,
+      "link": "https://status.claude.com/incidents/5v43ysbz3wqv"
+    },
+    {
+      "code": "llfcyhh14yj5",
+      "name": "Elevated errors for requests to Claude 3.5 Sonnet",
+      "impact": "major",
+      "pubDate": "2025-02-20",
+      "month": "February 2025",
+      "page": 6,
+      "link": "https://status.claude.com/incidents/llfcyhh14yj5"
+    },
+    {
+      "code": "jgc8x3p3r0k9",
+      "name": "Elevated errors for requests to Claude 3.5 Sonnet",
+      "impact": "minor",
+      "pubDate": "2025-02-22",
+      "month": "February 2025",
+      "page": 6,
+      "link": "https://status.claude.com/incidents/jgc8x3p3r0k9"
+    },
+    {
+      "code": "1nhrshm6nfh1",
+      "name": "Elevated errors for requests to Claude 3.5 Sonnet",
+      "impact": "minor",
+      "pubDate": "2025-02-22",
+      "month": "February 2025",
+      "page": 6,
+      "link": "https://status.claude.com/incidents/1nhrshm6nfh1"
+    },
+    {
+      "code": "5xlbl3p5p1cq",
+      "name": "Elevated errors for requests to Claude 3.5 Sonnet",
+      "impact": "minor",
+      "pubDate": "2025-02-23",
+      "month": "February 2025",
+      "page": 6,
+      "link": "https://status.claude.com/incidents/5xlbl3p5p1cq"
+    },
+    {
+      "code": "8p6qlzh5rf12",
+      "name": "Elevated errors for requests to Claude 3.5 Sonnet and Haiku 3",
+      "impact": "minor",
+      "pubDate": "2025-02-23",
+      "month": "February 2025",
+      "page": 6,
+      "link": "https://status.claude.com/incidents/8p6qlzh5rf12"
+    },
+    {
+      "code": "1gw39bglyd46",
+      "name": "Elevated errors for requests to Claude 3 Sonnet",
+      "impact": "minor",
+      "pubDate": "2025-02-24",
+      "month": "February 2025",
+      "page": 6,
+      "link": "https://status.claude.com/incidents/1gw39bglyd46"
+    },
+    {
+      "code": "srmd7xkhwwc3",
+      "name": "Elevated errors for requests to Claude 3.5 June Sonnet",
+      "impact": "minor",
+      "pubDate": "2025-02-25",
+      "month": "February 2025",
+      "page": 6,
+      "link": "https://status.claude.com/incidents/srmd7xkhwwc3"
+    },
+    {
+      "code": "1bts181gkpqb",
+      "name": "Elevated errors for requests to Claude 3 Opus",
+      "impact": "minor",
+      "pubDate": "2025-02-25",
+      "month": "February 2025",
+      "page": 6,
+      "link": "https://status.claude.com/incidents/1bts181gkpqb"
+    },
+    {
+      "code": "4ldh30qsssyj",
+      "name": "Elevated errors for requests to Claude 3.7 Sonnet",
+      "impact": "major",
+      "pubDate": "2025-02-26",
+      "month": "February 2025",
+      "page": 6,
+      "link": "https://status.claude.com/incidents/4ldh30qsssyj"
+    },
+    {
+      "code": "mcxhr6vgx04f",
+      "name": "Elevated errors for requests to Claude 3.5 Sonnet 0620",
+      "impact": "major",
+      "pubDate": "2025-02-27",
+      "month": "February 2025",
+      "page": 6,
+      "link": "https://status.claude.com/incidents/mcxhr6vgx04f"
+    },
+    {
+      "code": "fb7k3dl40tb3",
+      "name": "Claude.ai chats appearing out of chronological order",
+      "impact": "minor",
+      "pubDate": "2025-02-27",
+      "month": "February 2025",
+      "page": 6,
+      "link": "https://status.claude.com/incidents/fb7k3dl40tb3"
+    },
+    {
+      "code": "rn2c7dsbt0ff",
+      "name": "Errors while attempting to log into Claude.ai and the Anthropic Console",
+      "impact": "major",
+      "pubDate": "2025-02-28",
+      "month": "February 2025",
+      "page": 6,
+      "link": "https://status.claude.com/incidents/rn2c7dsbt0ff"
+    },
+    {
+      "code": "yk3jn3bl942r",
+      "name": "Elevated errors on on requests",
+      "impact": "critical",
+      "pubDate": "2025-03-04",
+      "month": "March 2025",
+      "page": 5,
+      "link": "https://status.claude.com/incidents/yk3jn3bl942r"
+    },
+    {
+      "code": "df4bx4y5xqty",
+      "name": "Elevated errors on requests to Claude Sonnet 3.7 and June Sonnet 3.5",
+      "impact": "minor",
+      "pubDate": "2025-03-05",
+      "month": "March 2025",
+      "page": 5,
+      "link": "https://status.claude.com/incidents/df4bx4y5xqty"
+    },
+    {
+      "code": "6gxsjy68mpvk",
+      "name": "Elevated latency and errors on Claude.ai and the Anthropic Console",
+      "impact": "major",
+      "pubDate": "2025-03-13",
+      "month": "March 2025",
+      "page": 5,
+      "link": "https://status.claude.com/incidents/6gxsjy68mpvk"
+    },
+    {
+      "code": "qtxnlg9yrwqv",
+      "name": "Elevated errors for requests to Claude 3.7 Sonnet",
+      "impact": "critical",
+      "pubDate": "2025-03-14",
+      "month": "March 2025",
+      "page": 5,
+      "link": "https://status.claude.com/incidents/qtxnlg9yrwqv"
+    },
+    {
+      "code": "1xf9bwll30ch",
+      "name": "Elevated errors for requests to Claude 3.5 Sonnet",
+      "impact": "minor",
+      "pubDate": "2025-03-17",
+      "month": "March 2025",
+      "page": 5,
+      "link": "https://status.claude.com/incidents/1xf9bwll30ch"
+    },
+    {
+      "code": "3j3zbrx1cfbt",
+      "name": "Claude.ai, Console, and API not available",
+      "impact": "critical",
+      "pubDate": "2025-03-18",
+      "month": "March 2025",
+      "page": 5,
+      "link": "https://status.claude.com/incidents/3j3zbrx1cfbt"
+    },
+    {
+      "code": "rjjg3fzd2spp",
+      "name": "Claude.ai, Console, and API not available",
+      "impact": "critical",
+      "pubDate": "2025-03-18",
+      "month": "March 2025",
+      "page": 5,
+      "link": "https://status.claude.com/incidents/rjjg3fzd2spp"
+    },
+    {
+      "code": "gszhv0dsfkf7",
+      "name": "Elevated errors for requests to Claude 3.5 Sonnet",
+      "impact": "minor",
+      "pubDate": "2025-03-19",
+      "month": "March 2025",
+      "page": 5,
+      "link": "https://status.claude.com/incidents/gszhv0dsfkf7"
+    },
+    {
+      "code": "5h3zvkvlqhnj",
+      "name": "Errors for users on Claude.ai with a connected Github account",
+      "impact": "minor",
+      "pubDate": "2025-03-20",
+      "month": "March 2025",
+      "page": 5,
+      "link": "https://status.claude.com/incidents/5h3zvkvlqhnj"
+    },
+    {
+      "code": "mqxbmckr6bbx",
+      "name": "Elevated errors for Claude.ai, Console, and the Anthropic API",
+      "impact": "critical",
+      "pubDate": "2025-03-24",
+      "month": "March 2025",
+      "page": 5,
+      "link": "https://status.claude.com/incidents/mqxbmckr6bbx"
+    },
+    {
+      "code": "thhxckx9srjr",
+      "name": "Elevated errors for Claude.ai, Console, and the Anthropic API",
+      "impact": "minor",
+      "pubDate": "2025-03-25",
+      "month": "March 2025",
+      "page": 5,
+      "link": "https://status.claude.com/incidents/thhxckx9srjr"
+    },
+    {
+      "code": "89rpts2022hs",
+      "name": "Elevated errors on Claude.ai and Console",
+      "impact": "major",
+      "pubDate": "2025-03-25",
+      "month": "March 2025",
+      "page": 5,
+      "link": "https://status.claude.com/incidents/89rpts2022hs"
+    },
+    {
+      "code": "bttrz8tknckh",
+      "name": "Elevated errors on requests to models",
+      "impact": "major",
+      "pubDate": "2025-03-26",
+      "month": "March 2025",
+      "page": 5,
+      "link": "https://status.claude.com/incidents/bttrz8tknckh"
+    },
+    {
+      "code": "z6gps04fyb80",
+      "name": "Elevated errors on requests to some models",
+      "impact": "major",
+      "pubDate": "2025-03-26",
+      "month": "March 2025",
+      "page": 5,
+      "link": "https://status.claude.com/incidents/z6gps04fyb80"
+    },
+    {
+      "code": "z6czsz9vr4tw",
+      "name": "Elevated errors for requests to all models",
+      "impact": "critical",
+      "pubDate": "2025-03-29",
+      "month": "March 2025",
+      "page": 5,
+      "link": "https://status.claude.com/incidents/z6czsz9vr4tw"
+    },
+    {
+      "code": "r20t009skp4b",
+      "name": "Errors loading Claude.ai and Console",
+      "impact": "critical",
+      "pubDate": "2025-03-29",
+      "month": "March 2025",
+      "page": 5,
+      "link": "https://status.claude.com/incidents/r20t009skp4b"
+    },
+    {
+      "code": "9b9fkz2vcglz",
+      "name": "Claude.ai projects not loading",
+      "impact": "minor",
+      "pubDate": "2025-03-29",
+      "month": "March 2025",
+      "page": 5,
+      "link": "https://status.claude.com/incidents/9b9fkz2vcglz"
+    },
+    {
+      "code": "rv4qtngkcdny",
+      "name": "Elevated errors on Claude.ai and the Anthropic Console",
+      "impact": "major",
+      "pubDate": "2025-03-31",
+      "month": "March 2025",
+      "page": 5,
+      "link": "https://status.claude.com/incidents/rv4qtngkcdny"
+    },
+    {
+      "code": "s0c6w5gmlcq3",
+      "name": "Elevated Errors On API And Claude.ai",
+      "impact": "critical",
+      "pubDate": "2025-04-03",
+      "month": "April 2025",
+      "page": 5,
+      "link": "https://status.claude.com/incidents/s0c6w5gmlcq3"
+    },
+    {
+      "code": "mbg5kmfdf9f3",
+      "name": "Elevated Errors on API",
+      "impact": "minor",
+      "pubDate": "2025-04-03",
+      "month": "April 2025",
+      "page": 5,
+      "link": "https://status.claude.com/incidents/mbg5kmfdf9f3"
+    },
+    {
+      "code": "rhfx81818lc6",
+      "name": "Elevated errors on long context requests to Claude 3.7 Sonnet",
+      "impact": "minor",
+      "pubDate": "2025-04-04",
+      "month": "April 2025",
+      "page": 5,
+      "link": "https://status.claude.com/incidents/rhfx81818lc6"
+    },
+    {
+      "code": "fclxn2pwqn8j",
+      "name": "Claude Performance Is Degraded",
+      "impact": "minor",
+      "pubDate": "2025-04-08",
+      "month": "April 2025",
+      "page": 5,
+      "link": "https://status.claude.com/incidents/fclxn2pwqn8j"
+    },
+    {
+      "code": "spntkr42n4w3",
+      "name": "Elevated errors on requests to Claude 3.5 and 3.7 Sonnet",
+      "impact": "minor",
+      "pubDate": "2025-04-09",
+      "month": "April 2025",
+      "page": 5,
+      "link": "https://status.claude.com/incidents/spntkr42n4w3"
+    },
+    {
+      "code": "qdlhmy9q4x0r",
+      "name": "Issues when using Claude 3.5 Haiku with vision",
+      "impact": "major",
+      "pubDate": "2025-04-10",
+      "month": "April 2025",
+      "page": 5,
+      "link": "https://status.claude.com/incidents/qdlhmy9q4x0r"
+    },
+    {
+      "code": "ph7sjqql097d",
+      "name": "Elevated errors on Claude 3.7 Sonnet",
+      "impact": "major",
+      "pubDate": "2025-04-10",
+      "month": "April 2025",
+      "page": 5,
+      "link": "https://status.claude.com/incidents/ph7sjqql097d"
+    },
+    {
+      "code": "k040wzt12klf",
+      "name": "Elevated errors on Claude 3.7 Sonnet",
+      "impact": "major",
+      "pubDate": "2025-04-10",
+      "month": "April 2025",
+      "page": 5,
+      "link": "https://status.claude.com/incidents/k040wzt12klf"
+    },
+    {
+      "code": "qfxhg9whwb42",
+      "name": "Claude 3.7 Sonnet partially degraded",
+      "impact": "minor",
+      "pubDate": "2025-04-14",
+      "month": "April 2025",
+      "page": 5,
+      "link": "https://status.claude.com/incidents/qfxhg9whwb42"
+    },
+    {
+      "code": "xwwsww5bh28p",
+      "name": "Elevated errors on Claude 3.7 Sonnet",
+      "impact": "major",
+      "pubDate": "2025-04-14",
+      "month": "April 2025",
+      "page": 5,
+      "link": "https://status.claude.com/incidents/xwwsww5bh28p"
+    },
+    {
+      "code": "xmb4k7ffxlph",
+      "name": "Elevated errors on request to models",
+      "impact": "major",
+      "pubDate": "2025-04-15",
+      "month": "April 2025",
+      "page": 5,
+      "link": "https://status.claude.com/incidents/xmb4k7ffxlph"
+    },
+    {
+      "code": "07dnz5xx1qyc",
+      "name": "Issues logging into Claude.ai",
+      "impact": "major",
+      "pubDate": "2025-04-15",
+      "month": "April 2025",
+      "page": 5,
+      "link": "https://status.claude.com/incidents/07dnz5xx1qyc"
+    },
+    {
+      "code": "bc64bfk6960k",
+      "name": "Elevated errors on requests to Claude 3.7 and 3.5 Sonnet",
+      "impact": "major",
+      "pubDate": "2025-04-16",
+      "month": "April 2025",
+      "page": 5,
+      "link": "https://status.claude.com/incidents/bc64bfk6960k"
+    },
+    {
+      "code": "8005b4frtx36",
+      "name": "Elevated errors on Claude 3 Haiku",
+      "impact": "major",
+      "pubDate": "2025-04-16",
+      "month": "April 2025",
+      "page": 5,
+      "link": "https://status.claude.com/incidents/8005b4frtx36"
+    },
+    {
+      "code": "0rtjp0b3m81w",
+      "name": "Elevated errors on Claude 3.7 Sonnet",
+      "impact": "major",
+      "pubDate": "2025-04-17",
+      "month": "April 2025",
+      "page": 5,
+      "link": "https://status.claude.com/incidents/0rtjp0b3m81w"
+    },
+    {
+      "code": "knvc7pysrw63",
+      "name": "Elevated errors on Claude 3.7 Sonnet",
+      "impact": "major",
+      "pubDate": "2025-04-17",
+      "month": "April 2025",
+      "page": 5,
+      "link": "https://status.claude.com/incidents/knvc7pysrw63"
+    },
+    {
+      "code": "995w50nq8mjv",
+      "name": "Elevated errors on Claude 3.7 Sonnet",
+      "impact": "major",
+      "pubDate": "2025-04-22",
+      "month": "April 2025",
+      "page": 5,
+      "link": "https://status.claude.com/incidents/995w50nq8mjv"
+    },
+    {
+      "code": "tj6hdb2p1nw0",
+      "name": "Elevated errors on Claude 3.5 Haiku",
+      "impact": "major",
+      "pubDate": "2025-04-22",
+      "month": "April 2025",
+      "page": 5,
+      "link": "https://status.claude.com/incidents/tj6hdb2p1nw0"
+    },
+    {
+      "code": "4k2sdlqpgzsq",
+      "name": "Issues with receiving magic links when logging into Claude.ai or the Anthropic Console",
+      "impact": "minor",
+      "pubDate": "2025-04-23",
+      "month": "April 2025",
+      "page": 5,
+      "link": "https://status.claude.com/incidents/4k2sdlqpgzsq"
+    },
+    {
+      "code": "qnjg0bnpvzyy",
+      "name": "Elevated errors on request to models",
+      "impact": "minor",
+      "pubDate": "2025-04-25",
+      "month": "April 2025",
+      "page": 5,
+      "link": "https://status.claude.com/incidents/qnjg0bnpvzyy"
+    },
+    {
+      "code": "hbmhhjc2d558",
+      "name": "Elevated errors on request to models",
+      "impact": "major",
+      "pubDate": "2025-04-26",
+      "month": "April 2025",
+      "page": 5,
+      "link": "https://status.claude.com/incidents/hbmhhjc2d558"
+    },
+    {
+      "code": "jkt3bn6f7fgg",
+      "name": "Elevated errors on requests to October Claude 3.5 Sonnet and 3.7 Sonnet",
+      "impact": "major",
+      "pubDate": "2025-04-29",
+      "month": "April 2025",
+      "page": 5,
+      "link": "https://status.claude.com/incidents/jkt3bn6f7fgg"
+    },
+    {
+      "code": "th916r7yfg00",
+      "name": "Elevated errors on Claude 3.7 Sonnet",
+      "impact": "major",
+      "pubDate": "2025-04-29",
+      "month": "April 2025",
+      "page": 5,
+      "link": "https://status.claude.com/incidents/th916r7yfg00"
+    },
+    {
+      "code": "bktpjrm292p3",
+      "name": "Elevated errors on Claude 3.7 Sonnet",
+      "impact": "major",
+      "pubDate": "2025-04-29",
+      "month": "April 2025",
+      "page": 5,
+      "link": "https://status.claude.com/incidents/bktpjrm292p3"
+    },
+    {
+      "code": "nchdhw4rmpd2",
+      "name": "Elevated errors for Claude.ai free users using 3.7 Sonnet",
+      "impact": "minor",
+      "pubDate": "2025-04-30",
+      "month": "April 2025",
+      "page": 5,
+      "link": "https://status.claude.com/incidents/nchdhw4rmpd2"
+    },
+    {
+      "code": "lmqxmqm67y81",
+      "name": "Elevated errors on Claude 3 Opus",
+      "impact": "major",
+      "pubDate": "2025-05-02",
+      "month": "May 2025",
+      "page": 5,
+      "link": "https://status.claude.com/incidents/lmqxmqm67y81"
+    },
+    {
+      "code": "rv4zh0hpkm9w",
+      "name": "Elevated Errors on Haiku 3.5",
+      "impact": "minor",
+      "pubDate": "2025-05-03",
+      "month": "May 2025",
+      "page": 5,
+      "link": "https://status.claude.com/incidents/rv4zh0hpkm9w"
+    },
+    {
+      "code": "vgdh8f4m5851",
+      "name": "Elevated errors on Claude 3.7 Sonnet",
+      "impact": "minor",
+      "pubDate": "2025-05-06",
+      "month": "May 2025",
+      "page": 5,
+      "link": "https://status.claude.com/incidents/vgdh8f4m5851"
+    },
+    {
+      "code": "6tf363t3jg7j",
+      "name": "Elevated errors for requests to Claude 3 Sonnet",
+      "impact": "minor",
+      "pubDate": "2025-05-07",
+      "month": "May 2025",
+      "page": 5,
+      "link": "https://status.claude.com/incidents/6tf363t3jg7j"
+    },
+    {
+      "code": "y2dry64545ng",
+      "name": "Elevated errors on Claude 3.7 Sonnet",
+      "impact": "minor",
+      "pubDate": "2025-05-07",
+      "month": "May 2025",
+      "page": 5,
+      "link": "https://status.claude.com/incidents/y2dry64545ng"
+    },
+    {
+      "code": "cdc4w6l8d7q8",
+      "name": "Elevated errors for requests to Claude 3.5 Sonnet",
+      "impact": "minor",
+      "pubDate": "2025-05-08",
+      "month": "May 2025",
+      "page": 5,
+      "link": "https://status.claude.com/incidents/cdc4w6l8d7q8"
+    },
+    {
+      "code": "w8t96mbsnztr",
+      "name": "Elevated errors for requests to Claude 3.5 Haiku",
+      "impact": "minor",
+      "pubDate": "2025-05-08",
+      "month": "May 2025",
+      "page": 5,
+      "link": "https://status.claude.com/incidents/w8t96mbsnztr"
+    },
+    {
+      "code": "thplgp0flkgb",
+      "name": "Elevated errors for requests to Claude 3.5 Haiku",
+      "impact": "minor",
+      "pubDate": "2025-05-08",
+      "month": "May 2025",
+      "page": 5,
+      "link": "https://status.claude.com/incidents/thplgp0flkgb"
+    },
+    {
+      "code": "926d2gm87s8c",
+      "name": "Elevated errors on Research",
+      "impact": "major",
+      "pubDate": "2025-05-09",
+      "month": "May 2025",
+      "page": 5,
+      "link": "https://status.claude.com/incidents/926d2gm87s8c"
+    },
+    {
+      "code": "2hm7q2m6pvsh",
+      "name": "Elevated errors for requests to Claude 3.5 Haiku",
+      "impact": "major",
+      "pubDate": "2025-05-09",
+      "month": "May 2025",
+      "page": 5,
+      "link": "https://status.claude.com/incidents/2hm7q2m6pvsh"
+    },
+    {
+      "code": "8sv8clyygfy3",
+      "name": "Elevated errors for Haiku 3 and Haiku 3.5",
+      "impact": "major",
+      "pubDate": "2025-05-09",
+      "month": "May 2025",
+      "page": 5,
+      "link": "https://status.claude.com/incidents/8sv8clyygfy3"
+    },
+    {
+      "code": "lqg3ddnqt3nq",
+      "name": "Errors when attempting to purchase API credits",
+      "impact": "minor",
+      "pubDate": "2025-05-10",
+      "month": "May 2025",
+      "page": 5,
+      "link": "https://status.claude.com/incidents/lqg3ddnqt3nq"
+    },
+    {
+      "code": "j080x9g1v5pw",
+      "name": "Elevated errors in the API",
+      "impact": "major",
+      "pubDate": "2025-05-10",
+      "month": "May 2025",
+      "page": 5,
+      "link": "https://status.claude.com/incidents/j080x9g1v5pw"
+    },
+    {
+      "code": "5ww9gdw94j3c",
+      "name": "Elevated errors on Claude.ai and the Anthropic Console",
+      "impact": "critical",
+      "pubDate": "2025-05-12",
+      "month": "May 2025",
+      "page": 5,
+      "link": "https://status.claude.com/incidents/5ww9gdw94j3c"
+    },
+    {
+      "code": "rw3gjsvcny0l",
+      "name": "Elevated 500 Internal Server Errors for API and Claude.ai",
+      "impact": "major",
+      "pubDate": "2025-05-12",
+      "month": "May 2025",
+      "page": 5,
+      "link": "https://status.claude.com/incidents/rw3gjsvcny0l"
+    },
+    {
+      "code": "93w8n3p2wp2w",
+      "name": "Elevated errors for requests to Claude 3.7 Sonnet",
+      "impact": "minor",
+      "pubDate": "2025-05-12",
+      "month": "May 2025",
+      "page": 5,
+      "link": "https://status.claude.com/incidents/93w8n3p2wp2w"
+    },
+    {
+      "code": "5ltb4qbr0l6l",
+      "name": "Errors when logging into Claude.ai",
+      "impact": "major",
+      "pubDate": "2025-05-13",
+      "month": "May 2025",
+      "page": 5,
+      "link": "https://status.claude.com/incidents/5ltb4qbr0l6l"
+    },
+    {
+      "code": "4yf3jnc1ls9h",
+      "name": "Elevated errors on long context requests with Claude for Enterprise",
+      "impact": "minor",
+      "pubDate": "2025-05-15",
+      "month": "May 2025",
+      "page": 5,
+      "link": "https://status.claude.com/incidents/4yf3jnc1ls9h"
+    },
+    {
+      "code": "6cs7987b0rkh",
+      "name": "Elevated errors when attempting to purchase API credits",
+      "impact": "minor",
+      "pubDate": "2025-05-17",
+      "month": "May 2025",
+      "page": 5,
+      "link": "https://status.claude.com/incidents/6cs7987b0rkh"
+    },
+    {
+      "code": "v4b1tfthxmxn",
+      "name": "Elevated errors for web search requests on API",
+      "impact": "major",
+      "pubDate": "2025-05-18",
+      "month": "May 2025",
+      "page": 5,
+      "link": "https://status.claude.com/incidents/v4b1tfthxmxn"
+    },
+    {
+      "code": "zbjx86j1mg7s",
+      "name": "Elevated errors on requests to some models",
+      "impact": "major",
+      "pubDate": "2025-05-21",
+      "month": "May 2025",
+      "page": 5,
+      "link": "https://status.claude.com/incidents/zbjx86j1mg7s"
+    },
+    {
+      "code": "kknx3x153yhp",
+      "name": "Elevated errors on requests to some models",
+      "impact": "major",
+      "pubDate": "2025-05-21",
+      "month": "May 2025",
+      "page": 5,
+      "link": "https://status.claude.com/incidents/kknx3x153yhp"
+    },
+    {
+      "code": "5mjbw9649jrd",
+      "name": "MCP tool calling issues for Advanced Research queries in Claude.ai",
+      "impact": "major",
+      "pubDate": "2025-05-21",
+      "month": "May 2025",
+      "page": 5,
+      "link": "https://status.claude.com/incidents/5mjbw9649jrd"
+    },
+    {
+      "code": "5xj7vrg9y21k",
+      "name": "Elevated errors on requests to some models",
+      "impact": "major",
+      "pubDate": "2025-05-21",
+      "month": "May 2025",
+      "page": 5,
+      "link": "https://status.claude.com/incidents/5xj7vrg9y21k"
+    },
+    {
+      "code": "mmk2nx0mc4ph",
+      "name": "Elevated errors across many models",
+      "impact": "major",
+      "pubDate": "2025-05-21",
+      "month": "May 2025",
+      "page": 5,
+      "link": "https://status.claude.com/incidents/mmk2nx0mc4ph"
+    },
+    {
+      "code": "6kgk2l0kzdkh",
+      "name": "Elevated errors on tool use for Claude Code on Opus 4",
+      "impact": "minor",
+      "pubDate": "2025-05-22",
+      "month": "May 2025",
+      "page": 5,
+      "link": "https://status.claude.com/incidents/6kgk2l0kzdkh"
+    },
+    {
+      "code": "r9yw4d0dxc27",
+      "name": "Errors with images on Claude.ai conversations with Claude Sonnet 4",
+      "impact": "minor",
+      "pubDate": "2025-05-22",
+      "month": "May 2025",
+      "page": 5,
+      "link": "https://status.claude.com/incidents/r9yw4d0dxc27"
+    },
+    {
+      "code": "ppkynb6d77s7",
+      "name": "Elevated errors on Claude Sonnet 4",
+      "impact": "minor",
+      "pubDate": "2025-05-23",
+      "month": "May 2025",
+      "page": 5,
+      "link": "https://status.claude.com/incidents/ppkynb6d77s7"
+    },
+    {
+      "code": "z8vp0ysl8j7k",
+      "name": "Elevated errors with code execution tools",
+      "impact": "minor",
+      "pubDate": "2025-05-26",
+      "month": "May 2025",
+      "page": 5,
+      "link": "https://status.claude.com/incidents/z8vp0ysl8j7k"
+    },
+    {
+      "code": "0ptr6m8tx2xy",
+      "name": "Elevated errors for requests to Claude 4 Opus",
+      "impact": "minor",
+      "pubDate": "2025-05-26",
+      "month": "May 2025",
+      "page": 5,
+      "link": "https://status.claude.com/incidents/0ptr6m8tx2xy"
+    },
+    {
+      "code": "ycnp1ygrywxw",
+      "name": "Elevated errors for requests to Claude 4 Opus",
+      "impact": "minor",
+      "pubDate": "2025-05-26",
+      "month": "May 2025",
+      "page": 5,
+      "link": "https://status.claude.com/incidents/ycnp1ygrywxw"
+    },
+    {
+      "code": "kr7vv24cr0sn",
+      "name": "Claude.ai and console.anthropic.com down",
+      "impact": "critical",
+      "pubDate": "2025-05-27",
+      "month": "May 2025",
+      "page": 5,
+      "link": "https://status.claude.com/incidents/kr7vv24cr0sn"
+    },
+    {
+      "code": "1w83wpml7m9y",
+      "name": "Elevated errors on Claude Sonnet 4 for Claude.ai",
+      "impact": "minor",
+      "pubDate": "2025-05-29",
+      "month": "May 2025",
+      "page": 5,
+      "link": "https://status.claude.com/incidents/1w83wpml7m9y"
+    },
+    {
+      "code": "n25v00vhjswf",
+      "name": "Elevated errors on requests to Claude Sonnet 3.7 and 4",
+      "impact": "minor",
+      "pubDate": "2025-06-02",
+      "month": "June 2025",
+      "page": 4,
+      "link": "https://status.claude.com/incidents/n25v00vhjswf"
+    },
+    {
+      "code": "vgdmw7cp6xdg",
+      "name": "Request duration regression for Claude Sonnet 3.7 and 4 and Claude Opus 4",
+      "impact": "minor",
+      "pubDate": "2025-06-04",
+      "month": "June 2025",
+      "page": 4,
+      "link": "https://status.claude.com/incidents/vgdmw7cp6xdg"
+    },
+    {
+      "code": "gw6bj8mq8wbc",
+      "name": "Errors on tool use calls on Claude.ai and the Anthropic Console",
+      "impact": "minor",
+      "pubDate": "2025-06-04",
+      "month": "June 2025",
+      "page": 4,
+      "link": "https://status.claude.com/incidents/gw6bj8mq8wbc"
+    },
+    {
+      "code": "hs97xp476w3t",
+      "name": "High rate of errors across models",
+      "impact": "major",
+      "pubDate": "2025-06-06",
+      "month": "June 2025",
+      "page": 4,
+      "link": "https://status.claude.com/incidents/hs97xp476w3t"
+    },
+    {
+      "code": "b9pm5f11mdk7",
+      "name": "Claude Opus 4 errors",
+      "impact": "major",
+      "pubDate": "2025-06-07",
+      "month": "June 2025",
+      "page": 4,
+      "link": "https://status.claude.com/incidents/b9pm5f11mdk7"
+    },
+    {
+      "code": "y25lyp4q33ff",
+      "name": "Claude Opus 4 elevated error rate",
+      "impact": "major",
+      "pubDate": "2025-06-08",
+      "month": "June 2025",
+      "page": 4,
+      "link": "https://status.claude.com/incidents/y25lyp4q33ff"
+    },
+    {
+      "code": "xpkqv7g6jkpz",
+      "name": "Elevated errors on Claude Opus 4",
+      "impact": "minor",
+      "pubDate": "2025-06-09",
+      "month": "June 2025",
+      "page": 4,
+      "link": "https://status.claude.com/incidents/xpkqv7g6jkpz"
+    },
+    {
+      "code": "kn7mvrgb0c8m",
+      "name": "Elevated errors on the API, Console and Claude.ai",
+      "impact": "critical",
+      "pubDate": "2025-06-12",
+      "month": "June 2025",
+      "page": 4,
+      "link": "https://status.claude.com/incidents/kn7mvrgb0c8m"
+    },
+    {
+      "code": "jnrthmjgg0f9",
+      "name": "Elevated errors across many models",
+      "impact": "minor",
+      "pubDate": "2025-06-17",
+      "month": "June 2025",
+      "page": 4,
+      "link": "https://status.claude.com/incidents/jnrthmjgg0f9"
+    },
+    {
+      "code": "xcyqybg9fk21",
+      "name": "Elevated errors for the Claude 4 Sonnet model",
+      "impact": "minor",
+      "pubDate": "2025-06-17",
+      "month": "June 2025",
+      "page": 4,
+      "link": "https://status.claude.com/incidents/xcyqybg9fk21"
+    },
+    {
+      "code": "gvtx000s1ll6",
+      "name": "Elevated errors on Haiku 3.5",
+      "impact": "minor",
+      "pubDate": "2025-06-18",
+      "month": "June 2025",
+      "page": 4,
+      "link": "https://status.claude.com/incidents/gvtx000s1ll6"
+    },
+    {
+      "code": "h9466w330vb5",
+      "name": "Elevated errors on Claude.ai",
+      "impact": "minor",
+      "pubDate": "2025-06-18",
+      "month": "June 2025",
+      "page": 4,
+      "link": "https://status.claude.com/incidents/h9466w330vb5"
+    },
+    {
+      "code": "9f6sqhv42hk7",
+      "name": "Elevated errors on Claude 4 Sonnet",
+      "impact": "minor",
+      "pubDate": "2025-06-18",
+      "month": "June 2025",
+      "page": 4,
+      "link": "https://status.claude.com/incidents/9f6sqhv42hk7"
+    },
+    {
+      "code": "z9q35q059j62",
+      "name": "Elevated errors on Claude 3.7 Sonnet",
+      "impact": "minor",
+      "pubDate": "2025-06-22",
+      "month": "June 2025",
+      "page": 4,
+      "link": "https://status.claude.com/incidents/z9q35q059j62"
+    },
+    {
+      "code": "dz20c2lxk6y1",
+      "name": "Elevated errors on claude.ai",
+      "impact": "minor",
+      "pubDate": "2025-06-23",
+      "month": "June 2025",
+      "page": 4,
+      "link": "https://status.claude.com/incidents/dz20c2lxk6y1"
+    },
+    {
+      "code": "pgbdp3txpnsh",
+      "name": "Elevated errors on Claude Opus 4 and Claude Sonnet 3.7",
+      "impact": "minor",
+      "pubDate": "2025-06-24",
+      "month": "June 2025",
+      "page": 4,
+      "link": "https://status.claude.com/incidents/pgbdp3txpnsh"
+    },
+    {
+      "code": "m53q4sppz08f",
+      "name": "Elevated errors on Claude 4 Opus",
+      "impact": "minor",
+      "pubDate": "2025-06-25",
+      "month": "June 2025",
+      "page": 4,
+      "link": "https://status.claude.com/incidents/m53q4sppz08f"
+    },
+    {
+      "code": "tzxmjd75p7m2",
+      "name": "Elevated errors across the Haiku family of models",
+      "impact": "minor",
+      "pubDate": "2025-06-25",
+      "month": "June 2025",
+      "page": 4,
+      "link": "https://status.claude.com/incidents/tzxmjd75p7m2"
+    },
+    {
+      "code": "l82qpctbv6kj",
+      "name": "Elevated errors on request to Claude Sonnet and Opus 4",
+      "impact": "major",
+      "pubDate": "2025-07-01",
+      "month": "July 2025",
+      "page": 4,
+      "link": "https://status.claude.com/incidents/l82qpctbv6kj"
+    },
+    {
+      "code": "gnv6tpy1kq7v",
+      "name": "Elevated errors across models",
+      "impact": "minor",
+      "pubDate": "2025-07-01",
+      "month": "July 2025",
+      "page": 4,
+      "link": "https://status.claude.com/incidents/gnv6tpy1kq7v"
+    },
+    {
+      "code": "b5hgyymr5pzt",
+      "name": "Elevated errors across models",
+      "impact": "minor",
+      "pubDate": "2025-07-03",
+      "month": "July 2025",
+      "page": 4,
+      "link": "https://status.claude.com/incidents/b5hgyymr5pzt"
+    },
+    {
+      "code": "gm6zp1b5n7xv",
+      "name": "Elevated errors for Claude 4 Opus",
+      "impact": "minor",
+      "pubDate": "2025-07-03",
+      "month": "July 2025",
+      "page": 4,
+      "link": "https://status.claude.com/incidents/gm6zp1b5n7xv"
+    },
+    {
+      "code": "bkz207dqw5vl",
+      "name": "Elevated errors across Claude 3.5 Haiku",
+      "impact": "minor",
+      "pubDate": "2025-07-07",
+      "month": "July 2025",
+      "page": 4,
+      "link": "https://status.claude.com/incidents/bkz207dqw5vl"
+    },
+    {
+      "code": "yn323hqv0gz0",
+      "name": "Elevated errors on requests to multiple models",
+      "impact": "minor",
+      "pubDate": "2025-07-08",
+      "month": "July 2025",
+      "page": 4,
+      "link": "https://status.claude.com/incidents/yn323hqv0gz0"
+    },
+    {
+      "code": "qcw9tjjqff9s",
+      "name": "Elevated errors on request to Claude Sonnet 3.5",
+      "impact": "minor",
+      "pubDate": "2025-07-08",
+      "month": "July 2025",
+      "page": 4,
+      "link": "https://status.claude.com/incidents/qcw9tjjqff9s"
+    },
+    {
+      "code": "7542z654hwl8",
+      "name": "Elevated errors on Claude.ai",
+      "impact": "critical",
+      "pubDate": "2025-07-09",
+      "month": "July 2025",
+      "page": 4,
+      "link": "https://status.claude.com/incidents/7542z654hwl8"
+    },
+    {
+      "code": "n0lsx111g723",
+      "name": "Elevated errors on Opus 4",
+      "impact": "major",
+      "pubDate": "2025-07-09",
+      "month": "July 2025",
+      "page": 4,
+      "link": "https://status.claude.com/incidents/n0lsx111g723"
+    },
+    {
+      "code": "y3c69ts8vblt",
+      "name": "Elevated errors on Claude Opus 4",
+      "impact": "major",
+      "pubDate": "2025-07-09",
+      "month": "July 2025",
+      "page": 4,
+      "link": "https://status.claude.com/incidents/y3c69ts8vblt"
+    },
+    {
+      "code": "1r8z0mz8gqcz",
+      "name": "Elevated errors on Claude Opus 4",
+      "impact": "major",
+      "pubDate": "2025-07-09",
+      "month": "July 2025",
+      "page": 4,
+      "link": "https://status.claude.com/incidents/1r8z0mz8gqcz"
+    },
+    {
+      "code": "1mkrsgqcjgrw",
+      "name": "Elevated errors for requests to Claude 3.5 Sonnet",
+      "impact": "minor",
+      "pubDate": "2025-07-10",
+      "month": "July 2025",
+      "page": 4,
+      "link": "https://status.claude.com/incidents/1mkrsgqcjgrw"
+    },
+    {
+      "code": "1jgwqzj3mrly",
+      "name": "Elevated errors on Claude 3.5 Haiku",
+      "impact": "minor",
+      "pubDate": "2025-07-10",
+      "month": "July 2025",
+      "page": 4,
+      "link": "https://status.claude.com/incidents/1jgwqzj3mrly"
+    },
+    {
+      "code": "6zdp9fgkjvs2",
+      "name": "Elevated errors on Claude 4 Sonnet",
+      "impact": "minor",
+      "pubDate": "2025-07-10",
+      "month": "July 2025",
+      "page": 4,
+      "link": "https://status.claude.com/incidents/6zdp9fgkjvs2"
+    },
+    {
+      "code": "g07187pl6b6k",
+      "name": "Elevated errors on Claude 4 Sonnet",
+      "impact": "minor",
+      "pubDate": "2025-07-10",
+      "month": "July 2025",
+      "page": 4,
+      "link": "https://status.claude.com/incidents/g07187pl6b6k"
+    },
+    {
+      "code": "49p2r17qb7k9",
+      "name": "Issues with accessing claude.ai",
+      "impact": "minor",
+      "pubDate": "2025-07-10",
+      "month": "July 2025",
+      "page": 4,
+      "link": "https://status.claude.com/incidents/49p2r17qb7k9"
+    },
+    {
+      "code": "87nkdfl64gy5",
+      "name": "Elevated errors for requests to Claude 3.5 Sonnet",
+      "impact": "minor",
+      "pubDate": "2025-07-12",
+      "month": "July 2025",
+      "page": 4,
+      "link": "https://status.claude.com/incidents/87nkdfl64gy5"
+    },
+    {
+      "code": "0pvjctbfhznp",
+      "name": "Elevated errors for requests to Claude 4 Sonnet",
+      "impact": "minor",
+      "pubDate": "2025-07-15",
+      "month": "July 2025",
+      "page": 4,
+      "link": "https://status.claude.com/incidents/0pvjctbfhznp"
+    },
+    {
+      "code": "y12dtmhf1jpj",
+      "name": "Elevated errors for requests to Claude 4 Opus",
+      "impact": "minor",
+      "pubDate": "2025-07-15",
+      "month": "July 2025",
+      "page": 4,
+      "link": "https://status.claude.com/incidents/y12dtmhf1jpj"
+    },
+    {
+      "code": "06b6gqkrxk27",
+      "name": "Elevated errors for requests to Claude 4 Sonnet",
+      "impact": "minor",
+      "pubDate": "2025-07-15",
+      "month": "July 2025",
+      "page": 4,
+      "link": "https://status.claude.com/incidents/06b6gqkrxk27"
+    },
+    {
+      "code": "sd068f43jjm2",
+      "name": "Elevated errors for requests to Claude 4 Opus",
+      "impact": "minor",
+      "pubDate": "2025-07-16",
+      "month": "July 2025",
+      "page": 4,
+      "link": "https://status.claude.com/incidents/sd068f43jjm2"
+    },
+    {
+      "code": "mjskfbqc0d6h",
+      "name": "Elevated errors for requests to Sonnet models",
+      "impact": "minor",
+      "pubDate": "2025-07-16",
+      "month": "July 2025",
+      "page": 4,
+      "link": "https://status.claude.com/incidents/mjskfbqc0d6h"
+    },
+    {
+      "code": "p30zymgkqbvw",
+      "name": "Intermittent errors connecting to Claude.ai Connectors",
+      "impact": "minor",
+      "pubDate": "2025-07-17",
+      "month": "July 2025",
+      "page": 4,
+      "link": "https://status.claude.com/incidents/p30zymgkqbvw"
+    },
+    {
+      "code": "t4trmtzzdk2w",
+      "name": "Elevated errors for requests to Claude Sonnet and Opus models",
+      "impact": "critical",
+      "pubDate": "2025-07-17",
+      "month": "July 2025",
+      "page": 4,
+      "link": "https://status.claude.com/incidents/t4trmtzzdk2w"
+    },
+    {
+      "code": "nddq02nf44lg",
+      "name": "API requests stopping prematurely",
+      "impact": "major",
+      "pubDate": "2025-07-17",
+      "month": "July 2025",
+      "page": 4,
+      "link": "https://status.claude.com/incidents/nddq02nf44lg"
+    },
+    {
+      "code": "ry07p2079gwm",
+      "name": "Elevated errors for requests to Claude 4 Opus via Claude Code",
+      "impact": "major",
+      "pubDate": "2025-07-18",
+      "month": "July 2025",
+      "page": 4,
+      "link": "https://status.claude.com/incidents/ry07p2079gwm"
+    },
+    {
+      "code": "7c17v2763kwq",
+      "name": "Elevated errors for requests to Claude 4 Sonnet",
+      "impact": "minor",
+      "pubDate": "2025-07-21",
+      "month": "July 2025",
+      "page": 4,
+      "link": "https://status.claude.com/incidents/7c17v2763kwq"
+    },
+    {
+      "code": "jlty46kc6750",
+      "name": "Elevated errors on Claude Sonnet 3.5 (old)",
+      "impact": "major",
+      "pubDate": "2025-07-21",
+      "month": "July 2025",
+      "page": 4,
+      "link": "https://status.claude.com/incidents/jlty46kc6750"
+    },
+    {
+      "code": "5xh2zd6jrklj",
+      "name": "Elevated errors on Claude 4 Sonnet",
+      "impact": "critical",
+      "pubDate": "2025-07-21",
+      "month": "July 2025",
+      "page": 4,
+      "link": "https://status.claude.com/incidents/5xh2zd6jrklj"
+    },
+    {
+      "code": "s8t7ls5t5j61",
+      "name": "Elevated errors on claude.ai",
+      "impact": "major",
+      "pubDate": "2025-07-22",
+      "month": "July 2025",
+      "page": 4,
+      "link": "https://status.claude.com/incidents/s8t7ls5t5j61"
+    },
+    {
+      "code": "ld8p5rqwrslq",
+      "name": "Elevated errors on Claude Sonnet 4",
+      "impact": "major",
+      "pubDate": "2025-07-22",
+      "month": "July 2025",
+      "page": 4,
+      "link": "https://status.claude.com/incidents/ld8p5rqwrslq"
+    },
+    {
+      "code": "lg5l402bc2l4",
+      "name": "Errors on multiple Claude models",
+      "impact": "major",
+      "pubDate": "2025-07-23",
+      "month": "July 2025",
+      "page": 4,
+      "link": "https://status.claude.com/incidents/lg5l402bc2l4"
+    },
+    {
+      "code": "lpdxfyb13v75",
+      "name": "Elevated errors on Claude 4 Sonnet",
+      "impact": "minor",
+      "pubDate": "2025-07-23",
+      "month": "July 2025",
+      "page": 4,
+      "link": "https://status.claude.com/incidents/lpdxfyb13v75"
+    },
+    {
+      "code": "9px1qykyb9w4",
+      "name": "Elevated errors on Claude 4 Sonnet",
+      "impact": "major",
+      "pubDate": "2025-07-23",
+      "month": "July 2025",
+      "page": 4,
+      "link": "https://status.claude.com/incidents/9px1qykyb9w4"
+    },
+    {
+      "code": "7fqgwx96rxhc",
+      "name": "Elevated errors on Claude 4 Sonnet",
+      "impact": "minor",
+      "pubDate": "2025-07-23",
+      "month": "July 2025",
+      "page": 4,
+      "link": "https://status.claude.com/incidents/7fqgwx96rxhc"
+    },
+    {
+      "code": "lqmk1knq9r0c",
+      "name": "Elevated errors on Claude 4 Sonnet",
+      "impact": "minor",
+      "pubDate": "2025-07-23",
+      "month": "July 2025",
+      "page": 4,
+      "link": "https://status.claude.com/incidents/lqmk1knq9r0c"
+    },
+    {
+      "code": "byhrswvrg2w3",
+      "name": "Elevated errors on Claude 4 Sonnet",
+      "impact": "major",
+      "pubDate": "2025-07-25",
+      "month": "July 2025",
+      "page": 4,
+      "link": "https://status.claude.com/incidents/byhrswvrg2w3"
+    },
+    {
+      "code": "3k731gfbq4sk",
+      "name": "Elevated errors on Claude 4 Opus (affecting Claude Code)",
+      "impact": "major",
+      "pubDate": "2025-07-25",
+      "month": "July 2025",
+      "page": 4,
+      "link": "https://status.claude.com/incidents/3k731gfbq4sk"
+    },
+    {
+      "code": "hmycqrs3p2q0",
+      "name": "Elevated Errors on Sonnet and Opus 4",
+      "impact": "major",
+      "pubDate": "2025-07-25",
+      "month": "July 2025",
+      "page": 4,
+      "link": "https://status.claude.com/incidents/hmycqrs3p2q0"
+    },
+    {
+      "code": "tm5t7t243nvx",
+      "name": "Elevated 529 errors on Sonnet 4",
+      "impact": "major",
+      "pubDate": "2025-07-25",
+      "month": "July 2025",
+      "page": 4,
+      "link": "https://status.claude.com/incidents/tm5t7t243nvx"
+    },
+    {
+      "code": "xs2gph3q9851",
+      "name": "Elevated errors for requests to Claude 4 Sonnet",
+      "impact": "major",
+      "pubDate": "2025-07-29",
+      "month": "July 2025",
+      "page": 4,
+      "link": "https://status.claude.com/incidents/xs2gph3q9851"
+    },
+    {
+      "code": "95mmc9wrsfzk",
+      "name": "Elevated errors on Claude 4 Sonnet",
+      "impact": "major",
+      "pubDate": "2025-07-29",
+      "month": "July 2025",
+      "page": 4,
+      "link": "https://status.claude.com/incidents/95mmc9wrsfzk"
+    },
+    {
+      "code": "ycz6yxbwm7xn",
+      "name": "Elevated errors on Claude 4 Sonnet",
+      "impact": "minor",
+      "pubDate": "2025-07-30",
+      "month": "July 2025",
+      "page": 4,
+      "link": "https://status.claude.com/incidents/ycz6yxbwm7xn"
+    },
+    {
+      "code": "j7tpfxbrrgjg",
+      "name": "Elevated errors on Claude 4 Sonnet",
+      "impact": "minor",
+      "pubDate": "2025-08-04",
+      "month": "August 2025",
+      "page": 4,
+      "link": "https://status.claude.com/incidents/j7tpfxbrrgjg"
+    },
+    {
+      "code": "z9cg7zphqv56",
+      "name": "Elevated errors on Claude 4 Sonnet",
+      "impact": "minor",
+      "pubDate": "2025-08-04",
+      "month": "August 2025",
+      "page": 4,
+      "link": "https://status.claude.com/incidents/z9cg7zphqv56"
+    },
+    {
+      "code": "bm4ldkfylh65",
+      "name": "Elevated errors for requests to Claude 4 Sonnet",
+      "impact": "minor",
+      "pubDate": "2025-08-05",
+      "month": "August 2025",
+      "page": 4,
+      "link": "https://status.claude.com/incidents/bm4ldkfylh65"
+    },
+    {
+      "code": "jpjt6ynd3rc8",
+      "name": "Haiku 3 experiencing elevated error rates",
+      "impact": "minor",
+      "pubDate": "2025-08-05",
+      "month": "August 2025",
+      "page": 4,
+      "link": "https://status.claude.com/incidents/jpjt6ynd3rc8"
+    },
+    {
+      "code": "bh62vm741g0w",
+      "name": "Potential Errors with Claude.ai Connectors",
+      "impact": "minor",
+      "pubDate": "2025-08-07",
+      "month": "August 2025",
+      "page": 4,
+      "link": "https://status.claude.com/incidents/bh62vm741g0w"
+    },
+    {
+      "code": "s6fvv3fyqg14",
+      "name": "Elevated errors on Claude Sonnet 3.7",
+      "impact": "minor",
+      "pubDate": "2025-08-12",
+      "month": "August 2025",
+      "page": 4,
+      "link": "https://status.claude.com/incidents/s6fvv3fyqg14"
+    },
+    {
+      "code": "6r615d0rr5bg",
+      "name": "Elevated errors on Claude Sonnet 3.7",
+      "impact": "minor",
+      "pubDate": "2025-08-12",
+      "month": "August 2025",
+      "page": 4,
+      "link": "https://status.claude.com/incidents/6r615d0rr5bg"
+    },
+    {
+      "code": "g54455qwkn15",
+      "name": "Elevated errors on Claude Sonnet 3.6",
+      "impact": "minor",
+      "pubDate": "2025-08-13",
+      "month": "August 2025",
+      "page": 4,
+      "link": "https://status.claude.com/incidents/g54455qwkn15"
+    },
+    {
+      "code": "mpwx6wbxy02h",
+      "name": "Elevated errors across models",
+      "impact": "minor",
+      "pubDate": "2025-08-14",
+      "month": "August 2025",
+      "page": 4,
+      "link": "https://status.claude.com/incidents/mpwx6wbxy02h"
+    },
+    {
+      "code": "krdqz4n56w9w",
+      "name": "Claude.ai chats not saved",
+      "impact": "critical",
+      "pubDate": "2025-08-18",
+      "month": "August 2025",
+      "page": 4,
+      "link": "https://status.claude.com/incidents/krdqz4n56w9w"
+    },
+    {
+      "code": "jc6fb9rfym8z",
+      "name": "Elevated errors on Claude Sonnet 4",
+      "impact": "minor",
+      "pubDate": "2025-08-18",
+      "month": "August 2025",
+      "page": 4,
+      "link": "https://status.claude.com/incidents/jc6fb9rfym8z"
+    },
+    {
+      "code": "k78nx0chhjjr",
+      "name": "Elevated errors on Claude Opus 4.1",
+      "impact": "minor",
+      "pubDate": "2025-08-18",
+      "month": "August 2025",
+      "page": 4,
+      "link": "https://status.claude.com/incidents/k78nx0chhjjr"
+    },
+    {
+      "code": "x797ytr58vtj",
+      "name": "Team plan organizations unable to add more members",
+      "impact": "minor",
+      "pubDate": "2025-08-19",
+      "month": "August 2025",
+      "page": 4,
+      "link": "https://status.claude.com/incidents/x797ytr58vtj"
+    },
+    {
+      "code": "m1mn9q6563n4",
+      "name": "Elevated errors on Claude Opus 4.1",
+      "impact": "minor",
+      "pubDate": "2025-08-19",
+      "month": "August 2025",
+      "page": 4,
+      "link": "https://status.claude.com/incidents/m1mn9q6563n4"
+    },
+    {
+      "code": "b1960vfmcx1f",
+      "name": "Elevated errors on Claude Sonnet 4",
+      "impact": "major",
+      "pubDate": "2025-08-20",
+      "month": "August 2025",
+      "page": 4,
+      "link": "https://status.claude.com/incidents/b1960vfmcx1f"
+    },
+    {
+      "code": "fdjjpwksw6j6",
+      "name": "Elevated errors on Claude Sonnet 4",
+      "impact": "major",
+      "pubDate": "2025-08-21",
+      "month": "August 2025",
+      "page": 4,
+      "link": "https://status.claude.com/incidents/fdjjpwksw6j6"
+    },
+    {
+      "code": "zr0lqy5rpx9w",
+      "name": "Intermittent visibility issues with Google Docs in project knowledge base",
+      "impact": "major",
+      "pubDate": "2025-08-22",
+      "month": "August 2025",
+      "page": 4,
+      "link": "https://status.claude.com/incidents/zr0lqy5rpx9w"
+    },
+    {
+      "code": "6f9h6j5y7sbk",
+      "name": "Elevated errors on Claude Opus 4 and 4.1",
+      "impact": "minor",
+      "pubDate": "2025-08-22",
+      "month": "August 2025",
+      "page": 4,
+      "link": "https://status.claude.com/incidents/6f9h6j5y7sbk"
+    },
+    {
+      "code": "4nh4b5yflbws",
+      "name": "Errors starting new Claude.ai chats",
+      "impact": "major",
+      "pubDate": "2025-08-22",
+      "month": "August 2025",
+      "page": 4,
+      "link": "https://status.claude.com/incidents/4nh4b5yflbws"
+    },
+    {
+      "code": "kpwnsqfzqjht",
+      "name": "Elevated errors on Claude Opus 4",
+      "impact": "minor",
+      "pubDate": "2025-08-22",
+      "month": "August 2025",
+      "page": 4,
+      "link": "https://status.claude.com/incidents/kpwnsqfzqjht"
+    },
+    {
+      "code": "4458dg0hryqp",
+      "name": "Elevated Errors on Haiku 3.5",
+      "impact": "minor",
+      "pubDate": "2025-08-22",
+      "month": "August 2025",
+      "page": 4,
+      "link": "https://status.claude.com/incidents/4458dg0hryqp"
+    },
+    {
+      "code": "nkkfb8htq17y",
+      "name": "Errors creating chats on Claude.ai",
+      "impact": "major",
+      "pubDate": "2025-08-23",
+      "month": "August 2025",
+      "page": 4,
+      "link": "https://status.claude.com/incidents/nkkfb8htq17y"
+    },
+    {
+      "code": "k4dytzff99l6",
+      "name": "Elevated errors on Claude Sonnet 4",
+      "impact": "minor",
+      "pubDate": "2025-08-24",
+      "month": "August 2025",
+      "page": 4,
+      "link": "https://status.claude.com/incidents/k4dytzff99l6"
+    },
+    {
+      "code": "34c8pmy9lb6b",
+      "name": "Claude.ai failing to connect to certain MCP servers",
+      "impact": "minor",
+      "pubDate": "2025-08-25",
+      "month": "August 2025",
+      "page": 4,
+      "link": "https://status.claude.com/incidents/34c8pmy9lb6b"
+    },
+    {
+      "code": "0tg57dxvt4rn",
+      "name": "Elevated errors on Claude Opus 4.0",
+      "impact": "minor",
+      "pubDate": "2025-08-26",
+      "month": "August 2025",
+      "page": 4,
+      "link": "https://status.claude.com/incidents/0tg57dxvt4rn"
+    },
+    {
+      "code": "83tkklyw5nc9",
+      "name": "Elevated errors on Claude Opus 4.1",
+      "impact": "minor",
+      "pubDate": "2025-08-27",
+      "month": "August 2025",
+      "page": 4,
+      "link": "https://status.claude.com/incidents/83tkklyw5nc9"
+    },
+    {
+      "code": "873tk10bx73n",
+      "name": "Elevated errors on Claude Opus 4.1",
+      "impact": "minor",
+      "pubDate": "2025-08-27",
+      "month": "August 2025",
+      "page": 4,
+      "link": "https://status.claude.com/incidents/873tk10bx73n"
+    },
+    {
+      "code": "lgt2850shqzv",
+      "name": "MCP tool calls failing on desktop",
+      "impact": "minor",
+      "pubDate": "2025-08-28",
+      "month": "August 2025",
+      "page": 4,
+      "link": "https://status.claude.com/incidents/lgt2850shqzv"
+    },
+    {
+      "code": "hj00j5l0spth",
+      "name": "Conversations stalling after Claude.ai messages",
+      "impact": "major",
+      "pubDate": "2025-08-28",
+      "month": "August 2025",
+      "page": 4,
+      "link": "https://status.claude.com/incidents/hj00j5l0spth"
+    },
+    {
+      "code": "fd8pwt3p6c4q",
+      "name": "Elevated errors on Claude Opus 4.1",
+      "impact": "minor",
+      "pubDate": "2025-08-28",
+      "month": "August 2025",
+      "page": 4,
+      "link": "https://status.claude.com/incidents/fd8pwt3p6c4q"
+    },
+    {
+      "code": "89mlxfnc19xm",
+      "name": "Elevated errors on Claude Opus 4.1",
+      "impact": "minor",
+      "pubDate": "2025-08-28",
+      "month": "August 2025",
+      "page": 4,
+      "link": "https://status.claude.com/incidents/89mlxfnc19xm"
+    },
+    {
+      "code": "h26lykctfnsz",
+      "name": "Claude Opus 4.1 and Opus 4 degraded quality",
+      "impact": "minor",
+      "pubDate": "2025-08-29",
+      "month": "August 2025",
+      "page": 4,
+      "link": "https://status.claude.com/incidents/h26lykctfnsz"
+    },
+    {
+      "code": "6rnn31v3swf9",
+      "name": "Elevated errors on Claude Sonnet 4.0",
+      "impact": "minor",
+      "pubDate": "2025-08-29",
+      "month": "August 2025",
+      "page": 4,
+      "link": "https://status.claude.com/incidents/6rnn31v3swf9"
+    },
+    {
+      "code": "x017628t2rl5",
+      "name": "[Scheduled] Upgrades to Connector Auth Storage",
+      "impact": "maintenance",
+      "pubDate": "2025-08-29",
+      "month": "August 2025",
+      "page": 4,
+      "link": "https://status.claude.com/incidents/x017628t2rl5"
+    },
+    {
+      "code": "905blt29pg7q",
+      "name": "Elevated errors on Claude Sonnet 4.0",
+      "impact": "minor",
+      "pubDate": "2025-08-30",
+      "month": "August 2025",
+      "page": 4,
+      "link": "https://status.claude.com/incidents/905blt29pg7q"
+    },
+    {
+      "code": "0fzjzpr05v9c",
+      "name": "Claude.ai Research Failing to Start",
+      "impact": "minor",
+      "pubDate": "2025-08-31",
+      "month": "August 2025",
+      "page": 4,
+      "link": "https://status.claude.com/incidents/0fzjzpr05v9c"
+    },
+    {
+      "code": "w3qrdwqfftm8",
+      "name": "Elevated errors on Claude Sonnet 4.0",
+      "impact": "minor",
+      "pubDate": "2025-08-31",
+      "month": "August 2025",
+      "page": 4,
+      "link": "https://status.claude.com/incidents/w3qrdwqfftm8"
+    },
+    {
+      "code": "1y3qgxvtgwj9",
+      "name": "Elevated errors on Claude 3.5 Sonnet (Oct 2024)",
+      "impact": "minor",
+      "pubDate": "2025-09-01",
+      "month": "September 2025",
+      "page": 3,
+      "link": "https://status.claude.com/incidents/1y3qgxvtgwj9"
+    },
+    {
+      "code": "j6dxhkzm725w",
+      "name": "Elevated errors on Claude Opus 4.1",
+      "impact": "minor",
+      "pubDate": "2025-09-03",
+      "month": "September 2025",
+      "page": 3,
+      "link": "https://status.claude.com/incidents/j6dxhkzm725w"
+    },
+    {
+      "code": "072fdwqt08ps",
+      "name": "Elevated error rates on API and claude.ai",
+      "impact": "major",
+      "pubDate": "2025-09-03",
+      "month": "September 2025",
+      "page": 3,
+      "link": "https://status.claude.com/incidents/072fdwqt08ps"
+    },
+    {
+      "code": "8166jkm0njby",
+      "name": "Unable to connect to MCP (Connectors), API Tools",
+      "impact": "minor",
+      "pubDate": "2025-09-04",
+      "month": "September 2025",
+      "page": 3,
+      "link": "https://status.claude.com/incidents/8166jkm0njby"
+    },
+    {
+      "code": "y0fmbh82qhyp",
+      "name": "Elevated errors on Claude 4.1 Opus",
+      "impact": "minor",
+      "pubDate": "2025-09-04",
+      "month": "September 2025",
+      "page": 3,
+      "link": "https://status.claude.com/incidents/y0fmbh82qhyp"
+    },
+    {
+      "code": "clwd55p20y8z",
+      "name": "Elevated errors on Claude Haiku 3.5",
+      "impact": "minor",
+      "pubDate": "2025-09-04",
+      "month": "September 2025",
+      "page": 3,
+      "link": "https://status.claude.com/incidents/clwd55p20y8z"
+    },
+    {
+      "code": "k00ft02cpx7h",
+      "name": "Elevated errors on Claude Sonnet 4.0",
+      "impact": "minor",
+      "pubDate": "2025-09-04",
+      "month": "September 2025",
+      "page": 3,
+      "link": "https://status.claude.com/incidents/k00ft02cpx7h"
+    },
+    {
+      "code": "jd66f347jdfp",
+      "name": "Unable to send messages to Opus 4.1",
+      "impact": "minor",
+      "pubDate": "2025-09-05",
+      "month": "September 2025",
+      "page": 3,
+      "link": "https://status.claude.com/incidents/jd66f347jdfp"
+    },
+    {
+      "code": "txhq1m8m1qsy",
+      "name": "Certain Claude.ai Orgs Unable to Submit Messages",
+      "impact": "minor",
+      "pubDate": "2025-09-05",
+      "month": "September 2025",
+      "page": 3,
+      "link": "https://status.claude.com/incidents/txhq1m8m1qsy"
+    },
+    {
+      "code": "72f99lh1cj2c",
+      "name": "Model output quality",
+      "impact": "major",
+      "pubDate": "2025-09-09",
+      "month": "September 2025",
+      "page": 3,
+      "link": "https://status.claude.com/incidents/72f99lh1cj2c"
+    },
+    {
+      "code": "c2hr706h1jhb",
+      "name": "Elevated latency for some Sonnet 4 requests",
+      "impact": "minor",
+      "pubDate": "2025-09-09",
+      "month": "September 2025",
+      "page": 3,
+      "link": "https://status.claude.com/incidents/c2hr706h1jhb"
+    },
+    {
+      "code": "k6gkm2b8cjk9",
+      "name": "API, Claude.ai, and Console services impacted",
+      "impact": "major",
+      "pubDate": "2025-09-10",
+      "month": "September 2025",
+      "page": 3,
+      "link": "https://status.claude.com/incidents/k6gkm2b8cjk9"
+    },
+    {
+      "code": "tngyvdmbgyws",
+      "name": "Elevated errors on Claude Sonnet 4.0",
+      "impact": "minor",
+      "pubDate": "2025-09-10",
+      "month": "September 2025",
+      "page": 3,
+      "link": "https://status.claude.com/incidents/tngyvdmbgyws"
+    },
+    {
+      "code": "rl26g50jxn63",
+      "name": "Elevated errors on Claude Opus 4.1",
+      "impact": "minor",
+      "pubDate": "2025-09-11",
+      "month": "September 2025",
+      "page": 3,
+      "link": "https://status.claude.com/incidents/rl26g50jxn63"
+    },
+    {
+      "code": "mp4tfl9fwdjc",
+      "name": "Elevated errors on Claude Sonnet 3.7",
+      "impact": "minor",
+      "pubDate": "2025-09-12",
+      "month": "September 2025",
+      "page": 3,
+      "link": "https://status.claude.com/incidents/mp4tfl9fwdjc"
+    },
+    {
+      "code": "sx3kpn28w4g1",
+      "name": "Elevated errors on Claude Opus 4.1",
+      "impact": "minor",
+      "pubDate": "2025-09-15",
+      "month": "September 2025",
+      "page": 3,
+      "link": "https://status.claude.com/incidents/sx3kpn28w4g1"
+    },
+    {
+      "code": "grxm3346ch8b",
+      "name": "Elevated errors on Claude Haiku 3.5",
+      "impact": "minor",
+      "pubDate": "2025-09-15",
+      "month": "September 2025",
+      "page": 3,
+      "link": "https://status.claude.com/incidents/grxm3346ch8b"
+    },
+    {
+      "code": "jm3gbtk0vgnp",
+      "name": "Elevated errors on Claude Opus 4.1",
+      "impact": "minor",
+      "pubDate": "2025-09-15",
+      "month": "September 2025",
+      "page": 3,
+      "link": "https://status.claude.com/incidents/jm3gbtk0vgnp"
+    },
+    {
+      "code": "s1cd6vc8wms9",
+      "name": "Elevated errors on Claude 4 Sonnet",
+      "impact": "minor",
+      "pubDate": "2025-09-16",
+      "month": "September 2025",
+      "page": 3,
+      "link": "https://status.claude.com/incidents/s1cd6vc8wms9"
+    },
+    {
+      "code": "mtwbm879wdqn",
+      "name": "Problems loading Claude.ai Artifacts",
+      "impact": "minor",
+      "pubDate": "2025-09-16",
+      "month": "September 2025",
+      "page": 3,
+      "link": "https://status.claude.com/incidents/mtwbm879wdqn"
+    },
+    {
+      "code": "pstkfl3t9jfd",
+      "name": "Elevated errors across many models",
+      "impact": "major",
+      "pubDate": "2025-09-18",
+      "month": "September 2025",
+      "page": 3,
+      "link": "https://status.claude.com/incidents/pstkfl3t9jfd"
+    },
+    {
+      "code": "f3p8ct8rb146",
+      "name": "[retroactive] Elevated errors on Claude Haiku 3.5 and Claude Haiku 3",
+      "impact": "minor",
+      "pubDate": "2025-09-20",
+      "month": "September 2025",
+      "page": 3,
+      "link": "https://status.claude.com/incidents/f3p8ct8rb146"
+    },
+    {
+      "code": "xg2v4m4nc40n",
+      "name": "Claude App and API connectivity errors",
+      "impact": "critical",
+      "pubDate": "2025-09-22",
+      "month": "September 2025",
+      "page": 3,
+      "link": "https://status.claude.com/incidents/xg2v4m4nc40n"
+    },
+    {
+      "code": "35ff8rq8c6lr",
+      "name": "Elevated error rates on API and claude.ai",
+      "impact": "minor",
+      "pubDate": "2025-09-22",
+      "month": "September 2025",
+      "page": 3,
+      "link": "https://status.claude.com/incidents/35ff8rq8c6lr"
+    },
+    {
+      "code": "hdq52ff34bbk",
+      "name": "Elevated error rates fetching images and PDFs on the API",
+      "impact": "minor",
+      "pubDate": "2025-09-23",
+      "month": "September 2025",
+      "page": 3,
+      "link": "https://status.claude.com/incidents/hdq52ff34bbk"
+    },
+    {
+      "code": "mf6sw0fbyvvf",
+      "name": "Elevated error rates on API and claude.ai",
+      "impact": "minor",
+      "pubDate": "2025-09-24",
+      "month": "September 2025",
+      "page": 3,
+      "link": "https://status.claude.com/incidents/mf6sw0fbyvvf"
+    },
+    {
+      "code": "9fw8j0rxtnff",
+      "name": "Elevated errors on Claude Opus 4 and Opus 4.1",
+      "impact": "minor",
+      "pubDate": "2025-09-24",
+      "month": "September 2025",
+      "page": 3,
+      "link": "https://status.claude.com/incidents/9fw8j0rxtnff"
+    },
+    {
+      "code": "73x33ml0lcsv",
+      "name": "Elevated errors on Claude Sonnet 3.5 and 3.7",
+      "impact": "minor",
+      "pubDate": "2025-09-25",
+      "month": "September 2025",
+      "page": 3,
+      "link": "https://status.claude.com/incidents/73x33ml0lcsv"
+    },
+    {
+      "code": "206nlm2l4ny5",
+      "name": "Elevated errors on Claude Sonnet 3.5 and 3.7",
+      "impact": "minor",
+      "pubDate": "2025-09-25",
+      "month": "September 2025",
+      "page": 3,
+      "link": "https://status.claude.com/incidents/206nlm2l4ny5"
+    },
+    {
+      "code": "n9pl4hny4mlt",
+      "name": "Elevated errors on Opus 4 and Sonnet 3.5 (new)",
+      "impact": "minor",
+      "pubDate": "2025-09-27",
+      "month": "September 2025",
+      "page": 3,
+      "link": "https://status.claude.com/incidents/n9pl4hny4mlt"
+    },
+    {
+      "code": "61rby25lv6dx",
+      "name": "Elevated errors on Claude Sonnet 4",
+      "impact": "minor",
+      "pubDate": "2025-09-30",
+      "month": "September 2025",
+      "page": 3,
+      "link": "https://status.claude.com/incidents/61rby25lv6dx"
+    },
+    {
+      "code": "0y0rbk6ml533",
+      "name": "Elevated errors on Claude Sonnet 4",
+      "impact": "minor",
+      "pubDate": "2025-09-30",
+      "month": "September 2025",
+      "page": 3,
+      "link": "https://status.claude.com/incidents/0y0rbk6ml533"
+    },
+    {
+      "code": "t0psk8bxg67z",
+      "name": "Claude.ai Connectors are Unhealthy",
+      "impact": "major",
+      "pubDate": "2025-10-02",
+      "month": "October 2025",
+      "page": 3,
+      "link": "https://status.claude.com/incidents/t0psk8bxg67z"
+    },
+    {
+      "code": "tn90hrpwz0bm",
+      "name": "Elevated errors on Claude Opus 4",
+      "impact": "minor",
+      "pubDate": "2025-10-06",
+      "month": "October 2025",
+      "page": 3,
+      "link": "https://status.claude.com/incidents/tn90hrpwz0bm"
+    },
+    {
+      "code": "lpfzpqcg3m2s",
+      "name": "Elevated errors on Claude Sonnet 4.5",
+      "impact": "minor",
+      "pubDate": "2025-10-08",
+      "month": "October 2025",
+      "page": 3,
+      "link": "https://status.claude.com/incidents/lpfzpqcg3m2s"
+    },
+    {
+      "code": "6xlfx3mrb8ct",
+      "name": "Elevated errors on claude.ai",
+      "impact": "major",
+      "pubDate": "2025-10-09",
+      "month": "October 2025",
+      "page": 3,
+      "link": "https://status.claude.com/incidents/6xlfx3mrb8ct"
+    },
+    {
+      "code": "m05thlr411w6",
+      "name": "Claude Desktop is unavailable",
+      "impact": "major",
+      "pubDate": "2025-10-17",
+      "month": "October 2025",
+      "page": 3,
+      "link": "https://status.claude.com/incidents/m05thlr411w6"
+    },
+    {
+      "code": "kfs1w8vywj9d",
+      "name": "Claude.ai is unavailable",
+      "impact": "critical",
+      "pubDate": "2025-10-20",
+      "month": "October 2025",
+      "page": 3,
+      "link": "https://status.claude.com/incidents/kfs1w8vywj9d"
+    },
+    {
+      "code": "qghly8qmbjcp",
+      "name": "Elevated errors on Claude Opus 4.1",
+      "impact": "minor",
+      "pubDate": "2025-10-21",
+      "month": "October 2025",
+      "page": 3,
+      "link": "https://status.claude.com/incidents/qghly8qmbjcp"
+    },
+    {
+      "code": "tm75470v3g1b",
+      "name": "Elevated errors using Claude.ai connectors, API server tools, and API MCP Connectors",
+      "impact": "major",
+      "pubDate": "2025-10-22",
+      "month": "October 2025",
+      "page": 3,
+      "link": "https://status.claude.com/incidents/tm75470v3g1b"
+    },
+    {
+      "code": "9p2hsgclp30j",
+      "name": "Elevated errors on Claude Opus 4.1 and Sonnet 4.5",
+      "impact": "minor",
+      "pubDate": "2025-10-22",
+      "month": "October 2025",
+      "page": 3,
+      "link": "https://status.claude.com/incidents/9p2hsgclp30j"
+    },
+    {
+      "code": "0hwfzh2rnn1w",
+      "name": "Elevated errors on Research on claude.ai",
+      "impact": "minor",
+      "pubDate": "2025-10-22",
+      "month": "October 2025",
+      "page": 3,
+      "link": "https://status.claude.com/incidents/0hwfzh2rnn1w"
+    },
+    {
+      "code": "5hn4twzn20px",
+      "name": "file upload broken on /new",
+      "impact": "minor",
+      "pubDate": "2025-10-23",
+      "month": "October 2025",
+      "page": 3,
+      "link": "https://status.claude.com/incidents/5hn4twzn20px"
+    },
+    {
+      "code": "vknvjsgvplr4",
+      "name": "Elevated errors for requests to Claude 4.5 Sonnet",
+      "impact": "minor",
+      "pubDate": "2025-10-27",
+      "month": "October 2025",
+      "page": 3,
+      "link": "https://status.claude.com/incidents/vknvjsgvplr4"
+    },
+    {
+      "code": "k1hywp210cxl",
+      "name": "Elevated errors with uploading files to claude.ai",
+      "impact": "major",
+      "pubDate": "2025-10-28",
+      "month": "October 2025",
+      "page": 3,
+      "link": "https://status.claude.com/incidents/k1hywp210cxl"
+    },
+    {
+      "code": "bbk3s953nzvd",
+      "name": "Elevated errors for requests to Claude 4.5 Haiku",
+      "impact": "major",
+      "pubDate": "2025-10-28",
+      "month": "October 2025",
+      "page": 3,
+      "link": "https://status.claude.com/incidents/bbk3s953nzvd"
+    },
+    {
+      "code": "ggjp05h790b3",
+      "name": "Increased latency on claude.ai",
+      "impact": "minor",
+      "pubDate": "2025-10-29",
+      "month": "October 2025",
+      "page": 3,
+      "link": "https://status.claude.com/incidents/ggjp05h790b3"
+    },
+    {
+      "code": "3fq7j7zbfrkm",
+      "name": "Elevated errors",
+      "impact": "minor",
+      "pubDate": "2025-10-30",
+      "month": "October 2025",
+      "page": 3,
+      "link": "https://status.claude.com/incidents/3fq7j7zbfrkm"
+    },
+    {
+      "code": "s5f75jhwjs6g",
+      "name": "Elevated errors on claude.ai",
+      "impact": "minor",
+      "pubDate": "2025-10-31",
+      "month": "October 2025",
+      "page": 3,
+      "link": "https://status.claude.com/incidents/s5f75jhwjs6g"
+    },
+    {
+      "code": "spwz6zkztbqh",
+      "name": "Elevated errors for requests to Claude 4.1 Opus",
+      "impact": "minor",
+      "pubDate": "2025-10-31",
+      "month": "October 2025",
+      "page": 3,
+      "link": "https://status.claude.com/incidents/spwz6zkztbqh"
+    },
+    {
+      "code": "zdxjv49ydg0f",
+      "name": "Elevated errors for requests to Claude 4 Sonnet",
+      "impact": "major",
+      "pubDate": "2025-10-31",
+      "month": "October 2025",
+      "page": 3,
+      "link": "https://status.claude.com/incidents/zdxjv49ydg0f"
+    },
+    {
+      "code": "tfh4xcb9jzn3",
+      "name": "Elevated errors for requests to Claude 4 Sonnet",
+      "impact": "minor",
+      "pubDate": "2025-11-01",
+      "month": "November 2025",
+      "page": 3,
+      "link": "https://status.claude.com/incidents/tfh4xcb9jzn3"
+    },
+    {
+      "code": "4k5y2v7rx9hb",
+      "name": "Degraded outputs quality from Haiku 4.5",
+      "impact": "minor",
+      "pubDate": "2025-11-04",
+      "month": "November 2025",
+      "page": 3,
+      "link": "https://status.claude.com/incidents/4k5y2v7rx9hb"
+    },
+    {
+      "code": "3tyq3gbfj0k6",
+      "name": "Elevated errors on claude.ai/code (Claude Code on the web)",
+      "impact": "minor",
+      "pubDate": "2025-11-05",
+      "month": "November 2025",
+      "page": 3,
+      "link": "https://status.claude.com/incidents/3tyq3gbfj0k6"
+    },
+    {
+      "code": "tp0pm7zqm5lg",
+      "name": "Elevated error rates for code execution tool",
+      "impact": "minor",
+      "pubDate": "2025-11-07",
+      "month": "November 2025",
+      "page": 3,
+      "link": "https://status.claude.com/incidents/tp0pm7zqm5lg"
+    },
+    {
+      "code": "hf246wspvzdt",
+      "name": "Elevated errors for requests to Claude Sonnet 4.5",
+      "impact": "minor",
+      "pubDate": "2025-11-07",
+      "month": "November 2025",
+      "page": 3,
+      "link": "https://status.claude.com/incidents/hf246wspvzdt"
+    },
+    {
+      "code": "h46s65s799ch",
+      "name": "Elevated errors on Claude.ai",
+      "impact": "minor",
+      "pubDate": "2025-11-11",
+      "month": "November 2025",
+      "page": 3,
+      "link": "https://status.claude.com/incidents/h46s65s799ch"
+    },
+    {
+      "code": "v12r33t2y7w8",
+      "name": "Elevated errors for requests to Claude 4.1 Opus",
+      "impact": "minor",
+      "pubDate": "2025-11-14",
+      "month": "November 2025",
+      "page": 3,
+      "link": "https://status.claude.com/incidents/v12r33t2y7w8"
+    },
+    {
+      "code": "9gm98llzp382",
+      "name": "Issues with Claude.ai Research",
+      "impact": "major",
+      "pubDate": "2025-11-17",
+      "month": "November 2025",
+      "page": 3,
+      "link": "https://status.claude.com/incidents/9gm98llzp382"
+    },
+    {
+      "code": "ry83c33qm9kt",
+      "name": "issues with Claude Code remote and claude.ai file creation",
+      "impact": "minor",
+      "pubDate": "2025-11-17",
+      "month": "November 2025",
+      "page": 3,
+      "link": "https://status.claude.com/incidents/ry83c33qm9kt"
+    },
+    {
+      "code": "p0svq4j6sk04",
+      "name": "Elevated errors on claude.ai",
+      "impact": "critical",
+      "pubDate": "2025-11-18",
+      "month": "November 2025",
+      "page": 3,
+      "link": "https://status.claude.com/incidents/p0svq4j6sk04"
+    },
+    {
+      "code": "4bvvh93qjl25",
+      "name": "Elevated error rates to Sonnet 4.5 on Claude Code",
+      "impact": "minor",
+      "pubDate": "2025-11-18",
+      "month": "November 2025",
+      "page": 3,
+      "link": "https://status.claude.com/incidents/4bvvh93qjl25"
+    },
+    {
+      "code": "k1tz1gsmm4b1",
+      "name": "Increased error rate on Claude 4 Sonnet",
+      "impact": "minor",
+      "pubDate": "2025-11-19",
+      "month": "November 2025",
+      "page": 3,
+      "link": "https://status.claude.com/incidents/k1tz1gsmm4b1"
+    },
+    {
+      "code": "xbbf1wq2dlz7",
+      "name": "Elevated errors on Sonnet 4, Sonnet 4.5 and Haiku 4.5",
+      "impact": "major",
+      "pubDate": "2025-11-20",
+      "month": "November 2025",
+      "page": 3,
+      "link": "https://status.claude.com/incidents/xbbf1wq2dlz7"
+    },
+    {
+      "code": "538r2y9cjmhk",
+      "name": "Elevated error rates on the API",
+      "impact": "major",
+      "pubDate": "2025-11-23",
+      "month": "November 2025",
+      "page": 3,
+      "link": "https://status.claude.com/incidents/538r2y9cjmhk"
+    },
+    {
+      "code": "4w17zgs3tflt",
+      "name": "Model usage attribution issues",
+      "impact": "minor",
+      "pubDate": "2025-11-24",
+      "month": "November 2025",
+      "page": 3,
+      "link": "https://status.claude.com/incidents/4w17zgs3tflt"
+    },
+    {
+      "code": "5g213mxxlbsw",
+      "name": "Elevated errors for requests to Claude Opus 4.5",
+      "impact": "major",
+      "pubDate": "2025-11-25",
+      "month": "November 2025",
+      "page": 3,
+      "link": "https://status.claude.com/incidents/5g213mxxlbsw"
+    },
+    {
+      "code": "1y63m9yzpjn2",
+      "name": "Elevated Error Rates on the API",
+      "impact": "major",
+      "pubDate": "2025-11-25",
+      "month": "November 2025",
+      "page": 3,
+      "link": "https://status.claude.com/incidents/1y63m9yzpjn2"
+    },
+    {
+      "code": "k01mpjb8k6r4",
+      "name": "Elevated errors for requests to Claude 4.5 Sonnet 1M",
+      "impact": "minor",
+      "pubDate": "2025-11-27",
+      "month": "November 2025",
+      "page": 3,
+      "link": "https://status.claude.com/incidents/k01mpjb8k6r4"
+    },
+    {
+      "code": "55p5hxp0wf3h",
+      "name": "Elevated errors on Sonnet 4.5",
+      "impact": "minor",
+      "pubDate": "2025-11-30",
+      "month": "November 2025",
+      "page": 3,
+      "link": "https://status.claude.com/incidents/55p5hxp0wf3h"
+    },
+    {
+      "code": "xdd8z923lknw",
+      "name": "Unable to enable extended thinking on first message",
+      "impact": "minor",
+      "pubDate": "2025-11-30",
+      "month": "November 2025",
+      "page": 3,
+      "link": "https://status.claude.com/incidents/xdd8z923lknw"
+    },
+    {
+      "code": "1wr14y0b18bj",
+      "name": "Elevated errors for requests to Claude Haiku 4.5",
+      "impact": "major",
+      "pubDate": "2025-11-30",
+      "month": "November 2025",
+      "page": 3,
+      "link": "https://status.claude.com/incidents/1wr14y0b18bj"
+    },
+    {
+      "code": "2mkpsnk9nyg0",
+      "name": "Investigating reports of increased latency",
+      "impact": "minor",
+      "pubDate": "2025-12-01",
+      "month": "December 2025",
+      "page": 2,
+      "link": "https://status.claude.com/incidents/2mkpsnk9nyg0"
+    },
+    {
+      "code": "qj71q3gqvvlk",
+      "name": "Elevated errors on claude.ai",
+      "impact": "major",
+      "pubDate": "2025-12-02",
+      "month": "December 2025",
+      "page": 2,
+      "link": "https://status.claude.com/incidents/qj71q3gqvvlk"
+    },
+    {
+      "code": "47tkhrwf5pl5",
+      "name": "Elevated errors on Claude Haiku 4.5 and Opus 4.5",
+      "impact": "major",
+      "pubDate": "2025-12-03",
+      "month": "December 2025",
+      "page": 2,
+      "link": "https://status.claude.com/incidents/47tkhrwf5pl5"
+    },
+    {
+      "code": "h183k7hqb9lk",
+      "name": "Claude.ai is unavailable",
+      "impact": "major",
+      "pubDate": "2025-12-05",
+      "month": "December 2025",
+      "page": 2,
+      "link": "https://status.claude.com/incidents/h183k7hqb9lk"
+    },
+    {
+      "code": "49cmvxrrk228",
+      "name": "Claude.ai is unavailable",
+      "impact": "critical",
+      "pubDate": "2025-12-05",
+      "month": "December 2025",
+      "page": 2,
+      "link": "https://status.claude.com/incidents/49cmvxrrk228"
+    },
+    {
+      "code": "6rrnsb1y0kbn",
+      "name": "iOS Subscription Access Issues",
+      "impact": "minor",
+      "pubDate": "2025-12-08",
+      "month": "December 2025",
+      "page": 2,
+      "link": "https://status.claude.com/incidents/6rrnsb1y0kbn"
+    },
+    {
+      "code": "fmck9hh84rgf",
+      "name": "Research on claude.ai down",
+      "impact": "minor",
+      "pubDate": "2025-12-10",
+      "month": "December 2025",
+      "page": 2,
+      "link": "https://status.claude.com/incidents/fmck9hh84rgf"
+    },
+    {
+      "code": "h140lstlzbw7",
+      "name": "Unable to start chats on claude.ai",
+      "impact": "major",
+      "pubDate": "2025-12-12",
+      "month": "December 2025",
+      "page": 2,
+      "link": "https://status.claude.com/incidents/h140lstlzbw7"
+    },
+    {
+      "code": "9g6qpr72ttbr",
+      "name": "Elevated errors across many models",
+      "impact": "critical",
+      "pubDate": "2025-12-14",
+      "month": "December 2025",
+      "page": 2,
+      "link": "https://status.claude.com/incidents/9g6qpr72ttbr"
+    },
+    {
+      "code": "9x1dk1mmlkd3",
+      "name": "Unable to view shared chats on claude.ai",
+      "impact": "minor",
+      "pubDate": "2025-12-15",
+      "month": "December 2025",
+      "page": 2,
+      "link": "https://status.claude.com/incidents/9x1dk1mmlkd3"
+    },
+    {
+      "code": "z9kwvvpg0hy0",
+      "name": "New chats defaulting to Claude Opus",
+      "impact": "major",
+      "pubDate": "2025-12-16",
+      "month": "December 2025",
+      "page": 2,
+      "link": "https://status.claude.com/incidents/z9kwvvpg0hy0"
+    },
+    {
+      "code": "2f7kwfs03p6v",
+      "name": "Cannot create new conversations on Claude.ai",
+      "impact": "critical",
+      "pubDate": "2025-12-16",
+      "month": "December 2025",
+      "page": 2,
+      "link": "https://status.claude.com/incidents/2f7kwfs03p6v"
+    },
+    {
+      "code": "4pw74ts6z930",
+      "name": "Elevated error rates on Sonnet 4",
+      "impact": "minor",
+      "pubDate": "2025-12-17",
+      "month": "December 2025",
+      "page": 2,
+      "link": "https://status.claude.com/incidents/4pw74ts6z930"
+    },
+    {
+      "code": "8rwc17y9kmqz",
+      "name": "Claude Code on Windows rendering improperly",
+      "impact": "minor",
+      "pubDate": "2025-12-19",
+      "month": "December 2025",
+      "page": 2,
+      "link": "https://status.claude.com/incidents/8rwc17y9kmqz"
+    },
+    {
+      "code": "8d87293jq0mk",
+      "name": "Elevated error rates on Sonnet 4.5",
+      "impact": "minor",
+      "pubDate": "2025-12-19",
+      "month": "December 2025",
+      "page": 2,
+      "link": "https://status.claude.com/incidents/8d87293jq0mk"
+    },
+    {
+      "code": "3gvzshr7mqtr",
+      "name": "Research unavailable for some teams orgs",
+      "impact": "minor",
+      "pubDate": "2025-12-20",
+      "month": "December 2025",
+      "page": 2,
+      "link": "https://status.claude.com/incidents/3gvzshr7mqtr"
+    },
+    {
+      "code": "d2w4wfsd7fq6",
+      "name": "Elevated error rates on Opus 4.5",
+      "impact": "minor",
+      "pubDate": "2025-12-21",
+      "month": "December 2025",
+      "page": 2,
+      "link": "https://status.claude.com/incidents/d2w4wfsd7fq6"
+    },
+    {
+      "code": "8f0x9qxn6bvf",
+      "name": "Elevated error rates on Opus 4.5",
+      "impact": "minor",
+      "pubDate": "2025-12-22",
+      "month": "December 2025",
+      "page": 2,
+      "link": "https://status.claude.com/incidents/8f0x9qxn6bvf"
+    },
+    {
+      "code": "f9zwsv7f87wl",
+      "name": "Elevated error rates on Opus 4.5",
+      "impact": "minor",
+      "pubDate": "2025-12-23",
+      "month": "December 2025",
+      "page": 2,
+      "link": "https://status.claude.com/incidents/f9zwsv7f87wl"
+    },
+    {
+      "code": "m4bbg9f9lfjk",
+      "name": "Errors on requests to Haiku 3.5",
+      "impact": "minor",
+      "pubDate": "2026-01-06",
+      "month": "January 2026",
+      "page": 2,
+      "link": "https://status.claude.com/incidents/m4bbg9f9lfjk"
+    },
+    {
+      "code": "4hr61fgdzbtc",
+      "name": "Claude subscription usage limits not visible in Claude.ai and Claude Code",
+      "impact": "minor",
+      "pubDate": "2026-01-07",
+      "month": "January 2026",
+      "page": 2,
+      "link": "https://status.claude.com/incidents/4hr61fgdzbtc"
+    },
+    {
+      "code": "1y7x01b0ldlj",
+      "name": "Elevated error rates on Opus 4.5",
+      "impact": "minor",
+      "pubDate": "2026-01-07",
+      "month": "January 2026",
+      "page": 2,
+      "link": "https://status.claude.com/incidents/1y7x01b0ldlj"
+    },
+    {
+      "code": "jlg58yl731jj",
+      "name": "Increased latency on Sonnet 4.5",
+      "impact": "minor",
+      "pubDate": "2026-01-08",
+      "month": "January 2026",
+      "page": 2,
+      "link": "https://status.claude.com/incidents/jlg58yl731jj"
+    },
+    {
+      "code": "pttlfp1vg4g3",
+      "name": "New Subscription Activation & Payment Issues",
+      "impact": "minor",
+      "pubDate": "2026-01-09",
+      "month": "January 2026",
+      "page": 2,
+      "link": "https://status.claude.com/incidents/pttlfp1vg4g3"
+    },
+    {
+      "code": "cns634h0tfmv",
+      "name": "Elevated error rates on Sonnet 4.5 1M context",
+      "impact": "minor",
+      "pubDate": "2026-01-10",
+      "month": "January 2026",
+      "page": 2,
+      "link": "https://status.claude.com/incidents/cns634h0tfmv"
+    },
+    {
+      "code": "846yxgg3v8nr",
+      "name": "Degraded performance for API requests involving structured outputs.",
+      "impact": "minor",
+      "pubDate": "2026-01-10",
+      "month": "January 2026",
+      "page": 2,
+      "link": "https://status.claude.com/incidents/846yxgg3v8nr"
+    },
+    {
+      "code": "zt2q0ltqcvbx",
+      "name": "Elevated rate of errors for multiple models",
+      "impact": "major",
+      "pubDate": "2026-01-12",
+      "month": "January 2026",
+      "page": 2,
+      "link": "https://status.claude.com/incidents/zt2q0ltqcvbx"
+    },
+    {
+      "code": "s2g3slcdq9jk",
+      "name": "Increased rate of errors for Opus 4.5",
+      "impact": "major",
+      "pubDate": "2026-01-12",
+      "month": "January 2026",
+      "page": 2,
+      "link": "https://status.claude.com/incidents/s2g3slcdq9jk"
+    },
+    {
+      "code": "09v917vcc8kg",
+      "name": "Increased rate of errors for Opus 4.5",
+      "impact": "minor",
+      "pubDate": "2026-01-13",
+      "month": "January 2026",
+      "page": 2,
+      "link": "https://status.claude.com/incidents/09v917vcc8kg"
+    },
+    {
+      "code": "tgzm3mf45wzc",
+      "name": "Elevated error rates on Opus 4.5 and Sonnet 4.5",
+      "impact": "critical",
+      "pubDate": "2026-01-14",
+      "month": "January 2026",
+      "page": 2,
+      "link": "https://status.claude.com/incidents/tgzm3mf45wzc"
+    },
+    {
+      "code": "6ykk5hyrg95v",
+      "name": "Compaction is having issues",
+      "impact": "minor",
+      "pubDate": "2026-01-15",
+      "month": "January 2026",
+      "page": 2,
+      "link": "https://status.claude.com/incidents/6ykk5hyrg95v"
+    },
+    {
+      "code": "l3q16xnl4t2f",
+      "name": "Elevated errors on Claude Opus 4.5 and Sonnet 4.5",
+      "impact": "minor",
+      "pubDate": "2026-01-20",
+      "month": "January 2026",
+      "page": 2,
+      "link": "https://status.claude.com/incidents/l3q16xnl4t2f"
+    },
+    {
+      "code": "yrxt885v63jw",
+      "name": "Elevated errors on Claude Sonnet 4.5",
+      "impact": "minor",
+      "pubDate": "2026-01-21",
+      "month": "January 2026",
+      "page": 2,
+      "link": "https://status.claude.com/incidents/yrxt885v63jw"
+    },
+    {
+      "code": "713v1h3z2j5k",
+      "name": "Elevated error rates on claude.ai and API",
+      "impact": "major",
+      "pubDate": "2026-01-22",
+      "month": "January 2026",
+      "page": 2,
+      "link": "https://status.claude.com/incidents/713v1h3z2j5k"
+    },
+    {
+      "code": "58sxy43h7kvf",
+      "name": "Claude Code Authentication Issues",
+      "impact": "major",
+      "pubDate": "2026-01-22",
+      "month": "January 2026",
+      "page": 2,
+      "link": "https://status.claude.com/incidents/58sxy43h7kvf"
+    },
+    {
+      "code": "ct82mw4kc0kt",
+      "name": "Elevated errors on claude.ai",
+      "impact": "major",
+      "pubDate": "2026-01-22",
+      "month": "January 2026",
+      "page": 2,
+      "link": "https://status.claude.com/incidents/ct82mw4kc0kt"
+    },
+    {
+      "code": "5dvcj03m4d57",
+      "name": "Elevated errors: Invalid `signature` in `thinking` block",
+      "impact": "minor",
+      "pubDate": "2026-01-23",
+      "month": "January 2026",
+      "page": 2,
+      "link": "https://status.claude.com/incidents/5dvcj03m4d57"
+    },
+    {
+      "code": "1f8s9zn12cfh",
+      "name": "Increased rate of errors for Opus 4.5",
+      "impact": "minor",
+      "pubDate": "2026-01-25",
+      "month": "January 2026",
+      "page": 2,
+      "link": "https://status.claude.com/incidents/1f8s9zn12cfh"
+    },
+    {
+      "code": "833cdm540lld",
+      "name": "Degraded performance on Claude Console",
+      "impact": "minor",
+      "pubDate": "2026-01-27",
+      "month": "January 2026",
+      "page": 2,
+      "link": "https://status.claude.com/incidents/833cdm540lld"
+    },
+    {
+      "code": "nkwk08nf2259",
+      "name": "Elevated errors on Claude Haiku 3.5",
+      "impact": "minor",
+      "pubDate": "2026-01-27",
+      "month": "January 2026",
+      "page": 2,
+      "link": "https://status.claude.com/incidents/nkwk08nf2259"
+    },
+    {
+      "code": "5nq70md45xh4",
+      "name": "Elevated errors on Claude Opus 4.5",
+      "impact": "minor",
+      "pubDate": "2026-01-28",
+      "month": "January 2026",
+      "page": 2,
+      "link": "https://status.claude.com/incidents/5nq70md45xh4"
+    },
+    {
+      "code": "jg3crnxm1j28",
+      "name": "Elevated errors on Claude Opus 4.5",
+      "impact": "minor",
+      "pubDate": "2026-01-28",
+      "month": "January 2026",
+      "page": 2,
+      "link": "https://status.claude.com/incidents/jg3crnxm1j28"
+    },
+    {
+      "code": "8wbm1h0pk78b",
+      "name": "Elevated errors on Claude Sonnet 3.7",
+      "impact": "minor",
+      "pubDate": "2026-01-28",
+      "month": "January 2026",
+      "page": 2,
+      "link": "https://status.claude.com/incidents/8wbm1h0pk78b"
+    },
+    {
+      "code": "29wh90pcv3r1",
+      "name": "Some users are experiencing delays in purchasing additional API credits",
+      "impact": "minor",
+      "pubDate": "2026-01-29",
+      "month": "January 2026",
+      "page": 2,
+      "link": "https://status.claude.com/incidents/29wh90pcv3r1"
+    },
+    {
+      "code": "rl6pphjrc2r4",
+      "name": "Some users are experiencing memory leaks in Claude Code 2.1.27",
+      "impact": "minor",
+      "pubDate": "2026-01-31",
+      "month": "January 2026",
+      "page": 2,
+      "link": "https://status.claude.com/incidents/rl6pphjrc2r4"
+    },
+    {
+      "code": "qtmzycrwksws",
+      "name": "Credit purchase issues & delays",
+      "impact": "major",
+      "pubDate": "2026-02-01",
+      "month": "February 2026",
+      "page": 2,
+      "link": "https://status.claude.com/incidents/qtmzycrwksws"
+    },
+    {
+      "code": "9qghqkbxtvml",
+      "name": "Elevated errors on Claude Sonnet 4.5",
+      "impact": "minor",
+      "pubDate": "2026-02-01",
+      "month": "February 2026",
+      "page": 2,
+      "link": "https://status.claude.com/incidents/9qghqkbxtvml"
+    },
+    {
+      "code": "y74v1yzcnzvb",
+      "name": "Elevated errors on Claude Opus 4.5",
+      "impact": "minor",
+      "pubDate": "2026-02-01",
+      "month": "February 2026",
+      "page": 2,
+      "link": "https://status.claude.com/incidents/y74v1yzcnzvb"
+    },
+    {
+      "code": "lvvsg4wy0mhj",
+      "name": "Elevated errors on Claude Opus 4.5",
+      "impact": "minor",
+      "pubDate": "2026-02-02",
+      "month": "February 2026",
+      "page": 2,
+      "link": "https://status.claude.com/incidents/lvvsg4wy0mhj"
+    },
+    {
+      "code": "v4v6psj8hkh3",
+      "name": "Elevated errors on Claude Opus 4.5",
+      "impact": "minor",
+      "pubDate": "2026-02-03",
+      "month": "February 2026",
+      "page": 2,
+      "link": "https://status.claude.com/incidents/v4v6psj8hkh3"
+    },
+    {
+      "code": "54rr0gbh596p",
+      "name": "Elevated error rate establishing new connections to Claude.ai connectors",
+      "impact": "minor",
+      "pubDate": "2026-02-03",
+      "month": "February 2026",
+      "page": 2,
+      "link": "https://status.claude.com/incidents/54rr0gbh596p"
+    },
+    {
+      "code": "mhxgcgjrjy7k",
+      "name": "SSO and magic link sign-in degraded on Claude Desktop",
+      "impact": "minor",
+      "pubDate": "2026-02-03",
+      "month": "February 2026",
+      "page": 2,
+      "link": "https://status.claude.com/incidents/mhxgcgjrjy7k"
+    },
+    {
+      "code": "d8v3zr02my00",
+      "name": "Elevated error rate on API across all Claude models",
+      "impact": "critical",
+      "pubDate": "2026-02-03",
+      "month": "February 2026",
+      "page": 2,
+      "link": "https://status.claude.com/incidents/d8v3zr02my00"
+    },
+    {
+      "code": "pr6yx3bfr172",
+      "name": "Elevated error rate on API across all Claude models",
+      "impact": "critical",
+      "pubDate": "2026-02-03",
+      "month": "February 2026",
+      "page": 2,
+      "link": "https://status.claude.com/incidents/pr6yx3bfr172"
+    },
+    {
+      "code": "pvbysfjjrf8m",
+      "name": "Elevated errors on Claude models",
+      "impact": "major",
+      "pubDate": "2026-02-04",
+      "month": "February 2026",
+      "page": 2,
+      "link": "https://status.claude.com/incidents/pvbysfjjrf8m"
+    },
+    {
+      "code": "vcsmyx922y7z",
+      "name": "Elevated errors on Claude Opus 4.5 and Sonnet 4.5",
+      "impact": "major",
+      "pubDate": "2026-02-04",
+      "month": "February 2026",
+      "page": 2,
+      "link": "https://status.claude.com/incidents/vcsmyx922y7z"
+    },
+    {
+      "code": "plhlsqf2svt6",
+      "name": "Conversation compaction temporarily disabled on claude.ai",
+      "impact": "minor",
+      "pubDate": "2026-02-05",
+      "month": "February 2026",
+      "page": 2,
+      "link": "https://status.claude.com/incidents/plhlsqf2svt6"
+    },
+    {
+      "code": "mm4pj02mp4gq",
+      "name": "Elevated errors on Claude models",
+      "impact": "minor",
+      "pubDate": "2026-02-07",
+      "month": "February 2026",
+      "page": 2,
+      "link": "https://status.claude.com/incidents/mm4pj02mp4gq"
+    },
+    {
+      "code": "cm6rfz7dzy90",
+      "name": "Opus 4.6 Fast Mode small amount of errors",
+      "impact": "minor",
+      "pubDate": "2026-02-10",
+      "month": "February 2026",
+      "page": 2,
+      "link": "https://status.claude.com/incidents/cm6rfz7dzy90"
+    },
+    {
+      "code": "trwd5kvsclv6",
+      "name": "Elevated errors on Claude Haiku 4.5",
+      "impact": "minor",
+      "pubDate": "2026-02-11",
+      "month": "February 2026",
+      "page": 2,
+      "link": "https://status.claude.com/incidents/trwd5kvsclv6"
+    },
+    {
+      "code": "0750m396cf4p",
+      "name": "Elevated errors on Claude Sonnet 4.5",
+      "impact": "minor",
+      "pubDate": "2026-02-11",
+      "month": "February 2026",
+      "page": 2,
+      "link": "https://status.claude.com/incidents/0750m396cf4p"
+    },
+    {
+      "code": "3fsrljm3n64g",
+      "name": "Elevated errors on Opus 4.6",
+      "impact": "minor",
+      "pubDate": "2026-02-11",
+      "month": "February 2026",
+      "page": 2,
+      "link": "https://status.claude.com/incidents/3fsrljm3n64g"
+    },
+    {
+      "code": "95wtp412zh3z",
+      "name": "Elevated errors on Opus 4.6",
+      "impact": "minor",
+      "pubDate": "2026-02-12",
+      "month": "February 2026",
+      "page": 2,
+      "link": "https://status.claude.com/incidents/95wtp412zh3z"
+    },
+    {
+      "code": "9zrz07205y1r",
+      "name": "MCP not working in Research in claude.ai",
+      "impact": "minor",
+      "pubDate": "2026-02-13",
+      "month": "February 2026",
+      "page": 2,
+      "link": "https://status.claude.com/incidents/9zrz07205y1r"
+    },
+    {
+      "code": "04srdy8n8cwl",
+      "name": "Elevated errors on Opus 4.6 Fast Mode",
+      "impact": "minor",
+      "pubDate": "2026-02-13",
+      "month": "February 2026",
+      "page": 2,
+      "link": "https://status.claude.com/incidents/04srdy8n8cwl"
+    },
+    {
+      "code": "bybkm0xccbm6",
+      "name": "Elevated errors on Claude models",
+      "impact": "major",
+      "pubDate": "2026-02-14",
+      "month": "February 2026",
+      "page": 2,
+      "link": "https://status.claude.com/incidents/bybkm0xccbm6"
+    },
+    {
+      "code": "r3w8gj1cx65g",
+      "name": "Elevated errors on Claude Opus 4.6",
+      "impact": "minor",
+      "pubDate": "2026-02-16",
+      "month": "February 2026",
+      "page": 2,
+      "link": "https://status.claude.com/incidents/r3w8gj1cx65g"
+    },
+    {
+      "code": "8zk0t14kl1m8",
+      "name": "Elevated errors on Opus 4.6",
+      "impact": "minor",
+      "pubDate": "2026-02-16",
+      "month": "February 2026",
+      "page": 2,
+      "link": "https://status.claude.com/incidents/8zk0t14kl1m8"
+    },
+    {
+      "code": "5pr1d63fdjml",
+      "name": "Intermittent errors in skills-related functionality",
+      "impact": "minor",
+      "pubDate": "2026-02-17",
+      "month": "February 2026",
+      "page": 2,
+      "link": "https://status.claude.com/incidents/5pr1d63fdjml"
+    },
+    {
+      "code": "d6lxkq6m53yy",
+      "name": "CSS errors on Claude.ai",
+      "impact": "minor",
+      "pubDate": "2026-02-17",
+      "month": "February 2026",
+      "page": 2,
+      "link": "https://status.claude.com/incidents/d6lxkq6m53yy"
+    },
+    {
+      "code": "55dry9k1s8vg",
+      "name": "New user-created skills are not working in Claude.ai",
+      "impact": "minor",
+      "pubDate": "2026-02-17",
+      "month": "February 2026",
+      "page": 2,
+      "link": "https://status.claude.com/incidents/55dry9k1s8vg"
+    },
+    {
+      "code": "rrgvzzm78zln",
+      "name": "Elevated errors on Claude Sonnet 4.5",
+      "impact": "minor",
+      "pubDate": "2026-02-17",
+      "month": "February 2026",
+      "page": 2,
+      "link": "https://status.claude.com/incidents/rrgvzzm78zln"
+    },
+    {
+      "code": "kpcyy3yl6r8v",
+      "name": "Elevated errors on Claude Opus 4.6",
+      "impact": "minor",
+      "pubDate": "2026-02-17",
+      "month": "February 2026",
+      "page": 2,
+      "link": "https://status.claude.com/incidents/kpcyy3yl6r8v"
+    },
+    {
+      "code": "kqxx66h5qsy2",
+      "name": "Elevated error rates across multiple models",
+      "impact": "major",
+      "pubDate": "2026-02-18",
+      "month": "February 2026",
+      "page": 2,
+      "link": "https://status.claude.com/incidents/kqxx66h5qsy2"
+    },
+    {
+      "code": "3qnc3g20hgp8",
+      "name": "Elevated errors on Claude Sonnet 4.6",
+      "impact": "minor",
+      "pubDate": "2026-02-18",
+      "month": "February 2026",
+      "page": 2,
+      "link": "https://status.claude.com/incidents/3qnc3g20hgp8"
+    },
+    {
+      "code": "cn4x4rg7cg0l",
+      "name": "Elevated errors on Claude Opus 4.5",
+      "impact": "minor",
+      "pubDate": "2026-02-18",
+      "month": "February 2026",
+      "page": 2,
+      "link": "https://status.claude.com/incidents/cn4x4rg7cg0l"
+    },
+    {
+      "code": "ftrsh0r62qks",
+      "name": "Cowork new task page not loading",
+      "impact": "major",
+      "pubDate": "2026-02-18",
+      "month": "February 2026",
+      "page": 2,
+      "link": "https://status.claude.com/incidents/ftrsh0r62qks"
+    },
+    {
+      "code": "p66ph1brd3zc",
+      "name": "Claude's responses not appearing in Cowork",
+      "impact": "major",
+      "pubDate": "2026-02-19",
+      "month": "February 2026",
+      "page": 2,
+      "link": "https://status.claude.com/incidents/p66ph1brd3zc"
+    },
+    {
+      "code": "rypj3860pyv0",
+      "name": "Sonnet 4 errors",
+      "impact": "minor",
+      "pubDate": "2026-02-20",
+      "month": "February 2026",
+      "page": 2,
+      "link": "https://status.claude.com/incidents/rypj3860pyv0"
+    },
+    {
+      "code": "wvcltv77dcfm",
+      "name": "Elevated errors on Claude Sonnet 4.5",
+      "impact": "minor",
+      "pubDate": "2026-02-20",
+      "month": "February 2026",
+      "page": 2,
+      "link": "https://status.claude.com/incidents/wvcltv77dcfm"
+    },
+    {
+      "code": "87lmxddjpxnn",
+      "name": "Opus 4.6 elevated error rates",
+      "impact": "minor",
+      "pubDate": "2026-02-21",
+      "month": "February 2026",
+      "page": 2,
+      "link": "https://status.claude.com/incidents/87lmxddjpxnn"
+    },
+    {
+      "code": "j6qqhxswnpgw",
+      "name": "Some Windows users unable to use Cowork",
+      "impact": "minor",
+      "pubDate": "2026-02-21",
+      "month": "February 2026",
+      "page": 2,
+      "link": "https://status.claude.com/incidents/j6qqhxswnpgw"
+    },
+    {
+      "code": "vx606lmrr9dh",
+      "name": "Elevated errors on Claude Haiku 4.5",
+      "impact": "major",
+      "pubDate": "2026-02-23",
+      "month": "February 2026",
+      "page": 2,
+      "link": "https://status.claude.com/incidents/vx606lmrr9dh"
+    },
+    {
+      "code": "svd7kk1vlhmc",
+      "name": "Elevated errors on Claude Sonnet 4.5",
+      "impact": "minor",
+      "pubDate": "2026-02-23",
+      "month": "February 2026",
+      "page": 2,
+      "link": "https://status.claude.com/incidents/svd7kk1vlhmc"
+    },
+    {
+      "code": "162g24n9sm8p",
+      "name": "Elevated errors on Claude Opus 4.6",
+      "impact": "minor",
+      "pubDate": "2026-02-23",
+      "month": "February 2026",
+      "page": 2,
+      "link": "https://status.claude.com/incidents/162g24n9sm8p"
+    },
+    {
+      "code": "61lq9gtznd0s",
+      "name": "Elevated errors on Claude Sonnet 4.6",
+      "impact": "minor",
+      "pubDate": "2026-02-24",
+      "month": "February 2026",
+      "page": 2,
+      "link": "https://status.claude.com/incidents/61lq9gtznd0s"
+    },
+    {
+      "code": "krthksf7mfyq",
+      "name": "Elevated errors on Claude Sonnet 4.6",
+      "impact": "minor",
+      "pubDate": "2026-02-24",
+      "month": "February 2026",
+      "page": 2,
+      "link": "https://status.claude.com/incidents/krthksf7mfyq"
+    },
+    {
+      "code": "d392wcgvxl01",
+      "name": "Claude Desktop failing to open for some users",
+      "impact": "minor",
+      "pubDate": "2026-02-25",
+      "month": "February 2026",
+      "page": 2,
+      "link": "https://status.claude.com/incidents/d392wcgvxl01"
+    },
+    {
+      "code": "p4y2931r0pmy",
+      "name": "Elevated errors on Claude Opus 4.6",
+      "impact": "major",
+      "pubDate": "2026-02-25",
+      "month": "February 2026",
+      "page": 2,
+      "link": "https://status.claude.com/incidents/p4y2931r0pmy"
+    },
+    {
+      "code": "bdxgsy48hp00",
+      "name": "Elevated error rates across multiple models",
+      "impact": "major",
+      "pubDate": "2026-02-25",
+      "month": "February 2026",
+      "page": 2,
+      "link": "https://status.claude.com/incidents/bdxgsy48hp00"
+    },
+    {
+      "code": "37smd4qkjv2r",
+      "name": "Elevated errors on Claude Sonnet 4.6 and Opus 4.6",
+      "impact": "minor",
+      "pubDate": "2026-02-25",
+      "month": "February 2026",
+      "page": 2,
+      "link": "https://status.claude.com/incidents/37smd4qkjv2r"
+    },
+    {
+      "code": "3kjy2zn2w2bj",
+      "name": "Claude Code showing \"JSON Parse error: Unexpected EOF\" and writing excessive files on Windows",
+      "impact": "minor",
+      "pubDate": "2026-02-26",
+      "month": "February 2026",
+      "page": 2,
+      "link": "https://status.claude.com/incidents/3kjy2zn2w2bj"
+    },
+    {
+      "code": "0xc7ybw5wd3x",
+      "name": "Sonnet 4.6 elevated error rate",
+      "impact": "minor",
+      "pubDate": "2026-02-27",
+      "month": "February 2026",
+      "page": 2,
+      "link": "https://status.claude.com/incidents/0xc7ybw5wd3x"
+    },
+    {
+      "code": "70jm56f7jlpk",
+      "name": "Claude Desktop login issues",
+      "impact": "minor",
+      "pubDate": "2026-02-27",
+      "month": "February 2026",
+      "page": 2,
+      "link": "https://status.claude.com/incidents/70jm56f7jlpk"
+    },
+    {
+      "code": "zp9x05pcbwxq",
+      "name": "Elevated errors on claude.ai",
+      "impact": "major",
+      "pubDate": "2026-02-27",
+      "month": "February 2026",
+      "page": 2,
+      "link": "https://status.claude.com/incidents/zp9x05pcbwxq"
+    },
+    {
+      "code": "6rw4nd44bqqh",
+      "name": "Elevated errors on claude.ai",
+      "impact": "major",
+      "pubDate": "2026-02-27",
+      "month": "February 2026",
+      "page": 2,
+      "link": "https://status.claude.com/incidents/6rw4nd44bqqh"
+    },
+    {
+      "code": "pmx7385vm0z1",
+      "name": "Elevated errors on Claude Opus 4.6",
+      "impact": "minor",
+      "pubDate": "2026-02-28",
+      "month": "February 2026",
+      "page": 2,
+      "link": "https://status.claude.com/incidents/pmx7385vm0z1"
+    },
+    {
+      "code": "ddyyz34c24vt",
+      "name": "Elevated errors on claude.ai",
+      "impact": "major",
+      "pubDate": "2026-02-28",
+      "month": "February 2026",
+      "page": 2,
+      "link": "https://status.claude.com/incidents/ddyyz34c24vt"
+    },
+    {
+      "code": "vqnfq1179169",
+      "name": "Elevated errors on Claude Haiku 4.5",
+      "impact": "minor",
+      "pubDate": "2026-03-02",
+      "month": "March 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/vqnfq1179169"
+    },
+    {
+      "code": "0j8dkb38jymf",
+      "name": "Elevated errors on Claude Opus 4.6",
+      "impact": "minor",
+      "pubDate": "2026-03-02",
+      "month": "March 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/0j8dkb38jymf"
+    },
+    {
+      "code": "63943gpfb97z",
+      "name": "Elevated errors in claude.ai",
+      "impact": "minor",
+      "pubDate": "2026-03-02",
+      "month": "March 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/63943gpfb97z"
+    },
+    {
+      "code": "5zg05jnrqmzg",
+      "name": "Elevated errors on Claude Opus 4.6",
+      "impact": "minor",
+      "pubDate": "2026-03-02",
+      "month": "March 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/5zg05jnrqmzg"
+    },
+    {
+      "code": "0ghc53zpsfmt",
+      "name": "Elevated errors on claude.ai, console, and claude code",
+      "impact": "major",
+      "pubDate": "2026-03-02",
+      "month": "March 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/0ghc53zpsfmt"
+    },
+    {
+      "code": "p7nq2jdg4zwj",
+      "name": "Outage in Usage Reporting",
+      "impact": "major",
+      "pubDate": "2026-03-03",
+      "month": "March 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/p7nq2jdg4zwj"
+    },
+    {
+      "code": "v3j5tpfcr3dn",
+      "name": "Elevated errors on Claude Sonnet 4.6",
+      "impact": "minor",
+      "pubDate": "2026-03-03",
+      "month": "March 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/v3j5tpfcr3dn"
+    },
+    {
+      "code": "s0pmy4yywshv",
+      "name": "Elevated errors on Claude Haiku 4.5",
+      "impact": "major",
+      "pubDate": "2026-03-03",
+      "month": "March 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/s0pmy4yywshv"
+    },
+    {
+      "code": "kyj825w6vxr8",
+      "name": "Elevated errors on Claude Opus 4.6",
+      "impact": "minor",
+      "pubDate": "2026-03-03",
+      "month": "March 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/kyj825w6vxr8"
+    },
+    {
+      "code": "yf48hzysrvl5",
+      "name": "Elevated errors in claude.ai, cowork, platform, claude code",
+      "impact": "minor",
+      "pubDate": "2026-03-03",
+      "month": "March 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/yf48hzysrvl5"
+    },
+    {
+      "code": "5dbf8slk8mhr",
+      "name": "Elevated errors on Claude Haiku 4.5",
+      "impact": "minor",
+      "pubDate": "2026-03-04",
+      "month": "March 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/5dbf8slk8mhr"
+    },
+    {
+      "code": "cvh0kqnmzjks",
+      "name": "Elevated errors on Claude Opus 4.6",
+      "impact": "minor",
+      "pubDate": "2026-03-04",
+      "month": "March 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/cvh0kqnmzjks"
+    },
+    {
+      "code": "4xx67ythzxg5",
+      "name": "Elevated errors on Claude Haiku 4.5",
+      "impact": "minor",
+      "pubDate": "2026-03-04",
+      "month": "March 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/4xx67ythzxg5"
+    },
+    {
+      "code": "jbc4ybjk83c6",
+      "name": "Filesystem connector missing from Claude Desktop",
+      "impact": "minor",
+      "pubDate": "2026-03-06",
+      "month": "March 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/jbc4ybjk83c6"
+    },
+    {
+      "code": "htjkfrfnzq12",
+      "name": "Elevated TCP three-way handshake failures on api.anthropic.com",
+      "impact": "minor",
+      "pubDate": "2026-03-06",
+      "month": "March 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/htjkfrfnzq12"
+    },
+    {
+      "code": "qy1zsq4wwp1q",
+      "name": "Elevated errors on Claude Haiku 4.5",
+      "impact": "minor",
+      "pubDate": "2026-03-07",
+      "month": "March 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/qy1zsq4wwp1q"
+    },
+    {
+      "code": "pqpgkf52p3tg",
+      "name": "Claude Desktop app unresponsive",
+      "impact": "major",
+      "pubDate": "2026-03-08",
+      "month": "March 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/pqpgkf52p3tg"
+    },
+    {
+      "code": "jm3b4jjy2jrt",
+      "name": "Elevated errors on Claude.ai (including login issues for Claude Code)",
+      "impact": "minor",
+      "pubDate": "2026-03-11",
+      "month": "March 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/jm3b4jjy2jrt"
+    },
+    {
+      "code": "tdp33ycsk4rb",
+      "name": "Elevated errors on Claude Sonnet 4.6",
+      "impact": "major",
+      "pubDate": "2026-03-12",
+      "month": "March 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/tdp33ycsk4rb"
+    },
+    {
+      "code": "28hx7gp8hnzw",
+      "name": "Elevated errors on Claude Sonnet 4.6 and on Claude.ai",
+      "impact": "minor",
+      "pubDate": "2026-03-12",
+      "month": "March 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/28hx7gp8hnzw"
+    },
+    {
+      "code": "gtj167mtk9pg",
+      "name": "Elevated errors on Sonnet 4.6",
+      "impact": "minor",
+      "pubDate": "2026-03-12",
+      "month": "March 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/gtj167mtk9pg"
+    },
+    {
+      "code": "q58b2gkv64pw",
+      "name": "Elevated errors on Claude Opus 4.6 and Sonnet 4.6",
+      "impact": "major",
+      "pubDate": "2026-03-13",
+      "month": "March 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/q58b2gkv64pw"
+    },
+    {
+      "code": "0266tzhrb7rn",
+      "name": "Elevated errors on Claude Sonnet 4.6",
+      "impact": "minor",
+      "pubDate": "2026-03-16",
+      "month": "March 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/0266tzhrb7rn"
+    },
+    {
+      "code": "81m3f5p97qkk",
+      "name": "Elevated errors on Claude.ai",
+      "impact": "minor",
+      "pubDate": "2026-03-16",
+      "month": "March 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/81m3f5p97qkk"
+    },
+    {
+      "code": "t2m389x6k1tq",
+      "name": "Elevated errors on Claude.ai",
+      "impact": "minor",
+      "pubDate": "2026-03-16",
+      "month": "March 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/t2m389x6k1tq"
+    },
+    {
+      "code": "mhnzmndv58bt",
+      "name": "Elevated errors on Claude Opus 4.6",
+      "impact": "major",
+      "pubDate": "2026-03-17",
+      "month": "March 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/mhnzmndv58bt"
+    },
+    {
+      "code": "t252hkdgt81f",
+      "name": "Elevated errors on Claude Sonnet 4.6",
+      "impact": "minor",
+      "pubDate": "2026-03-17",
+      "month": "March 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/t252hkdgt81f"
+    },
+    {
+      "code": "66wxjy8wc8fx",
+      "name": "Elevated errors on Claude Sonnet 4.6",
+      "impact": "minor",
+      "pubDate": "2026-03-17",
+      "month": "March 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/66wxjy8wc8fx"
+    },
+    {
+      "code": "h04m7sftmtk5",
+      "name": "Elevated errors on Claude Opus 4.6",
+      "impact": "minor",
+      "pubDate": "2026-03-17",
+      "month": "March 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/h04m7sftmtk5"
+    },
+    {
+      "code": "p88wl8gmb05c",
+      "name": "Elevated errors on Claude.ai",
+      "impact": "major",
+      "pubDate": "2026-03-18",
+      "month": "March 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/p88wl8gmb05c"
+    },
+    {
+      "code": "0dvq4gvy5f5f",
+      "name": "Increased errors on Opus 4.6",
+      "impact": "major",
+      "pubDate": "2026-03-18",
+      "month": "March 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/0dvq4gvy5f5f"
+    },
+    {
+      "code": "s914kvccjthq",
+      "name": "Elevated errors on Claude Opus 4.6",
+      "impact": "major",
+      "pubDate": "2026-03-18",
+      "month": "March 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/s914kvccjthq"
+    },
+    {
+      "code": "bf1hsq5gbm9b",
+      "name": "Elevated errors on Claude Opus 4.6",
+      "impact": "critical",
+      "pubDate": "2026-03-19",
+      "month": "March 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/bf1hsq5gbm9b"
+    },
+    {
+      "code": "mfhmykgrbzt5",
+      "name": "Elevated errors on Claude Sonnet 4.6",
+      "impact": "minor",
+      "pubDate": "2026-03-19",
+      "month": "March 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/mfhmykgrbzt5"
+    },
+    {
+      "code": "6wlrxz9pqz8f",
+      "name": "Elevated errors across surfaces",
+      "impact": "major",
+      "pubDate": "2026-03-19",
+      "month": "March 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/6wlrxz9pqz8f"
+    },
+    {
+      "code": "tj7zxr47cfx6",
+      "name": "Elevated error rates on Claude Opus and Sonnet 4.6",
+      "impact": "major",
+      "pubDate": "2026-03-21",
+      "month": "March 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/tj7zxr47cfx6"
+    },
+    {
+      "code": "f4wqmj8rhjsc",
+      "name": "Claude.ai and Claude login down",
+      "impact": "critical",
+      "pubDate": "2026-03-22",
+      "month": "March 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/f4wqmj8rhjsc"
+    },
+    {
+      "code": "cjwz4sx4pl5j",
+      "name": "Delayed response completion on Claude.ai",
+      "impact": "minor",
+      "pubDate": "2026-03-22",
+      "month": "March 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/cjwz4sx4pl5j"
+    },
+    {
+      "code": "0kxm85c9w7rw",
+      "name": "Elevated errors on Claude.ai [retroactive]",
+      "impact": "minor",
+      "pubDate": "2026-03-23",
+      "month": "March 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/0kxm85c9w7rw"
+    },
+    {
+      "code": "d8r794mwjg8d",
+      "name": "Elevated connection reset errors in Cowork",
+      "impact": "minor",
+      "pubDate": "2026-03-25",
+      "month": "March 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/d8r794mwjg8d"
+    },
+    {
+      "code": "9qwph3lqc885",
+      "name": "Elevated errors on Claude Opus 4.6",
+      "impact": "major",
+      "pubDate": "2026-03-25",
+      "month": "March 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/9qwph3lqc885"
+    },
+    {
+      "code": "yvb76l3ryzpb",
+      "name": "Elevated errors on Claude Opus 4.6",
+      "impact": "minor",
+      "pubDate": "2026-03-25",
+      "month": "March 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/yvb76l3ryzpb"
+    },
+    {
+      "code": "vcp3jwhttwrg",
+      "name": "Elevated errors on Claude Opus 4.6 and Sonnet 4.6",
+      "impact": "major",
+      "pubDate": "2026-03-26",
+      "month": "March 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/vcp3jwhttwrg"
+    },
+    {
+      "code": "zq248kgmyyyk",
+      "name": "Elevated errors for MCP calls",
+      "impact": "major",
+      "pubDate": "2026-03-26",
+      "month": "March 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/zq248kgmyyyk"
+    },
+    {
+      "code": "b9802k1zb5l2",
+      "name": "Elevated error rates on Opus 4.6",
+      "impact": "major",
+      "pubDate": "2026-03-27",
+      "month": "March 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/b9802k1zb5l2"
+    },
+    {
+      "code": "pgxwhv06t0y8",
+      "name": "Elevated errors on Opus 4.6 Fast Mode",
+      "impact": "minor",
+      "pubDate": "2026-03-28",
+      "month": "March 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/pgxwhv06t0y8"
+    },
+    {
+      "code": "q5qk1234v205",
+      "name": "Dispatch sessions not responding in Claude Desktop",
+      "impact": "major",
+      "pubDate": "2026-03-29",
+      "month": "March 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/q5qk1234v205"
+    },
+    {
+      "code": "z5scppyhphjk",
+      "name": "Unavailable connectors in Claude.ai desktop applications",
+      "impact": "major",
+      "pubDate": "2026-03-31",
+      "month": "March 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/z5scppyhphjk"
+    },
+    {
+      "code": "65w1yxq40m3l",
+      "name": "Opus 4.6 and Sonnet 4.6 error rate elevated",
+      "impact": "major",
+      "pubDate": "2026-03-31",
+      "month": "March 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/65w1yxq40m3l"
+    },
+    {
+      "code": "k3z0fjwdjkzl",
+      "name": "Elevated errors on Claude Opus 4.6",
+      "impact": "minor",
+      "pubDate": "2026-03-31",
+      "month": "March 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/k3z0fjwdjkzl"
+    },
+    {
+      "code": "z22j49ktx41d",
+      "name": "Errors on the Claude.ai desktop application",
+      "impact": "major",
+      "pubDate": "2026-04-01",
+      "month": "April 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/z22j49ktx41d"
+    },
+    {
+      "code": "3bg93cy9bk1v",
+      "name": "Elevated errors on requests to Claude Opus 4.6",
+      "impact": "major",
+      "pubDate": "2026-04-01",
+      "month": "April 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/3bg93cy9bk1v"
+    },
+    {
+      "code": "fvj2fgqrchsj",
+      "name": "Elevated timeouts on requests to Claude Opus 4.6 and Sonnet 4.6",
+      "impact": "major",
+      "pubDate": "2026-04-01",
+      "month": "April 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/fvj2fgqrchsj"
+    },
+    {
+      "code": "cbffv7jf2jck",
+      "name": "Elevated errors and latency on Claude Haiku 4.5",
+      "impact": "minor",
+      "pubDate": "2026-04-01",
+      "month": "April 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/cbffv7jf2jck"
+    },
+    {
+      "code": "fznql3y9tpn7",
+      "name": "Elevated errors on requests to Claude Sonnet 4.6",
+      "impact": "major",
+      "pubDate": "2026-04-03",
+      "month": "April 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/fznql3y9tpn7"
+    },
+    {
+      "code": "xmqkb966qt1h",
+      "name": "Sonnet 4.6 elevated rate of errors",
+      "impact": "minor",
+      "pubDate": "2026-04-06",
+      "month": "April 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/xmqkb966qt1h"
+    },
+    {
+      "code": "vfjv5x6qkd4j",
+      "name": "Elevated errors on Claude.ai",
+      "impact": "major",
+      "pubDate": "2026-04-06",
+      "month": "April 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/vfjv5x6qkd4j"
+    },
+    {
+      "code": "124yr07585k9",
+      "name": "Elevated errors on Claude.ai",
+      "impact": "critical",
+      "pubDate": "2026-04-07",
+      "month": "April 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/124yr07585k9"
+    },
+    {
+      "code": "5f418rpyb84x",
+      "name": "Elevated errors on Claude.ai, API, Claude Code",
+      "impact": "minor",
+      "pubDate": "2026-04-08",
+      "month": "April 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/5f418rpyb84x"
+    },
+    {
+      "code": "lhws0phdvzz3",
+      "name": "Sonnet 4.6 elevated rate of errors",
+      "impact": "major",
+      "pubDate": "2026-04-08",
+      "month": "April 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/lhws0phdvzz3"
+    },
+    {
+      "code": "cb0h2zyzl0kd",
+      "name": "Elevated Connector Error Rates",
+      "impact": "minor",
+      "pubDate": "2026-04-09",
+      "month": "April 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/cb0h2zyzl0kd"
+    },
+    {
+      "code": "v0t3z924dbhg",
+      "name": "Sonnet 4.6 elevated rate of errors",
+      "impact": "minor",
+      "pubDate": "2026-04-09",
+      "month": "April 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/v0t3z924dbhg"
+    },
+    {
+      "code": "411xbc51v608",
+      "name": "Elevated errors on requests to Claude models",
+      "impact": "minor",
+      "pubDate": "2026-04-10",
+      "month": "April 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/411xbc51v608"
+    },
+    {
+      "code": "ccm8hy0pld48",
+      "name": "Some Claude.ai share links were inaccessible",
+      "impact": "minor",
+      "pubDate": "2026-04-10",
+      "month": "April 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/ccm8hy0pld48"
+    },
+    {
+      "code": "2z4mf00ffcwd",
+      "name": "Degraded Performance on Vaults",
+      "impact": "minor",
+      "pubDate": "2026-04-10",
+      "month": "April 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/2z4mf00ffcwd"
+    },
+    {
+      "code": "qcfvv041lb1k",
+      "name": "Email login down",
+      "impact": "major",
+      "pubDate": "2026-04-11",
+      "month": "April 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/qcfvv041lb1k"
+    },
+    {
+      "code": "6jd2m42f8mld",
+      "name": "Claude.ai down",
+      "impact": "critical",
+      "pubDate": "2026-04-13",
+      "month": "April 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/6jd2m42f8mld"
+    },
+    {
+      "code": "w3389p5qg7kp",
+      "name": "Degraded service on usage and analytics admin API endpoints",
+      "impact": "minor",
+      "pubDate": "2026-04-14",
+      "month": "April 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/w3389p5qg7kp"
+    },
+    {
+      "code": "f00h6l76tsjs",
+      "name": "Elevated errors on Claude.ai, API, Claude Code",
+      "impact": "critical",
+      "pubDate": "2026-04-15",
+      "month": "April 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/f00h6l76tsjs"
+    },
+    {
+      "code": "fkltkq8kgjkh",
+      "name": "Failures to add Credentials to Vaults",
+      "impact": "minor",
+      "pubDate": "2026-04-16",
+      "month": "April 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/fkltkq8kgjkh"
+    },
+    {
+      "code": "qj05p69fff9h",
+      "name": "Claude Cowork not starting for some users",
+      "impact": "major",
+      "pubDate": "2026-04-16",
+      "month": "April 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/qj05p69fff9h"
+    },
+    {
+      "code": "7jbzthbc1dwr",
+      "name": "Opus 4.6 elevated rate of errors",
+      "impact": "minor",
+      "pubDate": "2026-04-16",
+      "month": "April 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/7jbzthbc1dwr"
+    },
+    {
+      "code": "4t4qg3vkrz6z",
+      "name": "Errors uploading documents to Google Drive in Claude.ai",
+      "impact": "minor",
+      "pubDate": "2026-04-17",
+      "month": "April 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/4t4qg3vkrz6z"
+    },
+    {
+      "code": "8482mmb5n1n1",
+      "name": "Elevated errors for uploading files",
+      "impact": "minor",
+      "pubDate": "2026-04-20",
+      "month": "April 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/8482mmb5n1n1"
+    },
+    {
+      "code": "8rg3l7v56ngc",
+      "name": "Claude Sonnet 4.5 error spike",
+      "impact": "major",
+      "pubDate": "2026-04-20",
+      "month": "April 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/8rg3l7v56ngc"
+    },
+    {
+      "code": "1gz3fcvd76fx",
+      "name": "Elevated errors on Claude Opus 4.7",
+      "impact": "minor",
+      "pubDate": "2026-04-23",
+      "month": "April 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/1gz3fcvd76fx"
+    },
+    {
+      "code": "9tyl1z4b03cs",
+      "name": "MCP apps unavailable on Claude.ai",
+      "impact": "minor",
+      "pubDate": "2026-04-23",
+      "month": "April 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/9tyl1z4b03cs"
+    },
+    {
+      "code": "s0lttkq5mmt2",
+      "name": "Issues with sign-ups on platform.claude.com",
+      "impact": "major",
+      "pubDate": "2026-04-24",
+      "month": "April 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/s0lttkq5mmt2"
+    },
+    {
+      "code": "1mx31vhgl3ms",
+      "name": "Elevated errors on Claude Opus 4.7",
+      "impact": "minor",
+      "pubDate": "2026-04-24",
+      "month": "April 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/1mx31vhgl3ms"
+    },
+    {
+      "code": "wlysnq540b32",
+      "name": "Elevated errors on Sonnet 4.6",
+      "impact": "critical",
+      "pubDate": "2026-04-24",
+      "month": "April 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/wlysnq540b32"
+    },
+    {
+      "code": "87m29x6sk78g",
+      "name": "Elevated errors on Claude Opus 4.7",
+      "impact": "minor",
+      "pubDate": "2026-04-25",
+      "month": "April 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/87m29x6sk78g"
+    },
+    {
+      "code": "29ryc4sj27jk",
+      "name": "Elevated errors on Claude Opus 4.7",
+      "impact": "minor",
+      "pubDate": "2026-04-25",
+      "month": "April 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/29ryc4sj27jk"
+    },
+    {
+      "code": "zqsk02ryfmrd",
+      "name": "Claude Code v2.1.120 Crashes on Startup",
+      "impact": "minor",
+      "pubDate": "2026-04-25",
+      "month": "April 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/zqsk02ryfmrd"
+    },
+    {
+      "code": "q93x64nrhwnn",
+      "name": "Elevated error rates on Claude Opus 4.7",
+      "impact": "minor",
+      "pubDate": "2026-04-25",
+      "month": "April 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/q93x64nrhwnn"
+    },
+    {
+      "code": "lryjwwy0q9pl",
+      "name": "Elevated errors on Claude Opus 4.7",
+      "impact": "minor",
+      "pubDate": "2026-04-28",
+      "month": "April 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/lryjwwy0q9pl"
+    },
+    {
+      "code": "9l93x2ht4s5w",
+      "name": "Claude.ai unavailable and elevated errors on the API",
+      "impact": "major",
+      "pubDate": "2026-04-28",
+      "month": "April 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/9l93x2ht4s5w"
+    },
+    {
+      "code": "x1y91zcb2rp2",
+      "name": "Elevated errors on Claude Sonnet 4.5",
+      "impact": "minor",
+      "pubDate": "2026-04-28",
+      "month": "April 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/x1y91zcb2rp2"
+    },
+    {
+      "code": "c20m4lbfd6pm",
+      "name": "Elevated errors on Claude Haiku 4.5",
+      "impact": "minor",
+      "pubDate": "2026-04-28",
+      "month": "April 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/c20m4lbfd6pm"
+    },
+    {
+      "code": "3yxsctr39y3j",
+      "name": "Elevated errors on Claude Haiku 4.5",
+      "impact": "minor",
+      "pubDate": "2026-04-29",
+      "month": "April 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/3yxsctr39y3j"
+    },
+    {
+      "code": "dv9r688vqt8s",
+      "name": "Elevated errors on Claude Haiku 4.5",
+      "impact": "minor",
+      "pubDate": "2026-04-30",
+      "month": "April 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/dv9r688vqt8s"
+    },
+    {
+      "code": "2gf1jpyty350",
+      "name": "claude.ai and API unavailable",
+      "impact": "critical",
+      "pubDate": "2026-04-30",
+      "month": "April 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/2gf1jpyty350"
+    },
+    {
+      "code": "77j6yv8kc0vn",
+      "name": "Elevated errors on Claude Opus 4.5 and Sonnet 4.5",
+      "impact": "minor",
+      "pubDate": "2026-05-04",
+      "month": "May 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/77j6yv8kc0vn"
+    },
+    {
+      "code": "89vbl7qk5dqp",
+      "name": "Elevated errors on Claude Opus 4.7",
+      "impact": "minor",
+      "pubDate": "2026-05-04",
+      "month": "May 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/89vbl7qk5dqp"
+    },
+    {
+      "code": "zxv1xv501678",
+      "name": "Elevated errors on Claude Opus 4.5",
+      "impact": "minor",
+      "pubDate": "2026-05-04",
+      "month": "May 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/zxv1xv501678"
+    },
+    {
+      "code": "snxm62gpxfc9",
+      "name": "Connection failures for organizations restricting GitHub access by IP address",
+      "impact": "major",
+      "pubDate": "2026-05-06",
+      "month": "May 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/snxm62gpxfc9"
+    },
+    {
+      "code": "437swp24nrf4",
+      "name": "Elevated errors across multiple models",
+      "impact": "major",
+      "pubDate": "2026-05-06",
+      "month": "May 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/437swp24nrf4"
+    },
+    {
+      "code": "9h32bh60z06w",
+      "name": "Elevated errors on Claude Opus 4.7",
+      "impact": "minor",
+      "pubDate": "2026-05-07",
+      "month": "May 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/9h32bh60z06w"
+    },
+    {
+      "code": "w5cw47ytckzx",
+      "name": "Claude Code IDE extension unable to load on Windows",
+      "impact": "major",
+      "pubDate": "2026-05-08",
+      "month": "May 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/w5cw47ytckzx"
+    },
+    {
+      "code": "5p98r08qfvwl",
+      "name": "Elevated errors on Claude Opus 4.7",
+      "impact": "minor",
+      "pubDate": "2026-05-08",
+      "month": "May 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/5p98r08qfvwl"
+    },
+    {
+      "code": "vtt35dc73941",
+      "name": "Elevated Errors on File Operations",
+      "impact": "minor",
+      "pubDate": "2026-05-08",
+      "month": "May 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/vtt35dc73941"
+    },
+    {
+      "code": "fv8psq0wdpkn",
+      "name": "Elevated errors on Claude Sonnet 4.6",
+      "impact": "minor",
+      "pubDate": "2026-05-08",
+      "month": "May 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/fv8psq0wdpkn"
+    },
+    {
+      "code": "378dqscjgghp",
+      "name": "Elevated errors across Claude Models",
+      "impact": "major",
+      "pubDate": "2026-05-08",
+      "month": "May 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/378dqscjgghp"
+    },
+    {
+      "code": "4b7cjct792q2",
+      "name": "Claude Code on the Web Partial Outage",
+      "impact": "minor",
+      "pubDate": "2026-05-09",
+      "month": "May 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/4b7cjct792q2"
+    },
+    {
+      "code": "1m6xs1xcw9kk",
+      "name": "Elevated errors on Claude Opus 4.1",
+      "impact": "minor",
+      "pubDate": "2026-05-09",
+      "month": "May 2026",
+      "page": 1,
+      "link": "https://status.claude.com/incidents/1m6xs1xcw9kk"
+    }
+  ]
+}

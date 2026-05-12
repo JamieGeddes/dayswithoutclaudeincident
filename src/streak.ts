@@ -50,6 +50,46 @@ export interface ViewModel {
   longestStreak: StreakRecord;
 }
 
+export function computeLongestGap(
+  incidentDates: Date[],
+  asOf: Date,
+): StreakRecord | null {
+  if (incidentDates.length === 0) return null;
+
+  const utcMidnights = incidentDates.map((d) =>
+    new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate())),
+  );
+  const unique = Array.from(new Set(utcMidnights.map((d) => d.getTime())))
+    .sort((a, b) => a - b)
+    .map((t) => new Date(t));
+
+  let best: StreakRecord | null = null;
+  for (let i = 1; i < unique.length; i++) {
+    const prev = unique[i - 1]!;
+    const next = unique[i]!;
+    const days = daysSinceUtc(prev, next);
+    if (best === null || days > best.days) {
+      best = {
+        days,
+        startDate: formatUtcDate(prev),
+        endDate: formatUtcDate(next),
+      };
+    }
+  }
+
+  const lastIncident = unique[unique.length - 1]!;
+  const openDays = daysSinceUtc(lastIncident, asOf);
+  if (best === null || openDays > best.days) {
+    best = {
+      days: openDays,
+      startDate: formatUtcDate(lastIncident),
+      endDate: formatUtcDate(asOf),
+    };
+  }
+
+  return best;
+}
+
 export function computeView(state: SiteState, now: Date): ViewModel {
   const lastPubDate = new Date(state.lastIncident.pubDate);
   const daysSince = daysSinceUtc(lastPubDate, now);
