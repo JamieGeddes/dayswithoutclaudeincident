@@ -21,6 +21,6 @@ RSS_URL = "https://status.claude.com/history.rss"
 SITE_STATE_KEY = "site-state"
 
 # Custom domain — uncomment once the apex is on Cloudflare DNS:
-# [[routes]]
-# pattern = "dayswithoutaclaudeincident.com"
-# custom_domain = true
+[[routes]]
+pattern = "dayswithoutclaudeincident.com"
+custom_domain = true
