@@ -105,4 +105,47 @@ describe("selectConcurrent", () => {
     expect(result).toHaveLength(1);
     expect(result[0]!.link).toBe("https://status.claude.com/incidents/after-midnight");
   });
+
+  it("dedupes lifecycle updates of the same incident, keeping the most recent", () => {
+    const incidents: Incident[] = [
+      {
+        title: "Claude.ai is experiencing elevated error rates",
+        link: "https://status.claude.com/incidents/abc123",
+        pubDate: new Date("2026-05-13T20:00:00Z"),
+      },
+      {
+        title: "Claude.ai is experiencing elevated error rates",
+        link: "https://status.claude.com/incidents/abc123",
+        pubDate: new Date("2026-05-13T18:30:00Z"),
+      },
+      {
+        title: "Claude.ai is experiencing elevated error rates",
+        link: "https://status.claude.com/incidents/abc123",
+        pubDate: new Date("2026-05-13T17:00:00Z"),
+      },
+    ];
+    const result = selectConcurrent(incidents);
+    expect(result).toHaveLength(1);
+    expect(result[0]!.pubDate.toISOString()).toBe("2026-05-13T20:00:00.000Z");
+  });
+
+  it("keeps distinct incidents that share a title on the same UTC day", () => {
+    const incidents: Incident[] = [
+      {
+        title: "Elevated errors",
+        link: "https://status.claude.com/incidents/aaa",
+        pubDate: new Date("2026-05-13T20:00:00Z"),
+      },
+      {
+        title: "Elevated errors",
+        link: "https://status.claude.com/incidents/bbb",
+        pubDate: new Date("2026-05-13T10:00:00Z"),
+      },
+    ];
+    const result = selectConcurrent(incidents);
+    expect(result.map((i) => i.link)).toEqual([
+      "https://status.claude.com/incidents/aaa",
+      "https://status.claude.com/incidents/bbb",
+    ]);
+  });
 });

@@ -53,7 +53,15 @@ export function parseIncidents(xml: string): Incident[] {
 export function selectConcurrent(incidents: Incident[]): Incident[] {
   const latest = incidents[0];
   if (!latest) return [];
-  return incidents.filter((i) => daysSinceUtc(i.pubDate, latest.pubDate) === 0);
+  const sameDay = incidents.filter((i) => daysSinceUtc(i.pubDate, latest.pubDate) === 0);
+  const seen = new Set<string>();
+  const deduped: Incident[] = [];
+  for (const i of sameDay) {
+    if (seen.has(i.link)) continue;
+    seen.add(i.link);
+    deduped.push(i);
+  }
+  return deduped;
 }
 
 function textOf(value: unknown): string | null {
