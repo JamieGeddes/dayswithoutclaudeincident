@@ -25,6 +25,7 @@
       min-height: 100vh;
       background: radial-gradient(ellipse at 50% 30%, #3a322a 0%, #14110d 100%);
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
       padding: 5vh 4vw;
@@ -123,6 +124,25 @@
       opacity: 0.72;
     }
     .footer a { color: var(--frame); }
+    .site-credit {
+      margin: 1.6rem 0 0;
+      font-size: 0.78rem;
+      font-weight: 500;
+      text-align: center;
+      letter-spacing: 0.01em;
+      color: rgba(255, 255, 255, 0.42);
+    }
+    .site-credit a {
+      color: rgba(255, 255, 255, 0.72);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+      padding-bottom: 1px;
+      transition: color 120ms ease, border-color 120ms ease;
+    }
+    .site-credit a:hover {
+      color: rgba(255, 255, 255, 0.95);
+      border-bottom-color: rgba(255, 255, 255, 0.45);
+    }
   </style>
 </head>
 <body>
@@ -143,5 +163,6 @@
       </div>
     </div>
   </div>
+  <p class="site-credit">Built by Jamie Geddes, 2026 &middot; <a href="https://github.com/JamieGeddes/dayswithoutclaudeincident">source</a></p>
 </body>
 </html>
