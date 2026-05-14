@@ -13,6 +13,11 @@ export function formatUtcDate(d: Date): string {
   return `${d.getUTCFullYear()}-${pad(d.getUTCMonth() + 1)}-${pad(d.getUTCDate())}`;
 }
 
+export function formatUtcTime(d: Date): string {
+  const pad = (n: number) => n.toString().padStart(2, "0");
+  return `${pad(d.getUTCHours())}:${pad(d.getUTCMinutes())} UTC`;
+}
+
 export function updateState(prev: SiteState | null, concurrent: Incident[], now: Date): SiteState {
   const latest = concurrent[0];
   if (!latest) throw new Error("updateState requires at least one incident");

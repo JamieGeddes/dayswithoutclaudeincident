@@ -113,6 +113,24 @@ describe("renderIncidentList", () => {
     expect(html).toContain("rel=\"noopener noreferrer\"");
   });
 
+  it("appends the UTC time to each item when there is more than one incident", () => {
+    const incidents: StoredIncident[] = [
+      { pubDate: "2026-05-04T14:33:46.000Z", title: "Elevated errors", link: "https://x" },
+      { pubDate: "2026-05-04T10:00:00.000Z", title: "Other", link: "https://y" },
+    ];
+    const html = renderIncidentList(incidents);
+    expect(html).toContain('<span class="incident-time">(14:33 UTC)</span>');
+    expect(html).toContain('<span class="incident-time">(10:00 UTC)</span>');
+  });
+
+  it("omits the time for a single incident", () => {
+    const incidents: StoredIncident[] = [
+      { pubDate: "2026-05-04T14:33:46.000Z", title: "Elevated errors", link: "https://x" },
+    ];
+    const html = renderIncidentList(incidents);
+    expect(html).not.toContain("incident-time");
+  });
+
   it("escapes HTML in title and link", () => {
     const incidents: StoredIncident[] = [
       {

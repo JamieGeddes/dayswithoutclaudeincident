@@ -1,4 +1,4 @@
-import { formatUtcDate } from "./streak.js";
+import { formatUtcDate, formatUtcTime } from "./streak.js";
 import type { StoredIncident, StreakRecord } from "./types.js";
 
 export function renderCards(daysSince: number): string {
@@ -38,17 +38,19 @@ export function renderIncidentsLabel(incidents: StoredIncident[]): string {
 }
 
 export function renderIncidentList(incidents: StoredIncident[]): string {
+  const showTime = incidents.length > 1;
   return incidents
-    .map(
-      (i) =>
-        `<li><a href="${escapeHtml(i.link)}" rel="noopener noreferrer">${escapeHtml(i.title)}</a></li>`,
-    )
+    .map((i) => {
+      const link = `<a href="${escapeHtml(i.link)}" rel="noopener noreferrer">${escapeHtml(i.title)}</a>`;
+      if (!showTime) return `<li>${link}</li>`;
+      const time = formatUtcTime(new Date(i.pubDate));
+      return `<li>${link} <span class="incident-time">(${time})</span></li>`;
+    })
     .join("");
 }
 
 export function formatGeneratedAt(d: Date): string {
-  const pad = (n: number) => n.toString().padStart(2, "0");
-  return `${formatUtcDate(d)} ${pad(d.getUTCHours())}:${pad(d.getUTCMinutes())} UTC`;
+  return `${formatUtcDate(d)} ${formatUtcTime(d)}`;
 }
 
 function dayWord(n: number): string {

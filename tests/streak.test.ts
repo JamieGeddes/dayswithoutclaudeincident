@@ -1,5 +1,11 @@
 import { describe, expect, it } from "vitest";
-import { computeView, daysSinceUtc, formatUtcDate, updateState } from "../src/streak.js";
+import {
+  computeView,
+  daysSinceUtc,
+  formatUtcDate,
+  formatUtcTime,
+  updateState,
+} from "../src/streak.js";
 import type { Incident, SiteState } from "../src/types.js";
 
 describe("daysSinceUtc", () => {
@@ -32,6 +38,14 @@ describe("formatUtcDate", () => {
   it("formats as YYYY-MM-DD in UTC", () => {
     expect(formatUtcDate(new Date("2026-05-08T23:59:00Z"))).toBe("2026-05-08");
     expect(formatUtcDate(new Date("2026-01-02T00:00:00Z"))).toBe("2026-01-02");
+  });
+});
+
+describe("formatUtcTime", () => {
+  it("formats as zero-padded HH:MM UTC", () => {
+    expect(formatUtcTime(new Date("2026-05-06T20:07:00Z"))).toBe("20:07 UTC");
+    expect(formatUtcTime(new Date("2026-05-06T00:00:00Z"))).toBe("00:00 UTC");
+    expect(formatUtcTime(new Date("2026-05-06T09:05:59Z"))).toBe("09:05 UTC");
   });
 });
 
