@@ -18,6 +18,7 @@
       --frame: #0A0A0A;
       --card: #141312;
       --digit: #f4ecd0;
+      --ext-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2.25' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6'/%3E%3Cpolyline points='15 3 21 3 21 9'/%3E%3Cline x1='10' y1='14' x2='21' y2='3'/%3E%3C/svg%3E");
     }
     * { box-sizing: border-box; }
     html, body { margin: 0; padding: 0; }
@@ -115,6 +116,17 @@
     }
     .meta dd { margin: 0; }
     .meta a { color: var(--frame); text-underline-offset: 3px; }
+    a[target="_blank"]::after {
+      content: "";
+      display: inline-block;
+      width: 0.72em;
+      height: 0.72em;
+      margin-left: 0.25em;
+      vertical-align: -0.05em;
+      background-color: currentColor;
+      -webkit-mask: var(--ext-icon) center / contain no-repeat;
+              mask: var(--ext-icon) center / contain no-repeat;
+    }
     .incident-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.25rem; }
     .incident-time { font-size: 0.9em; color: #6a5e52; white-space: nowrap; }
     .footer {
@@ -160,10 +172,10 @@
           <dt>Longest streak</dt><dd data-dwci="longest"></dd>
           <dt data-dwci="incidents-label"></dt><dd><ul class="incident-list" data-dwci="incidents"></ul></dd>
         </dl>
-        <div class="footer">Generated <span data-dwci="generated"></span> &middot; Not affiliated with Anthropic &middot; <a href="https://status.claude.com/history.rss">status.claude.com</a></div>
+        <div class="footer">Generated <span data-dwci="generated"></span> &middot; Not affiliated with Anthropic &middot; <a href="https://status.claude.com/history.rss" target="_blank" rel="noopener noreferrer">status.claude.com</a></div>
       </div>
     </div>
   </div>
-  <p class="site-credit">Built by Jamie Geddes, 2026 &middot; <a href="https://github.com/JamieGeddes/dayswithoutclaudeincident">source</a></p>
+  <p class="site-credit">Built by Jamie Geddes, 2026 &middot; <a href="https://github.com/JamieGeddes/dayswithoutclaudeincident" target="_blank" rel="noopener noreferrer">source</a></p>
 </body>
 </html>
