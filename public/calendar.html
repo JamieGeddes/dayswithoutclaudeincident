@@ -4,13 +4,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="robots" content="index,follow">
-  <title>Days without a Claude incident</title>
-  <meta name="description" content="An unofficial 'days without an incident' counter for the Anthropic Claude status page.">
-  <meta property="og:title" content="Days without a Claude incident">
-  <meta property="og:description" content="An unofficial 'days without an incident' counter for the Anthropic Claude status page.">
+  <title>Claude incident calendar</title>
+  <meta name="description" content="An unofficial calendar of incidents on the Anthropic Claude status page.">
+  <meta property="og:title" content="Claude incident calendar">
+  <meta property="og:description" content="An unofficial calendar of incidents on the Anthropic Claude status page.">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Days without a Claude incident">
-  <meta name="twitter:description" content="An unofficial 'days without an incident' counter for the Anthropic Claude status page.">
+  <meta name="twitter:title" content="Claude incident calendar">
+  <meta name="twitter:description" content="An unofficial calendar of incidents on the Anthropic Claude status page.">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <style>
     :root {
@@ -29,14 +29,14 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 5vh 4vw;
+      padding: 4vh 4vw;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       color: var(--frame);
       -webkit-font-smoothing: antialiased;
     }
     .plaque {
       position: relative;
-      width: min(560px, 100%);
+      width: min(880px, 100%);
       background: var(--plaque);
       border: 0.7rem solid var(--frame);
       border-radius: 0.4rem;
@@ -54,69 +54,97 @@
     .screw.tr { top: -1.55rem; right: -1.55rem; }
     .screw.bl { bottom: -1.55rem; left: -1.55rem; }
     .screw.br { bottom: -1.55rem; right: -1.55rem; }
-    .body { padding: 1.8rem 1.6rem 1.4rem; }
-    .cards {
-      display: flex;
-      justify-content: center;
-      gap: 0.7rem;
-      margin: 0.4rem 0 1.4rem;
-    }
-    .card {
-      position: relative;
-      background: var(--card);
-      color: var(--digit);
-      font-weight: 900;
-      font-variant-numeric: tabular-nums;
-      font-size: clamp(5rem, 20vw, 9rem);
-      line-height: 1;
-      width: clamp(4.5rem, 16vw, 7rem);
-      height: clamp(6.5rem, 22vw, 10rem);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 0.45rem;
-      box-shadow: 0 0.45rem 0 0 #000, inset 0 0.1rem 0 rgba(255,255,255,0.05);
-    }
-    .card::after {
-      content: "";
-      position: absolute;
-      left: 0.3rem;
-      right: 0.3rem;
-      top: 50%;
-      height: 2px;
-      background: #000;
-      box-shadow: 0 1px 0 rgba(255,255,255,0.04);
-      transform: translateY(-1px);
-    }
-    .caption {
-      margin: 0 0 1.2rem;
+    .body { padding: 1.5rem 1.6rem 1.3rem; }
+    .cal-heading {
+      margin: 0.1rem 0 0.25rem;
       text-align: center;
       font-weight: 800;
       letter-spacing: -0.005em;
-      font-size: clamp(1.2rem, 3.2vw, 1.6rem);
+      font-size: clamp(1.2rem, 3.2vw, 1.55rem);
       line-height: 1.2;
     }
-    .meta {
-      border-top: 0.2rem solid var(--frame);
-      padding-top: 1rem;
-      font-size: clamp(0.85rem, 1.8vw, 0.95rem);
-      line-height: 1.5;
+    .cal-summary {
+      margin: 0 0 0.15rem;
+      text-align: center;
+      font-size: clamp(0.85rem, 1.9vw, 0.95rem);
     }
-    .meta dl {
-      display: grid;
-      grid-template-columns: max-content 1fr;
-      gap: 0.3rem 0.9rem;
-      margin: 0;
-    }
-    .meta dt {
-      font-weight: 700;
-      font-size: 0.95em;
-      align-self: center;
+    .cal-legend {
+      margin: 0 0 0.9rem;
+      text-align: center;
+      font-size: 0.74rem;
+      font-weight: 600;
       color: #2a2520;
     }
-    .meta dd { margin: 0; }
+    .cal-swatch {
+      display: inline-block;
+      width: 0.72em;
+      height: 0.72em;
+      border-radius: 2px;
+      background: var(--card);
+      vertical-align: -0.06em;
+      margin-right: 0.15em;
+    }
+    .cal-years {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.4rem;
+      margin-bottom: 1.1rem;
+    }
+    .cal-years:empty { display: none; }
+    .cal-year {
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 0.16rem 0.5rem;
+      border-radius: 0.25rem;
+      text-decoration: none;
+      color: var(--frame);
+      background: rgba(10,10,10,0.08);
+    }
+    .cal-year--active {
+      background: var(--frame);
+      color: var(--plaque);
+    }
+    .calendar {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(112px, 130px));
+      justify-content: center;
+      gap: 0.95rem 0.85rem;
+    }
+    .cal-month-name {
+      margin: 0 0 0.3rem;
+      font-size: 0.68rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #2a2520;
+    }
+    .cal-days {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 2px;
+    }
+    .cal-cell, .cal-pad {
+      aspect-ratio: 1;
+      border-radius: 2px;
+    }
+    .cal-pad { background: transparent; }
+    .cal-cell { background: rgba(10,10,10,0.10); }
+    .cal-cell--incident {
+      display: block;
+      background: var(--card);
+      box-shadow: inset 0 0 0 1px rgba(255,196,0,0.5);
+    }
+    .cal-cell--incident:hover { background: #322b22; }
+    .meta {
+      border-top: 0.2rem solid var(--frame);
+      margin-top: 1.2rem;
+      padding-top: 0.9rem;
+      font-size: clamp(0.8rem, 1.7vw, 0.9rem);
+      line-height: 1.5;
+    }
     .meta a { color: var(--frame); text-underline-offset: 3px; }
-    a[target="_blank"]::after {
+    .meta a[target="_blank"]::after {
       content: "";
       display: inline-block;
       width: 0.72em;
@@ -127,18 +155,14 @@
       -webkit-mask: var(--ext-icon) center / contain no-repeat;
               mask: var(--ext-icon) center / contain no-repeat;
     }
-    .incident-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.25rem; }
-    .incident-time { font-size: 0.9em; color: #6a5e52; white-space: nowrap; }
     .footer {
       text-align: center;
-      margin-top: 1.2rem;
       font-size: 0.78rem;
       font-weight: 500;
       opacity: 0.72;
     }
-    .footer a { color: var(--frame); }
     .site-credit {
-      margin: 1.6rem 0 0;
+      margin: 1.4rem 0 0;
       font-size: 0.78rem;
       font-weight: 500;
       text-align: center;
@@ -165,14 +189,13 @@
     <span class="screw bl" aria-hidden="true"></span>
     <span class="screw br" aria-hidden="true"></span>
     <div class="body">
-      <div class="cards" data-dwci="cards" aria-label=""></div>
-      <h1 class="caption" data-dwci="caption"></h1>
+      <h1 class="cal-heading" data-dwci="calendar-heading"></h1>
+      <p class="cal-summary" data-dwci="calendar-summary"></p>
+      <p class="cal-legend"><span class="cal-swatch" aria-hidden="true"></span>= day with at least one incident</p>
+      <nav class="cal-years" data-dwci="calendar-years" aria-label="Year"></nav>
+      <div class="calendar" data-dwci="calendar-grid"></div>
       <div class="meta">
-        <dl>
-          <dt>Longest streak</dt><dd data-dwci="longest"></dd>
-          <dt data-dwci="incidents-label"></dt><dd><ul class="incident-list" data-dwci="incidents"></ul></dd>
-        </dl>
-        <div class="footer">Generated <span data-dwci="generated"></span> &middot; <a href="/calendar">Incident calendar</a> &middot; Not affiliated with Anthropic &middot; <a href="https://status.claude.com" target="_blank" rel="noopener noreferrer">status.claude.com</a></div>
+        <div class="footer"><a href="/">&larr; Back to the counter</a> &middot; Generated <span data-dwci="generated"></span> &middot; Not affiliated with Anthropic or Atlassian Statuspage &middot; <a href="https://status.claude.com" target="_blank" rel="noopener noreferrer">status.claude.com</a></div>
       </div>
     </div>
   </div>
