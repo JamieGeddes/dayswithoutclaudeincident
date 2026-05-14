@@ -16,14 +16,16 @@ import { execFileSync } from "node:child_process";
 import { mkdirSync, writeFileSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
+import { mergeCalendarState } from "../src/calendar.js";
 import { computeLongestGap, formatUtcDate } from "../src/streak.js";
-import type { SiteState, StreakRecord } from "../src/types.js";
+import type { CalendarState, Incident, SiteState, StreakRecord } from "../src/types.js";
 
 const HISTORY_URL = "https://status.claude.com/history";
 const BROWSER_UA =
   "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36";
 const KV_BINDING = "SITE_KV";
 const KV_KEY = "site-state";
+const CALENDAR_KV_KEY = "calendar-state";
 
 const MONTH_NAMES = [
   "January", "February", "March", "April", "May", "June",
@@ -203,6 +205,37 @@ function writeKvState(state: SiteState): void {
   );
 }
 
+function readKvCalendarState(): CalendarState | null {
+  try {
+    const out = execFileSync(
+      "npx",
+      ["wrangler", "kv", "key", "get", `--binding=${KV_BINDING}`, "--remote", CALENDAR_KV_KEY],
+      { encoding: "utf8", stdio: ["ignore", "pipe", "inherit"] },
+    );
+    const trimmed = out.trim();
+    if (!trimmed) return null;
+    return JSON.parse(trimmed) as CalendarState;
+  } catch (err) {
+    const msg = (err as Error).message ?? String(err);
+    if (msg.includes("not found") || msg.includes("does not exist")) return null;
+    throw err;
+  }
+}
+
+function writeKvCalendarState(state: CalendarState): void {
+  const tmpPath = `/tmp/calendar-state-${Date.now()}.json`;
+  writeFileSync(tmpPath, JSON.stringify(state));
+  execFileSync(
+    "npx",
+    [
+      "wrangler", "kv", "key", "put",
+      `--binding=${KV_BINDING}`, "--remote",
+      CALENDAR_KV_KEY, `--path=${tmpPath}`,
+    ],
+    { stdio: "inherit" },
+  );
+}
+
 function maxStreak(a: StreakRecord | null, b: StreakRecord | null): StreakRecord | null {
   if (!a) return b;
   if (!b) return a;
@@ -236,6 +269,21 @@ async function main(): Promise<void> {
   console.log(
     `[backfill] range: ${earliest ? formatUtcDate(earliest.pubDate) : "-"} → ` +
       `${latest ? formatUtcDate(latest.pubDate) : "-"}`,
+  );
+
+  // Calendar state: seed per-day incident data, merging history-preservingly
+  // with whatever the hourly cron may already have written.
+  const calendarIncidents: Incident[] = realOutages.map((i) => ({
+    title: i.name,
+    link: i.link,
+    pubDate: i.pubDate,
+  }));
+  const existingCalendar = readKvCalendarState();
+  const mergedCalendar = mergeCalendarState(existingCalendar, calendarIncidents, new Date());
+  const calendarDayCount = Object.keys(mergedCalendar.days).length;
+  console.log(
+    `[backfill] calendar: ${calendarDayCount} incident days, first=${mergedCalendar.firstDate} ` +
+      `(existing KV: ${existingCalendar ? "present" : "none"})`,
   );
 
   const computed = computeLongestGap(
@@ -308,6 +356,7 @@ async function main(): Promise<void> {
         computedStreak: computed,
         existingStreak: existing?.historicalLongestStreak ?? null,
         mergedStreak: merged.historicalLongestStreak,
+        calendarDayCount,
         incidents: realOutages.map((i) => ({
           code: i.code,
           name: i.name,
@@ -326,10 +375,14 @@ async function main(): Promise<void> {
 
   if (args.dryRun) {
     console.log("[backfill] DRY RUN — KV not updated.");
-    console.log("[backfill] merged state would be:");
+    console.log("[backfill] merged site-state would be:");
     console.log(JSON.stringify(merged, null, 2));
+    console.log(`[backfill] merged calendar-state would cover ${calendarDayCount} days.`);
     return;
   }
+
+  writeKvCalendarState(mergedCalendar);
+  console.log("[backfill] calendar-state KV updated.");
 
   if (
     existing &&
@@ -339,12 +392,12 @@ async function main(): Promise<void> {
     existing.historicalLongestStreak.startDate === merged.historicalLongestStreak.startDate &&
     existing.historicalLongestStreak.endDate === merged.historicalLongestStreak.endDate
   ) {
-    console.log("[backfill] no change — existing record already covers the new one.");
+    console.log("[backfill] site-state unchanged — existing record already covers the new one.");
     return;
   }
 
   writeKvState(merged);
-  console.log("[backfill] KV updated.");
+  console.log("[backfill] site-state KV updated.");
 }
 
 main().catch((err) => {

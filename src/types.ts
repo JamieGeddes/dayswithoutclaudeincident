@@ -24,3 +24,15 @@ export interface SiteState {
   historicalLongestStreak: StreakRecord | null;
   lastUpdatedAt: string;
 }
+
+export interface CalendarDay {
+  date: string;
+  count: number;
+  incidents: StoredIncident[];
+}
+
+export interface CalendarState {
+  days: Record<string, CalendarDay>;
+  firstDate: string;
+  lastUpdatedAt: string;
+}

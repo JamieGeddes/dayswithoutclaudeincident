@@ -57,7 +57,7 @@ function dayWord(n: number): string {
   return n === 1 ? "Day" : "Days";
 }
 
-function escapeHtml(s: string): string {
+export function escapeHtml(s: string): string {
   return s
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
