@@ -41,7 +41,7 @@ export function renderIncidentList(incidents: StoredIncident[]): string {
   const showTime = incidents.length > 1;
   return incidents
     .map((i) => {
-      const link = `<a href="${escapeHtml(i.link)}" rel="noopener noreferrer">${escapeHtml(i.title)}</a>`;
+      const link = `<a href="${escapeHtml(i.link)}" target="_blank" rel="noopener noreferrer">${escapeHtml(i.title)}</a>`;
       if (!showTime) return `<li>${link}</li>`;
       const time = formatUtcTime(new Date(i.pubDate));
       return `<li>${link} <span class="incident-time">(${time})</span></li>`;
