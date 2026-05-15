@@ -16,17 +16,14 @@ The page shows:
 - the longest streak observed (the larger of the current active streak vs. the longest ended streak in history), including its date range
 - the title, link, and date of the last recorded incident (or all incidents from that day, if multiple were reported)
 
-## Setup
+## Cloudflare resources
 
-This project requires one Cloudflare resource to be created before the first deploy:
+The Worker is live and depends on:
 
-```bash
-npx wrangler kv namespace create SITE_KV
-```
-
-Paste the returned namespace `id` into `wrangler.toml` in place of `REPLACE_WITH_KV_NAMESPACE_ID`.
-
-Once the apex domain is on Cloudflare DNS, uncomment the `[[routes]]` block in `wrangler.toml` to attach the Worker to `dayswithoutaclaudeincident.com` via Workers Custom Domain (Cloudflare manages the cert and DNS automatically). Add a redirect rule for the `www` subdomain in the Cloudflare dashboard.
+- **`SITE_KV`** — Workers KV namespace storing the `site-state` record under the `SITE_STATE_KEY` key. The namespace id is committed in `wrangler.toml`.
+- **`ASSETS`** — Workers Static Assets binding serving `public/`. `run_worker_first` is set for `/` and `/index.html` so the fetch handler always runs and HTMLRewriter can inject live values.
+- **Custom domain** — the apex `dayswithoutclaudeincident.com` is attached to the Worker via Workers Custom Domains (Cloudflare manages the cert and DNS). A redirect rule for the `www` subdomain is configured in the Cloudflare dashboard.
+- **Vars** — `RSS_URL` (Claude status feed) and `SITE_STATE_KEY` (KV key name).
 
 ## Development
 
@@ -38,7 +35,9 @@ npm test
 npm run dev      # wrangler dev --test-scheduled, so the hourly cron is reachable locally
 ```
 
-The CI workflow (`.github/workflows/deploy.yml`) runs typecheck, lint, and tests on every push to `main`, then deploys via `wrangler deploy` using the `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` secrets.
+## Deployment
+
+All production deploys go through `.github/workflows/deploy.yml`. It runs on every push to `main` (and via `workflow_dispatch`), executes typecheck, lint, and tests, and then deploys the Worker using `cloudflare/wrangler-action@v3` with the `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` repository secrets. There is no manual deploy step — merging to `main` is the deploy.
 
 ## Disclaimer
 
