@@ -61,8 +61,9 @@ export default {
     }
 
     const now = new Date();
+    const lastChecked = new Date(state.lastUpdatedAt);
     const shellResponse = await env.ASSETS.fetch(new Request(new URL("/index.html", request.url)));
-    const rewritten = rewriteShell(shellResponse, state, now);
+    const rewritten = rewriteShell(shellResponse, state, now, lastChecked);
 
     return new Response(rewritten.body, {
       status: 200,
@@ -74,7 +75,7 @@ export default {
   },
 };
 
-function rewriteShell(shell: Response, state: SiteState, now: Date): Response {
+function rewriteShell(shell: Response, state: SiteState, now: Date, lastChecked: Date): Response {
   const view = computeView(state, now);
   const incidents = state.lastIncident.concurrent;
   const title = renderTitle(view.daysSince);
@@ -124,7 +125,7 @@ function rewriteShell(shell: Response, state: SiteState, now: Date): Response {
     })
     .on('[data-dwci="generated"]', {
       element(el) {
-        el.setInnerContent(formatGeneratedAt(now));
+        el.setInnerContent(formatGeneratedAt(lastChecked));
       },
     })
     .transform(shell);
