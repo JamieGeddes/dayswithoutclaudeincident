@@ -69,7 +69,7 @@ export default {
       status: 200,
       headers: {
         "content-type": "text/html; charset=utf-8",
-        "cache-control": `public, max-age=60, s-maxage=${secondsUntilNextUtcHour(now)}`,
+        "cache-control": `public, max-age=300, s-maxage=${secondsUntilNextUtcHour(now)}`,
       },
     });
   },
