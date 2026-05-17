@@ -69,7 +69,7 @@ export default {
       status: 200,
       headers: {
         "content-type": "text/html; charset=utf-8",
-        "cache-control": `public, max-age=60, s-maxage=${secondsUntilNextUtcMidnight(now)}`,
+        "cache-control": `public, max-age=60, s-maxage=${secondsUntilNextUtcHour(now)}`,
       },
     });
   },
@@ -131,15 +131,15 @@ function rewriteShell(shell: Response, state: SiteState, now: Date, lastChecked:
     .transform(shell);
 }
 
-function secondsUntilNextUtcMidnight(now: Date): number {
-  const nextMidnight = Date.UTC(
+function secondsUntilNextUtcHour(now: Date): number {
+  const nextHour = Date.UTC(
     now.getUTCFullYear(),
     now.getUTCMonth(),
-    now.getUTCDate() + 1,
-    0,
+    now.getUTCDate(),
+    now.getUTCHours() + 1,
     0,
     0,
     0,
   );
-  return Math.max(60, Math.floor((nextMidnight - now.getTime()) / 1000));
+  return Math.max(60, Math.floor((nextHour - now.getTime()) / 1000));
 }
